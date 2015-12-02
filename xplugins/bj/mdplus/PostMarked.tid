@@ -1,0 +1,10 @@
+title: PostMarked
+type: application/json
+
+{
+  "parserrules": {
+    "leftOfMacro": "[=[",
+    "rightOfMacro": "]=]"
+  },
+  "preparser": "text/x-rawmarked>text/plain"
+}

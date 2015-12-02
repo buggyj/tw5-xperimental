@@ -1,0 +1,12 @@
+title: $:/plugins/bj/mdplusdemo/readme
+
+tools to turn a markdown parser into a markdown-tw5 hybrid parser
+the tool calls three parsers, piping the outputs into the inputs
+the first stage is the markdown parser the second stage is the adapter 
+changes the macro brackets and unencodes the text. The third stage is the 
+tiddlywiki parser.
+
+At each stage the parsing is controlled by an options tiddler.
+
+There is also a 'raw' parser for marked which provides the parsed text as
+a string (needed due to limitation of tw5). 

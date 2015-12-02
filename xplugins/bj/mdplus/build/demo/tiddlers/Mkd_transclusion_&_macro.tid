@@ -1,0 +1,17 @@
+created: 20151130134707259
+modified: 20151130213632114
+tags: MdExtendDemoDocs testtiddlers MarkedExample
+title: Mkd transclusion & macro
+type: text/vnd.tiddlywiki;flexibility=MDplus
+
+MarkedExample transclusion & macro
+=====
+----
+Test markup:
+========
+{{ex2 transclusion plain}}
+
+result:
+====
+----
+{{ex2 transclusion marked}}

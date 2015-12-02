@@ -1,0 +1,11 @@
+created: 20151130073758494
+modified: 20151130085111213
+tags: 
+title: test transclude
+type: text/vnd.tiddlywiki
+
+!error
+
+```
+{{test}}
+```

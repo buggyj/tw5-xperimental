@@ -1,0 +1,10 @@
+created: 20151202122011215
+modified: 20151202122705756
+tags: 
+title: Overview
+type: text/x-markdown
+
+This is an experimental tiddlywiki exploring the possibility of extending markdown with some tiddlywiki syntax (macros and transclusions). This is achieved by parsing the markdown into html, then reparsing as a subset of tiddlywiki5 wiki text. 
+
+In addition, due to limitation of the markdown parsers used, macros use a different type of brackets, these are replaced with << and >> as an extra parsering step.
+

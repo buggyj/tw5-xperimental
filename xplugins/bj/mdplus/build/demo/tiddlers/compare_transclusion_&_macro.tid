@@ -1,0 +1,9 @@
+created: 20151130213235099
+modified: 20151201082255191
+tags: 
+title: compare transclusion & macro
+type: text/vnd.tiddlywiki
+
+!!`Macros are accessed in the markup by [=[  and ]=]`
+
+|{{Md transclusion & macro}}|{{Mkd transclusion & macro}}|
