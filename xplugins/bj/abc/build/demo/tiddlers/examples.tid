@@ -1,0 +1,18 @@
+created: 20151204160547031
+modified: 20151204181910349
+tags: 
+title: examples
+type: text/vnd.tiddlywiki
+
+!tt
+{{tt}}
+<$abc source="tt"/>
+
+!tt1
+{{tt1}}
+<$abc source="tt1"/>
+
+!tt2
+{{tt2}}
+<$abc source="tt2"/>
+

@@ -1,0 +1,6 @@
+title: $:/plugin/bj/plugins/abc
+description: load the external lib
+tags: $:/core/wiki/rawmarkup
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://raw.githubusercontent.com/paulrosen/abcjs/master/bin/abcjs_basic_2.2-min.js"></script>

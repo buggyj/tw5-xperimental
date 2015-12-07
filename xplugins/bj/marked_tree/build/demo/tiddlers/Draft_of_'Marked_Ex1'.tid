@@ -1,0 +1,22 @@
+created: 20151027213528084
+draft.of: Marked Ex1
+draft.title: Marked Ex1
+modified: 20151206203453755
+tags: 
+title: Draft of 'Marked Ex1'
+type: text/x-marked
+
+__F__
+]
+
+<br/>
+
+Markdown | a
+--- | --
+z | a
+1 |a
+
+Here is some inline code within a paragraph. Below is a code block:
+// This fixes everything
+var fix = 1;
+Embed Twitter

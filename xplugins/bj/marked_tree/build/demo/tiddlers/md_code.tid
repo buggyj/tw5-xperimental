@@ -1,0 +1,15 @@
+created: 20151205202249241
+modified: 20151205213315560
+tags: 
+title: md code
+type: text/x-markdown
+
+Here is some `inline __c__ode` within a paragraph. Below is a code block:
+
+```
+// This fixes everything
+var fix = 1;
+```
+<scan>aa</scan>
+
+<h1>aa</h1>

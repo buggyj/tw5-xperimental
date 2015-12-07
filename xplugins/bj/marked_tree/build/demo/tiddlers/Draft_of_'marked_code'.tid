@@ -1,0 +1,23 @@
+created: 20151205202308219
+draft.of: marked code
+draft.title: marked code
+modified: 20151206141238387
+tags: 
+title: Draft of 'marked code'
+type: text/x-marked
+
+Here is some `inline __c__ode` within a paragraph. Below is a code block:
+
+```
+// This fixes everything
+var fix = 1;
+```
+
+zz 
+scan>zz/scan>xx 
+
+`a`
+
+</scan>
+<scan>__<scan>1__1__1</scan>__aaa<scan>bbb
+<scan>22__2__</scan>xxx</scan>

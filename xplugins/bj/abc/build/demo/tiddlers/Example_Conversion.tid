@@ -1,0 +1,28 @@
+created: 20150908105830634
+modified: 20150908112745738
+tags: 
+title: Example Conversion
+type: text/vnd.tiddlywiki
+
+!!copy this data into text box 
+`@article{yesilada201526,
+  title={26 th ACM International Conference on Hypertext and Social Media},
+  author={Yesilada, Yeliz and Celik, Ilknur and Farzan, Rosta and Houben, Geert-Jan},
+  journal={ACM SIGWEB Newsletter},
+  number={Winter},
+  pages={1},
+  year={2015},
+  publisher={ACM}
+}
+`
+
+
+
+ ---
+
+<$edit-text tiddler="$:/temp/var" tag="input" type="text"/>
+<$button>
+
+<$action-bibtex source={{$:/temp/var}}/>
+convert me!
+</$button>

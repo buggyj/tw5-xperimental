@@ -1,0 +1,6 @@
+TW5-marked
+==============
+this was an atempt to create the output as a tw5 ast instread of html. 
+- it fails with the html tags - it appears that the author takes a short cut 
+as when you output html input html does not need to be process and is passed 
+thru as is.
