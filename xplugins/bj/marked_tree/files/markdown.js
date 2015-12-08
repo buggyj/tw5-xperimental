@@ -558,7 +558,7 @@ InlineLexer.output = function(src, links, options) {
  */
 
 InlineLexer.prototype.output = function(src) {
-  var out = this.renderer.start()
+  var out = ''
     , link
     , text
     , href
@@ -568,7 +568,7 @@ InlineLexer.prototype.output = function(src) {
     // escape
     if (cap = this.rules.escape.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, cap[1]);
+      out += cap[1];
       continue;
     }
 
@@ -584,7 +584,7 @@ InlineLexer.prototype.output = function(src) {
         text = escape(cap[1]);
         href = text;
       }
-      out = this.renderer.add(out, this.renderer.link(href, null, text));
+      out += this.renderer.link(href, null, text);
       continue;
     }
 
@@ -593,7 +593,7 @@ InlineLexer.prototype.output = function(src) {
       src = src.substring(cap[0].length);
       text = escape(cap[1]);
       href = text;
-      out = this.renderer.add(out, this.renderer.link(href, null, text));
+      out += this.renderer.link(href, null, text);
       continue;
     }
 
@@ -605,9 +605,9 @@ InlineLexer.prototype.output = function(src) {
         this.inLink = false;
       }
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, this.options.sanitize
+      out += this.options.sanitize
         ? escape(cap[0])
-        : cap[0]);
+        : cap[0];
       continue;
     }
 
@@ -615,10 +615,10 @@ InlineLexer.prototype.output = function(src) {
     if (cap = this.rules.link.exec(src)) {
       src = src.substring(cap[0].length);
       this.inLink = true;
-      out = this.renderer.add(out, this.outputLink(cap, {
+      out += this.outputLink(cap, {
         href: cap[2],
         title: cap[3]
-      }));
+      });
       this.inLink = false;
       continue;
     }
@@ -630,12 +630,12 @@ InlineLexer.prototype.output = function(src) {
       link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
       link = this.links[link.toLowerCase()];
       if (!link || !link.href) {
-        out = this.renderer.add(out, cap[0].charAt(0));
+        out += cap[0].charAt(0);
         src = cap[0].substring(1) + src;
         continue;
       }
       this.inLink = true;
-      out = this.renderer.add(out, this.outputLink(cap, link));
+      out += this.outputLink(cap, link);
       this.inLink = false;
       continue;
     }
@@ -643,42 +643,42 @@ InlineLexer.prototype.output = function(src) {
     // strong
     if (cap = this.rules.strong.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, this.renderer.strong(this.output(cap[2] || cap[1])));
+      out += this.renderer.strong(this.output(cap[2] || cap[1]));
       continue;
     }
 
     // em
     if (cap = this.rules.em.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, this.renderer.em(this.output(cap[2] || cap[1])));
+      out += this.renderer.em(this.output(cap[2] || cap[1]));
       continue;
     }
 
     // code
     if (cap = this.rules.code.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, this.renderer.codespan(escape(cap[2], true)));
+      out += this.renderer.codespan(escape(cap[2], true));
       continue;
     }
 
     // br
     if (cap = this.rules.br.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, this.renderer.br());
+      out += this.renderer.br();
       continue;
     }
 
     // del (gfm)
     if (cap = this.rules.del.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, this.renderer.del(this.output(cap[1])));
+      out += this.renderer.del(this.output(cap[1]));
       continue;
     }
 
     // text
     if (cap = this.rules.text.exec(src)) {
       src = src.substring(cap[0].length);
-      out = this.renderer.add(out, escape(this.smartypants(cap[0])));
+      out += escape(this.smartypants(cap[0]));
       continue;
     }
 
@@ -753,15 +753,6 @@ InlineLexer.prototype.mangle = function(text) {
 function Renderer(options) {
   this.options = options || {};
 }
-
-Renderer.prototype.start = function() {
-	return "";
-}
-
-Renderer.prototype.add = function(location, item) {
-	return location + item;
-}
-
 
 Renderer.prototype.code = function(code, lang, escaped) {
   if (this.options.highlight) {
@@ -936,9 +927,9 @@ Parser.prototype.parse = function(src) {
   this.inline = new InlineLexer(src.links, this.options, this.renderer);
   this.tokens = src.reverse();
 
-  var out = this.renderer.start();
+  var out = '';
   while (this.next()) {
-    out = this.renderer.add(out, this.tok());
+    out += this.tok();
   }
 
   return out;
@@ -968,7 +959,7 @@ Parser.prototype.parseText = function() {
   var body = this.token.text;
 
   while (this.peek().type === 'text') {
-    body = this.renderer.add(body, '\n' + this.next().text);
+    body += '\n' + this.next().text;
   }
 
   return this.inline.output(body);
@@ -998,8 +989,8 @@ Parser.prototype.tok = function() {
         this.token.escaped);
     }
     case 'table': {
-      var header = this.renderer.start()
-        , body = this.renderer.start()
+      var header = ''
+        , body = ''
         , i
         , row
         , cell
@@ -1007,66 +998,66 @@ Parser.prototype.tok = function() {
         , j;
 
       // header
-      cell = this.renderer.start();
+      cell = '';
       for (i = 0; i < this.token.header.length; i++) {
         flags = { header: true, align: this.token.align[i] };
-        cell = this.renderer.add(cell, this.renderer.tablecell(
+        cell += this.renderer.tablecell(
           this.inline.output(this.token.header[i]),
           { header: true, align: this.token.align[i] }
-        ));
+        );
       }
-      header = this.renderer.add(header, this.renderer.tablerow(cell));
+      header += this.renderer.tablerow(cell);
 
       for (i = 0; i < this.token.cells.length; i++) {
         row = this.token.cells[i];
 
-        cell = this.renderer.start();
+        cell = '';
         for (j = 0; j < row.length; j++) {
-          cell = this.renderer.add(cell, this.renderer.tablecell(
+          cell += this.renderer.tablecell(
             this.inline.output(row[j]),
             { header: false, align: this.token.align[j] }
-          ));
+          );
         }
 
-        body = this.renderer.add(body, this.renderer.tablerow(cell));
+        body += this.renderer.tablerow(cell);
       }
       return this.renderer.table(header, body);
     }
     case 'blockquote_start': {
-      var body = this.renderer.start();
+      var body = '';
 
       while (this.next().type !== 'blockquote_end') {
-        body = this.renderer.add(body, this.tok());
+        body += this.tok();
       }
 
       return this.renderer.blockquote(body);
     }
     case 'list_start': {
-      var body = this.renderer.start()
+      var body = ''
         , ordered = this.token.ordered;
 
       while (this.next().type !== 'list_end') {
-        body = this.renderer.add(body, this.tok());
+        body += this.tok();
       }
 
       return this.renderer.list(body, ordered);
     }
     case 'list_item_start': {
-      var body = this.renderer.start();
+      var body = '';
 
       while (this.next().type !== 'list_item_end') {
-        body = this.renderer.add(body,this.token.type === 'text'
+        body += this.token.type === 'text'
           ? this.parseText()
-          : this.tok());
+          : this.tok();
       }
 
       return this.renderer.listitem(body);
     }
     case 'loose_item_start': {
-      var body = this.renderer.start();
+      var body = '';
 
       while (this.next().type !== 'list_item_end') {
-        body = this.renderer.add(this.tok());
+        body += this.tok();
       }
 
       return this.renderer.listitem(body);
@@ -1223,7 +1214,7 @@ function marked(src, opt, callback) {
     if (opt) opt = merge({}, marked.defaults, opt);
     return Parser.parse(Lexer.lex(src, opt), opt);
   } catch (e) {
-    e.message +=  '\nPlease report this to https://github.com/chjj/marked.';
+    e.message += '\nPlease report this to https://github.com/chjj/marked.';
     if ((opt || marked.defaults).silent) {
       return '<p>An error occured:</p><pre>'
         + escape(e.message + '', true)
