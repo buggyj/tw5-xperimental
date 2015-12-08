@@ -1,0 +1,20 @@
+created: 20151020104919565
+modified: 20151022075325273
+tags: 
+title: uppertemplate1
+type: text/plain
+
+    <svg width=400 height=400>
+      <g transform="translate(200, 200)">
+        {{#graph }}
+          {{# curves }}
+              <path  d="{{ sector.path.print }}" stroke="blue"  fill="{{color}}">
+                  <title>Population {{item.population}}</title> 
+              </path>
+              <text text-anchor="middle" transform="translate({{sector.centroid }})">
+                  {{ item.name }}    <title>Population {{item.population}}</title>            
+              </text>
+          {{/curves }}
+        {{/graph}}
+      </g>
+    </svg>

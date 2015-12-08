@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"bj/plugins/paths-js"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+		"doNotSave": [
+	],
+	"includeWikis": [
+	]
+}

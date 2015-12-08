@@ -1,0 +1,25 @@
+created: 20151020103629570
+modified: 20151020113913461
+module-type: library
+tags: 
+title: upperdata1
+type: application/javascript
+
+module.exports={
+graph:require('$:/plugins/bj/plugins/paths-js/pie.js')({
+  data: [
+    { name: 'Italy', population: 59859996 },
+    { name: 'Mexico', population: 118395054 },
+    { name: 'France', population: 65806000 },
+    { name: 'Argentina', population: 40117096 },
+    { name: 'Japan', population: 127290000 }
+  ],
+  accessor: function(x) { return x.population; },
+  compute: {
+    color: function(i) { return ["purple","cyan","red","orange","yellow"][i]; }
+  },
+  center: [20, 15],
+  r: 60,
+  R: 100
+})
+}

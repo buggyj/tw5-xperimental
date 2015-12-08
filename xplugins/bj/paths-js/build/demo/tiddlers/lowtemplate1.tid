@@ -1,0 +1,10 @@
+created: 20151019191605600
+modified: 20151022071323263
+tags: 
+title: lowtemplate1
+type: text/plain
+
+<!-- inside a template -->
+<svg width=300 height=100>
+  <path d="{{ path.print }}" fill="blue" />
+</svg>

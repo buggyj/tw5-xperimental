@@ -1,0 +1,7 @@
+created: 20151022071736634
+modified: 20151022071812549
+tags: 
+title: lowwidget1
+type: text/vnd.tiddlywiki
+
+<$mustache template="lowtemplate1" values="lowdata1" mode="block"/>

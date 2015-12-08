@@ -1,0 +1,188 @@
+{
+	"tiddlers": [
+		{
+			"file": "sector.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/sector.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "linear.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/linear.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "tree.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/tree.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "smooth-line.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/smooth-line.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "tree_utils.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/tree_utils.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "waterfall.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/waterfall.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "semi-regular-polygon.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/semi-regular-polygon.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "barnes_hut.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/barnes_hut.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "curved-rectangle.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/curved-rectangle.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "ops.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/ops.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "path.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/path.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "line-chart-comp.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/line-chart-comp.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "connector.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/connector.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "sankey.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/sankey.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "polygon.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/polygon.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "pie.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/pie.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "bezier.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/bezier.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "stock.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/stock.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "package.json",
+			"fields": {
+				"type": "application/json",
+				"title": "$:/plugins/bj/plugins/paths-js/package.json",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "rectangle.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/rectangle.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "graph.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/graph.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "radar.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/radar.js",
+				"module-type": "library"
+			}
+		},
+		{
+			"file": "bar.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/paths-js/bar.js",
+				"module-type": "library"
+			}
+		}
+	]
+}

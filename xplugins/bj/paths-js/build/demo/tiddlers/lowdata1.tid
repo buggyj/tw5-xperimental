@@ -1,0 +1,15 @@
+created: 20151019191850094
+modified: 20151020184458108
+module-type: library
+tags: 
+title: lowdata1
+type: application/javascript
+
+module.exports={
+ path : (require('$:/plugins/bj/plugins/paths-js/path.js')())
+  .moveto(10, 20)
+  .lineto(30, 50)
+  .lineto(25, 28)
+  .qcurveto(27, 30, 32, 27)
+  .closepath()
+}

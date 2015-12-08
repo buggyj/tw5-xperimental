@@ -1,0 +1,10 @@
+created: 20151019185202678
+modified: 20151022100348952
+tags: 
+title: midtemplate1
+type: text/plain
+
+<!-- inside a template -->
+<svg width=300 height=150>
+  <path d="{{ curve.path.print }}" fill="blue" />
+</svg>

@@ -1,0 +1,15 @@
+created: 20151019194816093
+modified: 20151020184956747
+module-type: library
+tags: 
+title: middata1
+type: application/javascript
+
+module.exports={
+ curve : require('$:/plugins/bj/plugins/paths-js/rectangle.js')({
+  top: 150,
+  bottom: 0,
+  left: 0,
+  right: 50
+})
+}
