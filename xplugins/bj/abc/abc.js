@@ -27,6 +27,7 @@ ABCWidget.prototype = new Widget();
 Render this widget into the DOM
 */
 ABCWidget.prototype.render = function(parent,nextSibling) {
+	var self  = this;
 	this.parentDomNode = parent;
 	this.computeAttributes();
 	this.execute();
@@ -35,10 +36,19 @@ ABCWidget.prototype.render = function(parent,nextSibling) {
 	if (this.source) {
 		this.tid  = $tw.wiki.getTiddlerText(this.source)
 		ABCJS.renderAbc(this.pNode, this.tid);
-		//var width = parent.clientWidth*2/3
-		//ABCJS.renderAbc(this.pNode, "%%staffwidth "+width+"\n"+this.tid);
+		var width = parent.clientWidth*2/3;
+		this.parentwidth = parent.clientWidth;
+		ABCJS.renderAbc(this.pNode, "%%staffwidth "+width+"\n"+this.tid);
 	}
 	this.domNodes.push(this.pNode);
+	self.parentDomNode.onresize = function (event) {
+		if (self.parentwidth != self.parentDomNode.clientWidth) {
+			var width = parent.clientWidth*2/3;
+			self.parentwidth = parent.clientWidth;
+			ABCJS.renderAbc(self.pNode, "%%staffwidth "+width+"\n"+self.tid);
+		}
+		return true;
+	}
 };
 //to make it reactive to the resize there's this event:
 //object.addEventListener("resize", myScript);
