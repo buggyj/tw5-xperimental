@@ -1,0 +1,23 @@
+created: 20150913115337726
+modified: 20151016101456434
+path: 
+title: AtrStr
+type: text/vnd.tiddlywiki
+
+
+<svg width="100%" height="100%" viewBox="0 0 1000 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background:white;">
+<defs>
+<path id="{{pathid}}" d="
+
+{{path}}
+
+"/>
+</defs>
+<use xlink:href="#MyPath" fill="none" stroke="#ddd"/>plain
+<text font-family="'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif" font-size="42.5">
+<textPath xlink:href="#{{pathid}}">
+{{message}}
+</textPath>
+</text>
+</svg>
+

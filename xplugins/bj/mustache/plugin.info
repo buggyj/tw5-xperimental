@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/bj/plugins/mustache",
+	"description": "story tabs",
+	"author": "Jeffrey Wilkinson aka BuggyJ",
+	"version": "0.0.1",
+	"list": "license",
+	"core-version": ">=5.1.9",
+	"source": "https://github.com/buggyj/tw5-plugins/mustache",
+	"plugin-type": "plugin"
+}

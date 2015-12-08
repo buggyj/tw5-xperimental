@@ -1,0 +1,11 @@
+created: 20150705104058863
+list: [[CSS Macros P.O.C and Limitations]] [[animation by areas]] [[Classed Tiddlers]] [[css widgets]] DataTableTiddler [[folding display mode (zooming)]] [[Hotkey Class Switching]] Lisence [[Multiddlers and Sections]] OffTheWall [[Page Multitiddlers]] [[Playwidget using Messages.]] Quasi-Modo [[Quasi-static Sites]] [[Quasi-static Sites 2]] [[SideBar Inside Story]] Tiddlets TiddlyWikiCommunityWiki TopLevelSite [[TiddlyWiki5 with Additional SubModules]] BitolObjects [[Create Symantic Styles]] [[Css Mixins]] [[Draft of 'Implementing Tw5 widgets in ractive']] [[Implementing Tw5 widgets in ractive]] [[Js Macro Template]] [[Make Require  Webpack Compatible]] [[Require Once]] [[Splash Screen at Startup]] [[Symantic Markup]] [[Virtual Json Tiddlers]]
+modified: 20151023174208526
+tags: Lists
+title: Ideas
+type: text/vnd.tiddlywiki
+
+<$refresh msg="refresh">
+<ul><$taglist class='btn btn-primary'>
+<li>{{!!title||listtemplate}}</li></$taglist></ul>
+</$refresh>

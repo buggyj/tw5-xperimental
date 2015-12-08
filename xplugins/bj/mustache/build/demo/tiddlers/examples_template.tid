@@ -1,0 +1,28 @@
+created: 20151022072325830
+modified: 20151022164603287
+tags: $:/tags/Macro
+title: examples template
+type: text/vnd.tiddlywiki
+
+\define examples(z,y)
+Renders as
+
+---
+<$mustache template=$z$ values=$y$  mode="block"/>
+
+---
+
+Widget is
+
+$$$text/plain
+<$mustache template="$z$" values="$y$" mode="block"/>
+$$$
+JS Tiddler "$y$" is 
+
+{{$y$}}
+
+Template Tiddler "$z$" is 
+
+{{$z$}}
+
+\end

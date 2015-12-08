@@ -1,0 +1,15 @@
+created: 20140113142659151
+creator: Stephan Hradek
+description: Displays a tiddler title along with a small edit button.
+modified: 20150207222043872
+modifier: bj
+tags: template ClipListConfig
+title: captionlisttemplate
+type: null
+
+<div class="tc-taglist"><$linkcatcher  message="refresh" to="$:/temp/priv/loop1"  >
+<$reveal state="$:/temp/priv/loop1" text={{!!title}} type="match"><$link to=""><$view field="caption"/></$link></$reveal><$reveal state="$:/temp/priv/loop1" text={{!!title}} type="nomatch">
+<$link><$view field="caption"/></$link></$reveal></$linkcatcher><$link>@</$link></div>
+<$reveal state="$:/temp/priv/loop1" text={{!!title}} type="match">
+<$transclude mode="block">
+</$reveal>

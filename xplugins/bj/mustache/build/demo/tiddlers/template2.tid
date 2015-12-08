@@ -1,0 +1,7 @@
+created: 20151014083931842
+modified: 20151015210055963
+tags: 
+title: template2
+type: text/vnd.tiddlywiki
+
+!balls WaH{{>template3}}

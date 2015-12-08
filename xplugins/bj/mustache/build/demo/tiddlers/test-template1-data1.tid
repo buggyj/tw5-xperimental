@@ -1,0 +1,7 @@
+created: 20151015191116534
+modified: 20151017153811308
+tags: 
+title: test-template1-data1
+type: text/vnd.tiddlywiki
+
+<$mustache template="template1" values="data1" mode="block"/>

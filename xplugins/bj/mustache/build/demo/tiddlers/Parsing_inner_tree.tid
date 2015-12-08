@@ -1,0 +1,17 @@
+created: 20151026074056845
+modified: 20151026075517504
+tags: Ideas
+title: Parsing inner tree
+type: text/vnd.tiddlywiki
+
+we could use the htmp+ 'inner' to build a javascript object - eg using set
+`<$mustache.....>
+<$set name = x value = y>
+<$/mustache>`
+
+this would include the name x like so
+{'x':'y'}
+
+!!problems
+
+there would  be no refresh, so every refresh we would have to re-create the  input from the inner tree and compare with the last created values.

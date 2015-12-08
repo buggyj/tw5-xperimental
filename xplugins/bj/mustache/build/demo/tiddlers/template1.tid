@@ -1,0 +1,9 @@
+created: 20151013134410973
+modified: 20151016104547131
+tags: 
+title: template1
+type: text/vnd.tiddlywiki
+
+!{{data}} this is a test  in version <<version>>
+<$mustache template="AtrStr" values="pathdata" mode="block"/>
+{{>template2}}

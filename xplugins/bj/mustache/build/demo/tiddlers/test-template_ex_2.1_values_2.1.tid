@@ -1,0 +1,7 @@
+created: 20151016085546207
+modified: 20151017153929456
+tags: 
+title: test-template ex 2.1 values 2.1
+type: text/vnd.tiddlywiki
+
+<$mustache template="template ex 2.1" values="values 2.1" mode="block"/>

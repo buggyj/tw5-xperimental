@@ -1,0 +1,8 @@
+created: 20151016082215943
+modified: 20151016085127772
+module-type: library
+tags: 
+title: testjs2
+type: application/javascript
+
+module.exports={"data":"bil===lh"};

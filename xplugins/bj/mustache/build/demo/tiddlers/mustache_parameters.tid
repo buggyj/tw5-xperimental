@@ -1,0 +1,9 @@
+created: 20151026075524652
+modified: 20151026080530685
+tags: Ideas
+title: mustache parameters
+type: text/vnd.tiddlywiki
+
+we could have 
+`<$mustache template = mytemplate ~listvar = "filter" ^fn="javascript-fn">`
+which would produce an array calle 'listvar' using the filter, so '~' indicates an array, '^' indicates a js function.

@@ -1,0 +1,9 @@
+created: 20151016181659369
+modified: 20151023193903453
+tags: 
+title: template4
+type: text/plain
+
+{{{text}}} this is a test  in version <<version>>
+<$mustache template="AtrStr" values="pathdata" mode="block"/>
+{{>template2}}

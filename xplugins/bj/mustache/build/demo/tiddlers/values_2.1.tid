@@ -1,0 +1,17 @@
+created: 20151016085707440
+modified: 20151016094535985
+module-type: library
+tags: 
+title: values 2.1
+type: application/javascript
+
+module.exports={employees: [
+    {   firstName: "Christophe",
+        lastName: "Coenraets"},
+    {   firstName: "John",
+        lastName: "Smith"}
+    ],
+uppercase: function () { return function(str,render) {
+        return render(str).toUpperCase();
+}}
+    };

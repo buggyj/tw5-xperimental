@@ -1,0 +1,12 @@
+{
+	"tiddlers": [
+		{
+			"file": "mustache.js",
+			"fields": {
+				"type": "application/javascript",
+				"title": "$:/plugins/bj/plugins/mustache/mustache.js",
+				"module-type": "library"
+			}
+		}
+	]
+}

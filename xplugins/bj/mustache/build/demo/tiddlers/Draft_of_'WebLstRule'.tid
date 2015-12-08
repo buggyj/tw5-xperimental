@@ -1,0 +1,13 @@
+created: 20140219094301916
+draft.of: WebLstRule
+draft.title: WebLstRule
+modified: 20150830203935049
+tags: TiddlyClipRule ClipListConfig
+title: Draft of 'WebLstRule'
+type: text/vnd.tiddlywiki
+
+\rules only table wikilink prettylink
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|((*@pageTitle*))|((*@web*))|[[((*@category1stWord*))/Clips]]|{"$location":"((*@pageRef*))"},{"$caption":"((*@pageTitle*))"},{"$when":"((*@dateTimeShort*))"},{"$type":"text/vnd.twbase<htmlbasic"}||inc add|
+|((*@category1stWord*))/Clips|[[List_Clip_Caption]]|ClipLists|||once|

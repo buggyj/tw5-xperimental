@@ -1,0 +1,20 @@
+created: 20151023160927608
+modified: 20151023161136924
+mydate: 23:October:2015
+new: 1
+tags: log
+title: LogBook/201510
+type: text/vnd.tiddlywiki
+
+!!23:October:2015
+
+
+I want to expand the mustache data object - we may be able to use the 'require' facilities to attache a functions by module type.
+
+we can include an object with a data type or a number of them?
+The idea is to have different data tiddlers with a common set of api functions. There would be an agregator of functions, each function would be like a macro, but using data from the tree or from params given to the widget.
+
+`<$mustache $template = template $js = js-tid $data = data-tid >
+`
+
+------

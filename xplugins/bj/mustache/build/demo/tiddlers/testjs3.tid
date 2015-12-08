@@ -1,0 +1,8 @@
+created: 20151016085151624
+modified: 20151016182704152
+module-type: mustache
+tags: 
+title: testjs3
+type: application/javascript
+
+module.exports={"data":"bil===lh"};

@@ -1,0 +1,44 @@
+created: 20141105001056774
+modified: 20151012081212198
+title: TiddlyClipConfig
+type: text/vnd.tiddlywiki
+
+!default
+|!Category|!Tip|!Tags|!Rule Tid|!Modes|
+|Tip|copy tids||[[defaultTip]]|tiddlers|
+|Snip|copy||[[defaultSnip]]||
+|Pin|pin it||[[defaultPin]]||
+|Snap|screen shot||[[defaultSnap]]|snap|
+|DoTodayLog|logbook|log|LogConfig|userstring|
+|LogBook|logbook|log|LogConfig|userstring|
+|PersonalLog|logbook|log|LogConfig|userstring|
+|highlight||||highlight|
+
+!ClipLists
+|!Category|!Tip|!Tags|!Rule Tid|!Modes|
+|highlight||||highlight|
+|RacTive||clips|WebLstRule||
+|NotRanked||clips|WebLstRule||
+|SuperChargeYourSelf||clips|WebLstRule||
+|MustacHe||clips|WebLstRule||
+|MedTimer||clips|WebLstRule||
+|MesgAndEvents||clips|WebLstRule||
+|BlogIt||clips|WebLstRule||
+|AniMate||clips|WebLstRule||
+|ResourcesAndLinks||clips|WebLstRule||
+|WebPack  ||clips|WebLstRule||
+|CssMacros||clips|WebLstRule||
+
+!Logs
+|GiT|logbook|log|LogConfig|userstring|
+|MedTimer|logbook|log|LogConfig|userstring|
+|BlogIt|logbook|log|LogConfig|userstring|
+|PopUp|logbook|log|LogConfig|userstring|
+|ButtonCss|logbook|log|LogConfig|userstring|
+
+!PjotoLists
+|!Category|!Tip|!Tags|!Rule Tid|!Modes|
+|highlight||||highlight|
+|MeDitation||clips|WebSnapRule|snap|
+|BlogIt||clips|WebSnapRule|snap|
+

@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"bj/plugins/mustache"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+		"doNotSave": [
+	],
+	"includeWikis": [
+	]
+}

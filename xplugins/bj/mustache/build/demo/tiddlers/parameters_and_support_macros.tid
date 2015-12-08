@@ -1,0 +1,11 @@
+created: 20151023174345186
+modified: 20151023175446774
+tags: Ideas
+title: parameters and support macros
+type: text/vnd.tiddlywiki
+
+sum marco - params tiddlers - filter to define tiddlers ; field - field to sum overs
+
+compare macro tid1, tid2 field, or if json then keypath
+
+sum json macro key-path - keypath to array of objects item-path path to data with object

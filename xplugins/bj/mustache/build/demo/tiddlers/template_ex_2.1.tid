@@ -1,0 +1,9 @@
+created: 20151016085437515
+modified: 20151016093324166
+tags: 
+title: template ex 2.1
+type: text/vnd.tiddlywiki
+
+<ul>{{#employees}}
+ <li>{{firstName}}{{#uppercase}} {{lastName}}{{/uppercase}}</li>
+  {{/employees}}</ul>

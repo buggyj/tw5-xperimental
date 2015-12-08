@@ -1,0 +1,7 @@
+created: 20151016101954790
+modified: 20151017153649024
+tags: 
+title: test-AtrStr-pathdata2
+type: text/vnd.tiddlywiki
+
+<$mustache template="AtrStr" values="pathdata2" mode="block"/>
