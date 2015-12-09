@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/bj/assorted",
+	"description": "bit and pieces",
+	"author": "JeffreyWilkinson",
+	"version": "0.0.2",
+	"list": "readme license",
+	"core-version": ">=5.1.8",
+	"source": "https://github.com/buggyj/TW5-plugins",
+	"plugin-type": "plugin"
+}
