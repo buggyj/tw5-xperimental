@@ -1,0 +1,16 @@
+created: 20150806045243927
+modified: 20150806161738394
+title: audioFiles
+type: text/vnd.tiddlywiki
+
+!q
+
+<$play tag="div" recvOn="bigbell">
+{{bigbell.mp3}}
+</$play>
+<$play tag="div" recvOn="smallbell" >
+{{smallbell.mp3}}
+</$play>
+<$play recvOn="block">
+{{block.mp3}}
+</$play>

@@ -1,0 +1,5 @@
+title: $:/mcore/templates/modules
+
+<$set name=module value=<<currentTiddler>> >
+{{{ [all[shadows+tiddlers]module-type<currentTiddler>] ||$:/core/templates/javascript-tiddler-modtype}}}
+</$set>

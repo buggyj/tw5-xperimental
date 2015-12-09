@@ -1,0 +1,4 @@
+title: $:/core/templates/exporters/StaticRiver/table
+
+<$msgexport tiddler="$:/temp/__priv__/transientTableEvents"/>
+<$tablereset/>

@@ -1,0 +1,57 @@
+created: 20150702060156770
+modified: 20150812055054073
+tags: $:/tags/SideBar med-style testtiddlers
+title: meditation
+type: text/vnd.tiddlywiki
+
+<$mform valuesfrom="test">
+<$app-submit tiddler="bigbell"/>
+<$event $event="input" $handle="update-timetot"/>
+<fieldset>
+    <legend>Intro Timer Seconds</legend>
+<input type="number" name="timer1" value="0" min="0" max="60" style = "width:50px"> repeat <input type="number" name="reps1" value="1" min="1" style = "width:50px"><select name="bell1">
+<option value="bigbell">bigbell</option>
+<option value="smallbell">smallbell</option>
+<option value="block">wood</option>
+</select>
+</fieldset> 
+ <div style="text-align: center;">
+Sequence Timers</div>
+<fieldset>
+    <legend>Minute Timer 1</legend>
+<input type="number" name="timer2" value="0" min="0" max="60" style = "width:50px">repeat <input type="number" name="reps2" value="1"  min="1" style = "width:50px"><select name="bell2">
+<option value="bigbell">bigbell</option>
+<option value="smallbell">smallbell</option>
+<option value="block">wood</option>
+</select>
+</fieldset>   
+<fieldset>
+<legend>Minute Timer 2</legend>
+<input type="number" name="timer3" value="0" min="0" max="60" style = "width:50px">repeat <input type="number" name="reps3" value="1" min="1" style = "width:50px"><select name="bell3">
+<option value="bigbell">bigbell</option>
+<option value="smallbell">smallbell</option>
+<option value="block">wood</option>
+</select>
+</fieldset>   
+<fieldset>
+    <legend>Minute Timer 3</legend>
+<input type="number" name="timer4" value="0" min="0" max="60" style = "width:50px">repeat <input type="number" name="reps4" value="1" min="1" style = "width:50px"><select name="bell4">
+<option value="bigbell">bigbell</option>
+<option value="">smallbell</option>
+<option value="block">wood</option>
+</select>
+</fieldset>   
+
+<input type="submit" value="start timers">
+ <output  name="x" for="timer2 timer3 timer4"></output>
+</$mform>
+<$alert recvOn="bigbell"/>
+<$play tag="div" recvOn="bigbell">
+{{bigbell.mp3}}
+</$play>
+<$play tag="div" recvOn="smallbell" >
+{{smallbell.mp3}}
+</$play>
+<$play recvOn="block">
+{{block.mp3}}
+</$play>

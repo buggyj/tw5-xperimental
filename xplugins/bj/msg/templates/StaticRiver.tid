@@ -1,0 +1,49 @@
+title: $:/mcore/templates/exporters/StaticRiver
+tags: $:/tags/Exporter
+description: {{$:/language/Exporters/StaticRiver}}
+extension: .html
+
+\define tv-wikilink-template() #$uri_encoded$
+\define tv-config-toolbar-icons() no
+\define tv-config-toolbar-text() no
+\define tv-config-toolbar-class() tc-btn-invisible
+\rules only filteredtranscludeinline transcludeinline
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="{{$:/core/templates/version}}" />
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<title>{{$:/core/wiki/title}}</title>
+<div id="styleArea">
+{{$:/boot/boot.css||$:/core/templates/css-tiddler}}
+</div>
+<style type="text/css">
+{{$:/core/ui/PageStylesheet||$:/core/templates/wikified-tiddler}}
+</style>
+{{{ [all[shadows+tiddlers]module-type[head_method]] ||$:/core/templates/javascript-tiddler}}}
+</head>
+<body class="tc-body">
+{{$:/core/templates/exporters/StaticRiver/tableset}}
+{{$:/StaticBanner||$:/core/templates/html-tiddler}}
+{{{[all[shadows+tiddlers]tag[$:/tags/AboveStory]!has[draft.of]]||$:/core/templates/html-tiddler}}}
+
+<section class="tc-story-river">
+{{$:/core/templates/exporters/StaticRiver/Content||$:/core/templates/html-tiddler}}
+
+</section> 
+{{$:/StaticBottom||$:/core/templates/html-tiddler}}
+{{{[all[shadows+tiddlers]tag[$:/tags/BelowStory]!has[draft.of]]||$:/core/templates/html-tiddler}}}
+{{$:/core/templates/exporters/StaticRiver/table}}
+{{$:/core/templates/exporters/jsonRiver}}
+{{{ [[dom_method]] [[animation]] ||$:/mcore/templates/modules}}}
+{{$:/core/modules/utils/utils.js||$:/core/templates/javascript-tiddler-popup}}
+{{$:/core/modules/utils/dom/browser.js||$:/core/templates/javascript-tiddler-popup}}
+{{$:/core/modules/utils/dom/popup.js||$:/core/templates/javascript-tiddler-popup}}
+{{$:/core/modules/utils/dom.js||$:/core/templates/javascript-tiddler-popup}}
+{{$:/mcore/modules/utils/dom/extra.js||$:/core/templates/javascript-tiddler-popup}}
+{{$:/mcore/modules/utils/dom/timer.js||$:/core/templates/javascript-tiddler-popup}}
+</body>
+</html>

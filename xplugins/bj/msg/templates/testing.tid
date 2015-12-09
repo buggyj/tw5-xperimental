@@ -1,0 +1,12 @@
+title:$/mcore/templates/testing
+type: text/vnd.tiddlywiki
+
+<!-- This template is provided for backwards compatibility with older versions of TiddlyWiki -->
+
+<$set name="exportFilter" value="[tag[testtiddlers]]">
+<$set name="exportFilterJson" value="$:/temp/__priv__/transientTableEvents">
+
+{{$:/mcore/templates/exporters/StaticRiver}}
+
+</$set> 
+</$set> 

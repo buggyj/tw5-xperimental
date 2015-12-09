@@ -1,0 +1,5 @@
+title: $:/mcore/templates/namedmod
+
+<$set name=modtype value=<<currentTiddler>> >
+{{{ [<currentTiddler>] ||$:/mcore/templates/modules}}}
+</$set>

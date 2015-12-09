@@ -1,0 +1,12 @@
+created: 20150725090158641
+modified: 20150725090942455
+tags: 
+title: $:/core/templates/exporters/jsonRiver
+type: text/vnd.tiddlywiki
+
+\define renderContent()
+{{{ $(exportFilterJson)$ ||$:/core/templates/json-tiddler}}}
+\end
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<<renderContent>>
+</$importvariables>

@@ -1,0 +1,7 @@
+title: $:/core/templates/json-tiddler
+
+<!--
+
+This template is used for saving JavaScript tiddlers as a script tag with data attributes representing the tiddler fields.
+
+-->`<script`<$fields template=' data-tiddler-$name$="$encoded_value$"'></$fields>` id="jsontable" type="application/json">`<$view field="text"  format="text" />`</script>`

@@ -1,0 +1,4 @@
+title: $:/core/templates/static-tiddler
+
+<a name=<<currentTiddler>>></a>
+<$transclude tiddler="$:/core/ui/ViewTemplate/body"/>

@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/bj/msg",
+	"description": "message passing",
+	"author": "JeffreyWilkinson",
+	"version": "0.0.2",
+	"list": "readme license",
+	"core-version": ">=5.1.9",
+	"source": "https://github.com/buggyj/tw5-plugins",
+	"plugin-type": "plugin"
+}

@@ -1,0 +1,21 @@
+created: 20150729133457708
+modified: 20150806161807686
+title: demo popup
+type: text/vnd.tiddlywiki
+
+<$button  popup="$:/SamplePopupState">Pop me up!</$button>
+<$reveal retain="yes" type="popup" state="$:/SamplePopupState">
+<div class="tc-drop-down">
+! This is the popup
+And this is some text
+</div>
+</$reveal>
+<$mbutton class="bt" popup="$:/SamplePopupState2" >Pop me up!
+<$app-popup popup="$:/SamplePopupState2" />
+</$mbutton>
+<$mpreveal retain="yes" type="popup" recvOn="$:/SamplePopupState2">
+<div class="tc-drop-down">
+! This is  popup
+And this is some text
+</div>
+</$mpreveal>

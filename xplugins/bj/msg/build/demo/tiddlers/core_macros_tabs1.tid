@@ -1,0 +1,49 @@
+created: 20150717051043053
+modified: 20150829071538967
+tags: $:/tags/Macro
+title: core/macros/tabs1
+type: text/vnd.tiddlywiki
+
+\define tabs(tabsList,default,state:"$:/state/tab",class,template)
+<div class="tc-tab-set $class$">
+<div class="tc-tab-buttons $class$">
+<$list filter="$tabsList$" variable="currentTab">
+<$mreveal type="match"  recvOn=<<qualify "$state$">> retain="yes"  text=<<currentTab>> default="$default$">
+<$mbutton class="tc-tab-selected bt">
+<$sentmessage $action="mtm-compare" $sendOn=<<qualify "$state$">>  state=<<currentTab>>/>
+<$sentmessage $action="mtm-test" $sendOn=<<qualify "$state$">>  state=<<currentTab>>/>
+<$set name="tv-wikilinks" value="no">
+<$transclude tiddler=<<currentTab>> field="caption">
+<$macrocall $name="currentTab" $type="text/plain" $output="text/plain"/>
+</$transclude>
+</$set>
+</$mbutton>
+</$mreveal>
+<$mreveal type="nomatch"  recvOn=<<qualify "$state$">> retain="yes"  text=<<currentTab>> default="$default$">
+<$mbutton class=" bt">
+<$sentmessage $action="mtm-compare" $sendOn=<<qualify "$state$">>  state=<<currentTab>>/>
+<$set name="tv-wikilinks" value="no">
+<$transclude tiddler=<<currentTab>> field="caption">
+<$macrocall $name="currentTab" $type="text/plain" $output="text/plain"/>
+</$transclude>
+</$set>
+</$mbutton>
+</$mreveal>
+</$list>
+</div><div class="tc-tab-divider $class$"/><div class="tc-tab-content $class$">
+<$list filter="$tabsList$" variable="currentTab">
+
+<$mreveal animate="yes"  type="match"  recvOn=<<qualify "$state$">> retain="yes"  text=<<currentTab>> default="$default$">
+
+<$transclude tiddler="$template$" mode="block">
+
+<$transclude tiddler=<<currentTab>> mode="block"/>
+
+</$transclude>
+
+</$mreveal>
+
+</$list>
+</div>
+</div>
+\end

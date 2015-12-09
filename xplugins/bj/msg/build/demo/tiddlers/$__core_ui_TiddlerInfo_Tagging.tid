@@ -1,0 +1,9 @@
+caption: {{$:/language/TiddlerInfo/Tagging/Caption}}
+created: 20150812101612527
+modified: 20150812101612527
+tags: $:/tags/TiddlerInfo
+title: $:/core/ui/TiddlerInfo/Tagging
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/language/TiddlerInfo/
+<$list filter="[all[current]tagging[]]" emptyMessage=<<lingo Tagging/Empty>> template="$:/core/ui/ListItemTemplate"/>

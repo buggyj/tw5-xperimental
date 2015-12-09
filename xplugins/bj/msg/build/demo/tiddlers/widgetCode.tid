@@ -1,0 +1,19 @@
+created: 20151120115557597
+modified: 20151121220211747
+tags: Ractive [[Ractive Widgets]] Example
+title: widgetCode
+type: application/javascript
+
+var MyWidget = Ractive.extend({
+  template: '<div on-click="activate">{{message}}</div>',
+  oninit: function () {
+    this.on( 'activate', function () {
+      alert( this.get("message" ));
+    });
+  },
+  data: {
+test:"testing",
+    message: 'No message specified, using the default'
+  }
+});
+Ractive.components.widget = MyWidget;

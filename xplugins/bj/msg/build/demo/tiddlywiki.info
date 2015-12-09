@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"bj/plugins/msg"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+		"doNotSave": [
+	],
+	"includeWikis": [
+	]
+}

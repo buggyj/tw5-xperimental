@@ -1,0 +1,8 @@
+created: 20151111065603771
+description: load the external lib
+modified: 20151118072433706
+tags: $:/core/wiki/rawmarkup
+title: $:/plugin/bj/snap/includelib
+type: text/plain
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js'></script>

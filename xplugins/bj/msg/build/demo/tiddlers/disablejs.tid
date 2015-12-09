@@ -1,0 +1,29 @@
+created: 20151116194037726
+modified: 20151116194834225
+module-type: macro
+tags: 
+title: disablejs
+type: application/javascript
+
+(function(){
+/*jslint node: true, browser: true */
+/*global $tw: false */
+
+/*
+Information about this macro
+returns value of key in a data json tiddler
+note that macros are not connected with the refresh mechanism -use with caution.
+*/
+exports.name = "disablescript";
+exports.params = [
+
+];
+
+/*
+Run the macro
+*/
+exports.run = function() {
+$tw.config.htmlUnsafeElements = "script".split(",");
+return "";
+}
+})();

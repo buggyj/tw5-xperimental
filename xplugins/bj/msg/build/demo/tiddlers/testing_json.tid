@@ -1,0 +1,13 @@
+created: 20150725082934358
+modified: 20150725084309357
+tags: 
+title: testing json
+type: text/vnd.tiddlywiki
+
+
+\define renderContent()
+{{{ $(exportFilterJson)$ ||$:/core/templates/json-tiddler}}}
+\end
+<$set name="exportFilterJson" value="[[test]]">
+<<renderContent>>
+</$set>

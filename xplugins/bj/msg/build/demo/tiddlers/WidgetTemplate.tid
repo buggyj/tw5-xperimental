@@ -1,0 +1,11 @@
+created: 20151120115901622
+modified: 20151121220422170
+tags: Example [[Ractive Widgets]]
+title: WidgetTemplate
+type: text/plain
+
+<div class='application'>
+  <h1>I've got a widget</h1>
+  <widget message='Click to activate1!'/>
+  <widget message='Click to activate2!'/>  <widget message='Click to activate3!'/>
+</div>

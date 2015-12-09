@@ -1,0 +1,7 @@
+created: 20151117173550447
+modified: 20151120073832575
+tags: Ractive
+title: simpleTemplate
+type: text/plain
+
+<h1>Hello, {{name}}!</h1>

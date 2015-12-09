@@ -1,0 +1,13 @@
+created: 20151120120531778
+modified: 20151121220610017
+tags: Ractive Example [[Ractive Widgets]]
+title: widgetTest
+type: text/vnd.tiddlywiki
+
+<div id="bp-simple"></div>
+
+<$script id='widget-template' type='text/ractive' source="WidgetTemplate"/>
+<$script type="text/javascript" source="widgetCode"/>
+<$script type="text/javascript" source="BplateSimpleCode"/>
+
+

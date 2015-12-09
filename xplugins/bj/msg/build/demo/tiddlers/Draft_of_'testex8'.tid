@@ -1,0 +1,80 @@
+created: 20151118073427125
+draft.of: testex8
+draft.title: testex8
+modified: 20151118074154350
+tags: 
+title: Draft of 'testex8'
+type: text/vnd.tiddlywiki
+
+  <h1>Ractive test</h1>
+
+  <!--
+       1. This is the element we'll render our Ractive to. 
+  -->
+  <div id="container"></div>
+
+  <!--
+       2. You can load a template in many ways. For convenience, we'll include it in
+       a script tag so that we don't need to mess around with AJAX or multiline strings.
+       Note that we've set the type attribute to 'text/ractive' - though it can be
+       just about anything except 'text/javascript'
+  -->
+ 
+var Slideshow = Ractive.extend({
+  template: template,
+
+  // method for changing the currently displayed image
+  goto: function ( imageNum ) {
+    var images = this.get( 'images' );
+
+    // Make sure the image number is between 0...
+    while ( imageNum < 0 ) {
+      imageNum += images.length;
+    }
+
+    // ...and the maximum
+    imageNum %= images.length;
+
+    // Then, update the view
+    this.set({
+      image: images[ imageNum ],
+      current: imageNum
+    });
+  },
+
+  // initialisation code
+  oninit: function ( options ) {
+    this.on( 'goto', function ( event, index ) {
+      this.goto( index );
+    });
+
+    // start with the first image
+    this.goto( 0 );
+  }
+});
+
+var slideshow = new Slideshow({
+  el: output,
+  data: { images: images }
+});
+
+
+  <!--
+       3. You can always get the most recent stable version from the URL below.
+       If you want the newest features (unstable!), use the 'edge' version instead:
+
+           http://cdn.ractivejs.org/edge/ractive.min.js
+
+       If you need IE8 support, change 'ractive' to 'ractive-legacy'.
+  -->
+
+ 
+  <!--
+       4. We've got an element in the DOM, we've created a template, and we've
+       loaded the library - now it's time to build our Hello World app.
+  -->
+
+<$script type="text/javascript" source="code8">
+
+
+

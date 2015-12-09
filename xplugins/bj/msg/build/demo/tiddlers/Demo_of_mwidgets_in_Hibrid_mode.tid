@@ -1,0 +1,14 @@
+created: 20150808054347894
+modified: 20150831052714741
+tags: 
+title: Demo of mwidgets in Hibrid mode
+type: text/html;flexibility=tw5flexbox
+
+<!-- This template is provided for backwards compatibility with older versions of TiddlyWiki -->
+ <$set name="exportFilter" value="[tag[testtiddlers]]">
+<$set name="exportFilterJson" value="$:/temp/__priv__/transientTableEvents">
+
+{{$:/mcore/templates/exporters/StaticRiver}}
+
+</$set> 
+</$set> 

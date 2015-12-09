@@ -1,0 +1,11 @@
+created: 20151118072349151
+description: load the external lib
+modified: 20151118203026160
+tags: $:/core/wiki/rawmarkup
+title: $:/plugin/bj/ractive/includelib
+type: text/plain
+
+<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+ <script src='https://raw.githubusercontent.com/ractivejs/ractive-transitions-slide/master/dist/ractive-transitions-slide.js'></script>
+ <script src='https://raw.githubusercontent.com/ractivejs/ractive-events-tap/master/dist/ractive-events-tap.js'></script>
+

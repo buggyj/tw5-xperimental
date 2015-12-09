@@ -1,0 +1,5 @@
+title: $:/mcore/templates/exporters/StaticBottomAndTable
+
+{{{[all[shadows+tiddlers]tag[$:/tags/BelowStory]!has[draft.of]]||$:/core/templates/html-tiddler}}}
+
+

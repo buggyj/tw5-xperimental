@@ -1,0 +1,7 @@
+created: 20150722072020730
+modified: 20150722072155778
+tags: 
+title: New Tiddler
+type: text/vnd.tiddlywiki
+
+<<tabs "SampleTabOne SampleTabTwo SampleTabThree SampleTabFour" "SampleTabOne" "$:/state/tab1">>

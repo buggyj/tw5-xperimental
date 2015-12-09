@@ -1,0 +1,11 @@
+created: 20150702165439430
+modified: 20150703051210766
+tags: med-style
+title: bigbell
+type: text/vnd.tiddlywiki
+
+<$msequence targetTag="bigbell" syntid="$:/temp/__priv__/playing"  autoStart="yes" onEnd="tm-close-tiddler" onEndParam=<<currentTiddler>>>
+<hr/>
+<$mplayer onEnd="tm-mply-next" onStart="tm-mply-caught" >
+</$mplayer>
+</$msequence>

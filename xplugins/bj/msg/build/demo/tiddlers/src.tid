@@ -1,0 +1,7 @@
+created: 20151117172805260
+modified: 20151117172829098
+tags: 
+title: src
+type: text/plain
+
+alert("hi");

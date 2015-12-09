@@ -1,0 +1,15 @@
+created: 20151116194431311
+modified: 20151116194912901
+tags: 
+title: New Tiddler 3
+type: text/vnd.tiddlywiki
+
+<<enablescript>>
+
+<script type="text/javascript">
+alert("Hooray");
+</script>
+<<disablescript>>
+<script type="text/javascript">
+alert("Hooray2");
+</script>

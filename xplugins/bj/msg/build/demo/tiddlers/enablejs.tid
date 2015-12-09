@@ -1,0 +1,30 @@
+created: 20151116194210433
+modified: 20151116194950437
+module-type: macro
+tags: 
+title: enablejs
+type: application/javascript
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+/*
+Information about this macro
+*/
+
+exports.name = "enablescript";
+
+exports.params = [
+];
+
+/*
+Run the macro
+*/
+exports.run = function() {
+	$tw.config.htmlUnsafeElements = "";
+return "";
+};
+})();

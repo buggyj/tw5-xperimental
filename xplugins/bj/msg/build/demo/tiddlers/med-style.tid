@@ -1,0 +1,9 @@
+created: 20150626121927165
+modified: 20150806143226227
+tags: $:/tags/Stylesheet
+title: med-style
+type: text/css
+
+.tc-tagged-med-style {
+ background-color: rgba(100, 100, 100, 0.0);
+}

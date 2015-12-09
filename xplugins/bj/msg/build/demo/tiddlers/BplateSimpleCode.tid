@@ -1,0 +1,10 @@
+created: 20151120120145178
+modified: 20151121220346012
+tags: Ractive Example [[Ractive Widgets]]
+title: BplateSimpleCode
+type: text/plain
+
+   var ractive = new Ractive({
+      el: '#bp-simple', 
+      template: '#widget-template'
+    });

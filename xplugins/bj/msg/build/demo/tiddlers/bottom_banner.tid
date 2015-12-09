@@ -1,0 +1,22 @@
+created: 20150703054250645
+modified: 20150807144253296
+tags: $:/tags/BelowStory
+title: bottom banner
+type: DIV
+
+<div class="bannerback">
+
+!A meditation timer 
+!!Built by BJ
+!!!utilizing tiddlywiki5
+<$mbutton  class="bt tc-btn-invisible tc-tag-label" style=<<tag-styles>>>
+<$app-popup popup=<<qualify "$:/state/popup/tag">> />
+About
+</$mbutton>
+
+<$mpreveal tag="div" recvOn=<<qualify "$:/state/popup/tag">> type="popup" position="belowcenter" animate="yes">
+<div>
+{{about}}
+</div>
+</$mpreveal>
+
