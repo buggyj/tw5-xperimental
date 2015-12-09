@@ -1,0 +1,20 @@
+created: 20150117015119182
+modified: 20150117141121233
+tags: $:/MediaPlayer
+title: Managing a playlist
+type: text/vnd.tiddlywiki
+
+!!!Instruction to create a new playlist:
+
+*view the PlayLists tiddler
+*create a new tiddler -eg 'mylist'
+*click on the 'open' tab on the right sidebar
+*drag the 'mylist' title and drop it on the list that is under the top two buttons of PlayLists
+*'mylist' will appear on the list, click on it.
+*under the bottom two buttons of PlayLists drag the title of a media tiddler on to the text 'drop here to add to playlist'. Other media titles can then be add in a simular way.
+
+!!!Re-ordering a playlist:
+A title can be moved by dragging it onto another further up or down the list.
+
+!!!Removing an item from a playlist:
+An item can be removed by click on the <$button  class="tc-btn-invisible">{{$:/core/images/cancel-button}}</$button> in front of the item.

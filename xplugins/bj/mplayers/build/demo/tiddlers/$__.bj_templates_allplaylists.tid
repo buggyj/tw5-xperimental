@@ -1,0 +1,11 @@
+created: 20140731170756774
+modified: 20150117141233877
+tags: $:/MediaPlayer
+title: $:/.bj/templates/allplaylists
+type: text/vnd.tiddlywiki
+
+<$reveal state="$:/temp/list" text={{!!title}} type="nomatch"><$fieldmangler><span title="remove"><$button  param= <<currentTag>> message="tm-remove-tag" class="tc-btn-invisible">{{$:/core/images/cancel-button}}</$button></span></$fieldmangler>
+<$link><span class="tc-taglistplain"><$view field="title"/></span></$link>
+</$reveal>
+<$reveal state="$:/temp/list" text={{!!title}} type="match"><$fieldmangler><span title="remove"><$button  param= <<currentTag>> message="tm-remove-tag" class="tc-btn-invisible">{{$:/core/images/cancel-button}}</$button></span></$fieldmangler>
+<$link><span class="tc-taglist"><$view field="title"/></span></$link></$reveal>

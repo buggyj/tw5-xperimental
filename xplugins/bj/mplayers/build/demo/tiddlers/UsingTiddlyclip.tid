@@ -1,0 +1,13 @@
+created: 20150116172411682
+modified: 20150117143312178
+tags: $:/MediaPlayer
+title: UsingTiddlyclip
+type: text/vnd.tiddlywiki
+
+If you have not met tiddlyclip (TC)  before see here http://tiddlyclip.tiddlyspot.com/ for an introduction.<br/>
+Two TC rules have been constructed to clip mp3s from https://archive.org/ and youtube videos. <br/>
+These can be used with this tiddlywiki by docking it to tiddlyclip, then right click the mouse, then hover it over 'tiddlyclip set' and select 'Extclips'
+
+To use with http://archive.org, go to the page which contains the link to the mp3 of the music you which to use. Select any text you want to include, hover the mouse over the link to the mp3, right click then hover the mouse over 'Tiddlyclip using Extclips' and select 'music'.
+
+To use with http://youtube.com go to the page which contains the video. Select any text you want to include, then with the mouse away from the video pane, right click and hover the mouse over 'Tiddlyclip using Extclips' then select 'utube'.

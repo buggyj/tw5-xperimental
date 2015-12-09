@@ -1,0 +1,11 @@
+created: 20150114180956109
+modified: 20150114213104937
+tags: 
+title: extMusic
+type: text/vnd.tiddlywiki
+
+\rules only table wikilink prettylink
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|[[TITLETID]]||test||{"$_canonical_uri":"((*@sublink(@linkURL)*))"},{"$type":"audio/mp3"},{"$when":"((*@dateTimeShort*))"},{"$location":"((*@pageRef*))"}|add inc|
+|[[TITLETID/text]]|((*@web*))\n\n((*@pageTitle*))\n\n((*@pageRef*))\n\n|||{"$location":"((*@pageRef*))"},{"$caption":"((*@pageTitle*))"},{"$when":"((*@dateTimeShort*))"}|add inc|

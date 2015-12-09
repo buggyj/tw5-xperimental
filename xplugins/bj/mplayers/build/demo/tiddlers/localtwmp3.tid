@@ -1,0 +1,10 @@
+created: 20141202232207484
+modified: 20150106133101374
+tags: [[Tc Local Rules]]
+title: localtwmp3
+type: text/vnd.tiddlywiki
+
+\rules only table wikilink prettylink
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|[[TITLETID]]||||{"$_canonical_uri":"((*@sublink(@linkURL)*))"},{"$type":"audio/mp3"}|inc add|

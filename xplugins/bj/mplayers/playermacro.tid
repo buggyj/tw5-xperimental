@@ -1,0 +1,57 @@
+title: $:/bj/macros/player
+tags: $:/tags/Macro
+
+\define player(name:"now") 
+<$refresh msg="tm-bj-playerRfresh">
+<$mplaylist filter="[tag[$name$]]" syntid="$:/temp/priv/playing"  mode="dynamic" onEnd="tm-ply-next" autoStart="yes">
+<hr>
+<$ytplayer onEnd="tm-mply-next">
+<$button>
+<$action-sendmessage $message="tm-mvdwn" />
+-
+</$button>
+<$button>
+<$action-sendmessage $message="tm-mvup" />
++
+</$button>
+</$ytplayer>
+<$mplayer onEnd="tm-mply-next">
+<$button>
+<$action-sendmessage $message="tm-mvdwn" />
+-
+</$button>
+<$button>
+<$action-sendmessage $message="tm-mvup" />
++
+</$button>
+<$button>
+<$action-sendmessage $message="tm-mrw" />
+<-
+</$button>
+<$button>
+<$action-sendmessage $message="tm-mff" />
+->
+</$button>
+</$mplayer>
+<$ondrop targeTtag="$name$" tagAction="addtag" >
+<hr>
+<$button>
+<$action-sendmessage $message="tm-mply-prev" />
+<<
+</$button>
+<$button>
+<$action-sendmessage $message="tm-mply-next" />
+>>
+</$button>
+<$linkcatcher message="tm-mply-move">
+<$set name=currentTag value="$name$">
+
+!!Control individual playlists using drap and drop
+<$taglist class="btn btn-primary" targeTtag="$name$" template=musicTemplate emptyMessage="drop here to add to playlist"></$taglist>
+</$set>
+</$linkcatcher>
+</$ondrop>
+</$mplaylist>
+</$refresh>
+
+\end

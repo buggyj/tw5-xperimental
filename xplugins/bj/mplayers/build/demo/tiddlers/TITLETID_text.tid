@@ -1,0 +1,19 @@
+created: 20150114181202947
+modified: 20150125215807515
+title: TITLETID/text
+type: application/json1
+
+[
+  {
+    "#rule": "/[\\s\\S]*\\/(.*?)$/g"
+  },
+  {
+    "#term": "$1"
+  },
+  {
+    "#title": "((*@linkURL/#rule/#term*))"
+  },
+  {
+    "$title": "((*#title*))/text"
+  }
+]

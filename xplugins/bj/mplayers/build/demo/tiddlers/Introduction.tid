@@ -1,0 +1,13 @@
+created: 20150113005903633
+modified: 20150704150348423
+tags: $:/MediaPlayer
+title: Introduction
+type: text/vnd.tiddlywiki
+
+This is a proof of concept demo of ~MediaPlayer (MP) plugin, found here [[$:/plugins/bj/mplayers]]. 
+The MP plugin is designed to play mixed media playlists.
+
+In this demo the MP plugin has been combined with the taglist plugin (and some other plugins) to enable playlists to be constructed using drag and drop:- see the [[demo tiddler|PlayLists]], user instructions are  [[here|Managing a playlist]], a technical overview is [[here|Overview]]. Tracks were added to this tiddlywiki using tiddlyclip, see how [[here|UsingTiddlyclip]].
+
+Local media can also be included in playlist, and can be conveniently included using ~TiddlyClip see 
+<a href="http://tiddlyclip.tiddlyspot.com/#:[[Creating%20Local%20Media%20Links]]">Creating Local Media Links</a> 

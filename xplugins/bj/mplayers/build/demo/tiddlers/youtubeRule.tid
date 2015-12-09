@@ -1,0 +1,11 @@
+created: 20150114220214610
+modified: 20150114221637993
+tags: 
+title: youtubeRule
+type: text/vnd.tiddlywiki
+
+\rules only table wikilink prettylink
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|((*@pageTitle*))||test||{"$_canonical_uri":"((*@pageRef*))"},{"$type":"video/x-youtube"},{"$when":"((*@dateTimeShort*))"},{"$location":"((*@pageRef*))"}|add inc|
+|((*@pageTitle*))/text|((*@web*))\n\n((*@pageTitle*))\n\n((*@pageRef*))\n\n|||{"$location":"((*@pageRef*))"},{"$caption":"((*@pageTitle*))"},{"$when":"((*@dateTimeShort*))"}|add inc|
