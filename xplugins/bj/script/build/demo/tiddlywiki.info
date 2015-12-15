@@ -1,6 +1,6 @@
 {
 	"plugins": [
-		"bj/plugins/script"
+		"bj/script"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

@@ -45,15 +45,17 @@ Compute the internal state of the widget
 ScriptWidget.prototype.execute = function() {
 	// Get our parameters
 	var self = this;
-	this.id = this.getAttribute("id");
-	this.transcludeMode = this.getAttribute("mode");
 	this.source = this.getAttribute("source");
-	this.type = this.getAttribute("type");
 	var tiddler = $tw.wiki.getTiddler(this.source);
 	if(tiddler) {	
 		this.text = tiddler.fields.text;
+		this.id = tiddler.fields.id;
+		this.transcludeMode = tiddler.fields.transcludeMode;
+		this.type = tiddler.fields.type;
 	}
-
+	this.id = this.getAttribute("id")||this.id ;
+	this.transcludeMode = this.getAttribute("mode")||this.transcludeMode;
+	this.type = this.getAttribute("type")||this.type;
 };
 
 /*
