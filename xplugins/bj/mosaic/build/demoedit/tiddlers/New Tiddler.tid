@@ -1,0 +1,23 @@
+created: 20140805140359319
+modified: 20151215171243892
+title: New Tiddler
+type: text/vnd.tiddlywiki
+
+!!just show link to title here
+|<$link><span>a</span></$link>||
+<$mosaic prefix="testjson" index=0 rows=1 cols=9 >
+<$link>
+
+<<currentTiddler>>
+
+</$link>
+</$mosaic>
+
+!!2-D Table
+
+<$mosaic prefix="testjson" index=4 rows= 2 cols=2 >{{||edittemplate}}</$mosaic>
+
+!!Tables  in tables
+
+|<$mosaic prefix="testjson" index=1 rows=3 cols=1 ><$link>{{||$:/core/ui/ViewTemplate}}</$link></$mosaic>|<$mosaic prefix="testjson" index=2 rows=3 cols=1 ><$link>{{||$:/core/ui/ViewTemplate}}</$link></$mosaic>|
+
