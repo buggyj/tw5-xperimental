@@ -1,7 +1,4 @@
-created: 20151215192059303
-modified: 20151215192422798
-tags: 
-title: simpletmpt
+title: $:/bj/mosaic/simpletmpt
 type: text/vnd.tiddlywiki
 
 <$link><$view field=title/></$link>

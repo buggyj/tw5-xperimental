@@ -2,8 +2,8 @@
 	"title": "$:/plugins/bj/mosaic",
 	"description": "mosaic",
 	"author": "JeffreyWilkinson",
-	"version": "0.0.0",
-	"core-version": ">=5.0.13",
-	"source": "private",
+	"version": "0.0.1",
+	"core-version": ">=5.1.9",
+	"source": "https://github.com/buggyj/tw5-xperimental",
 	"plugin-type": "plugin"
 }

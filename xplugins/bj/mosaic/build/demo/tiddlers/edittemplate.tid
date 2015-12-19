@@ -1,9 +1,0 @@
-created: 20151215133013901
-modified: 20151215133339063
-tags: 
-title: edittemplate
-type: text/vnd.tiddlywiki
-
-<$link><$view field=title/></$link>
-<hr>
-<$edit-text tiddler=<<currentTiddler>>/>

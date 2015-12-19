@@ -60,8 +60,8 @@ MosaicWidget.prototype.execute = function() {
 	// Get the widget attributes
 	this.whenEmpty = this.getAttribute("whenEmpty");
 	this.index=this.getAttribute("index","0");//reserve 0 for future use
-	this.template = this.getAttribute("template");
-	this.editTemplate = this.getAttribute("editTemplate");
+	this.template = this.getAttribute("template");	
+	this.wfixed = this.getAttribute("wfixed");
 	this.variableName = this.getAttribute("variable","currentTiddler");
 	this.prefix = this.getAttribute("prefix","mosaic");
     this.jsontid=this.getAttribute("json",this.prefix);
@@ -69,9 +69,19 @@ MosaicWidget.prototype.execute = function() {
    	this.json[this.index] = this.json[this.index]||[];
 	this.rows = parseInt(this.getAttribute("rows","5"),10);
 	this.cols = parseInt(this.getAttribute("cols","5"),10);
-	this["class"] = this.getAttribute("class","");
-	// Build the child widget tree
-	var table = {type: "element",tag: "table", children:[]};
+	this["class"] = this.getAttribute("class","");        //<col style="width:40%">
+
+
+	// Build the table widget tree  
+	var table = {type: "element",tag: "table", children:[],
+		attributes: {class: {type: "string", value: "mosaic"}}};
+	if (this.wfixed){	
+		for(var col=0; col<this.cols; col++) {
+			table.children.push({type: "element",tag: "col", children:[],
+			attributes: {style: {type: "string", value: "width:"+100/this.cols+"%;" }}});
+		}	
+	}
+		
 	var tbody = {type: "element",tag: "tbody", children:[]};	
 	for(var row=0; row<this.rows; row++) {
 		var tr = {type: "element",tag: "tr", children:[]};	
@@ -80,17 +90,12 @@ MosaicWidget.prototype.execute = function() {
 			var item = this.makeItemTemplate(this.getTableCellTitle(col,row));
 			item.row = row;
 			item.col = col;
-			/* var contents = {
-				type: "transclude",
-				attributes: {tiddler: {type: "string", value: this.getTableCellTitle(col,row)}},
-				isBlock: true				
-			};
-			*/
 			td.children.push(item);
 			tr.children.push(td);
 		}
 		tbody.children.push(tr);
 	}
+
 	table.children.push(tbody);
 	// Append the contents enclosed by the grid widget
 	var children = [table];
@@ -136,9 +141,9 @@ MosaicWidget.prototype.refresh = function(changedTiddlers) {
 Compose the template for a list item
 */
 MosaicWidget.prototype.makeItemTemplate = function(title) {
-	// Check if the tiddler is a draft
+
 	var tiddler ,
-		isDraft ,
+		hasTemplate ,
 		template ,
 		templateTree;
 	
@@ -150,13 +155,10 @@ MosaicWidget.prototype.makeItemTemplate = function(title) {
 				{type: "string", value: "float:left;min-height:50px;min-width:50px;visibility:hidden;"}}}];
 		} 
 	} else {
-			// Check if the tiddler is a draft
+			// Check if the tiddler has a template
 		tiddler = this.wiki.getTiddler(title);
-		isDraft = tiddler && tiddler.hasField("draft.of");
-		template = this.template;
-		
-		if(isDraft && this.editTemplate) {
-			template = this.editTemplate;
+		if( tiddler && tiddler.hasField("template")) {
+			template = tiddler.fields.template;
 		}
 		// Compose the transclusion of the template
 		if(template) {
