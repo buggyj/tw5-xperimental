@@ -1,0 +1,8 @@
+created: 20151213170416397
+modified: 20151218121535908
+tags: clock
+title: clockhtml
+type: text/html
+
+<h2>Clock Project</h2>
+<div id ="clockcontainer"></div>

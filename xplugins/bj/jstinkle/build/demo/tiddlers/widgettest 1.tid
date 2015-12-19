@@ -1,0 +1,11 @@
+created: 20150821143935581
+list: widgetCode BplateSimpleCode WidgetTemplate [[project widgettest]] [[ractive files]] widgettesthtml
+modified: 20151219120544798
+tags: Lists
+title: widgettest
+type: text/vnd.tiddlywiki
+
+<$refresh msg="refresh">
+<ul><$taglist class='btn btn-primary'>
+<li>{{!!title||listtemplate}}</li></$taglist></ul>
+</$refresh>

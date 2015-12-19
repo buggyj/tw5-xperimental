@@ -1,0 +1,10 @@
+created: 20151213173509185
+modified: 20151219113003980
+tags: widgettest
+template: activetmpt
+title: project widgettest
+type: text/html;flexibility=tw5flexbox
+
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<<make_ractive widgettest>>
+</$importvariables>

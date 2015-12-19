@@ -1,0 +1,10 @@
+created: 20151205133851644
+modified: 20151205133851644
+tags: ClipLists clips
+title: BlogIt/Clips
+type: text/vnd.tiddlywiki
+
+<$refresh msg="refresh">
+<ul><$taglist class='btn btn-primary'>
+<li>{{!!title||captionlisttemplate}}</li></$taglist></ul>
+</$refresh>

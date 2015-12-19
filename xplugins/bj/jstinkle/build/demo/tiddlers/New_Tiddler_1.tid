@@ -1,0 +1,8 @@
+created: 20151213190050877
+modified: 20151214172033195
+tags: 
+title: New Tiddler 1
+type: text/vnd.tiddlywiki
+
+|{{tid1}}|<$edit-text tiddler="testwidgethtml"/>||
+|<$edit-text tiddler="WidgetTemplate"/>||

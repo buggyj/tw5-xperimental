@@ -1,0 +1,17 @@
+created: 20151216211536858
+draft.of: New Tiddler 4
+draft.title: New Tiddler 4
+modified: 20151216211620321
+tags: 
+title: Draft of 'New Tiddler 4'
+type: text/vnd.tiddlywiki
+
+<style>
+textarea {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	width: 100%;
+}
+</style>

@@ -1,0 +1,48 @@
+created: 20151215185609473
+modified: 20151217165653697
+title: testjson3
+type: application/json
+
+{
+  "0": [
+    [
+      "d"
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    null,
+    [
+      ""
+    ]
+  ],
+  "2": [
+    [
+      ""
+    ]
+  ],
+  "4": [
+    [
+      "widgetCode",
+      "New Tiddler 2"
+    ],
+    [
+      "testjson3"
+    ]
+  ]
+}

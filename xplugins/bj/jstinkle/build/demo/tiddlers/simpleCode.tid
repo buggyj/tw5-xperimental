@@ -1,0 +1,11 @@
+created: 20151117173913298
+modified: 20151120120128987
+tags: Ractive
+title: simpleCode
+type: text/plain
+
+   var ractive = new Ractive({
+      el: '#container', 
+      template: '#simple template',
+      data: { name: 'mad worlds' }
+    });

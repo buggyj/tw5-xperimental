@@ -1,0 +1,9 @@
+created: 20151213170612336
+modified: 20151218201655544
+tags: clock $:/bj/iframe/raw widgettest todo
+title: ractive files
+type: text/plain
+
+<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+ <script src='https://raw.githubusercontent.com/ractivejs/ractive-transitions-slide/master/dist/ractive-transitions-slide.js'></script>
+ <script src='https://raw.githubusercontent.com/ractivejs/ractive-events-tap/master/dist/ractive-events-tap.umd.js'></script>

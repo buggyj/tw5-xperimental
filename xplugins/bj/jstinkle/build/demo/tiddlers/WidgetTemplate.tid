@@ -1,0 +1,13 @@
+created: 20151120115901622
+id: widget-template
+modified: 20151217230638087
+tags: Example [[Ractive Widgets]] widgettest
+title: WidgetTemplate
+type: text/ractive
+
+<div class='application'>
+  <h1>I've got a widget-</h1>
+  <widget message='Click to activate11!'/>
+  <widget message='Click to dactivat22'/>  
+  <widget />
+</div>zz

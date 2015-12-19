@@ -1,0 +1,10 @@
+created: 20151218115759285
+modified: 20151219160103599
+tags: clock
+template: activetmpt
+title: project clock
+type: text/html;flexibility=tw5flexbox
+
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<<make_ractive clock>>
+</$importvariables>

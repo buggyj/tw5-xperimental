@@ -1,0 +1,22 @@
+created: 20151219160543221
+draft.of: jstinkler
+draft.title: jstinkler
+modified: 20151219160541938
+tags: $:/tags/Macro
+title: Draft of 'jstinkler'
+type: text/vnd.tiddlywiki
+
+\define jstinkle(json project)
+<table>
+<$taglist targeTtag=$project$ htmltag=td>
+<$link><<currentTiddler>></$link>
+</$taglist>
+</table>
+<div style="float:left;width:50%;vertical-align: top;"><$mosaic prefix=$json$ wfixed=true index=1 rows=3 cols=1 >{{||$:/_bj/jstinkle/edittemplate}}</$mosaic></div><div style="float:left;width:50%;vertical-align: top;"><$mosaic prefix=$json$ index=2 rows=3 cols=1 >{{||$:/_bj/jstinkle/edittemplate}}</$mosaic></div>
+
+<$mosaic prefix=$json$ wfixed=true index=0 rows=1 cols=9 >
+<$link>
+<<currentTiddler>>
+</$link>
+</$mosaic>
+\end

@@ -1,0 +1,13 @@
+created: 20150809160248874
+modified: 20151213174802324
+tags: 
+title: tw5flexbox2
+type: application/json
+
+{
+  "parserrules": {
+    "sandbox": "allow-same-origin allow-scripts allow-popups allow-forms"
+  },
+  "baserules": "",
+  "preparser": "text/plain"
+}
