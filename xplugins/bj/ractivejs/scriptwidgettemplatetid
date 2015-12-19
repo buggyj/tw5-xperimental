@@ -1,0 +1,3 @@
+title: $:/ractivejs/templates/scriptwidget
+
+<$script source=<<currentTiddler>>>

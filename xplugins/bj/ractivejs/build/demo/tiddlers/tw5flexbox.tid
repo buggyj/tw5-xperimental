@@ -1,0 +1,13 @@
+created: 20151213175013203
+modified: 20151213175119425
+tags: 
+title: tw5flexbox
+type: application/json
+
+{
+  "parserrules": {
+    "sandbox": "allow-same-origin allow-scripts allow-popups allow-forms"
+  },
+  "baserules": "",
+  "preparser": "text/vnd.tiddlywiki"
+}

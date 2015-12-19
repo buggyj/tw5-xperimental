@@ -1,0 +1,49 @@
+created: 20151217073852221
+modified: 20151218204456723
+title: testjson2
+type: application/json
+
+{
+  "0": [
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ],
+    [
+      ""
+    ]
+  ],
+  "1": [
+    [
+      "project widgettest",
+      "WidgetTemplate",
+      "widgettesthtml"
+    ]
+  ],
+  "2": [
+    [
+      "widgetCode",
+      "",
+      "BplateSimpleCode"
+    ]
+  ],
+  "4": [
+    [
+      ""
+    ],
+    [
+      ""
+    ]
+  ]
+}

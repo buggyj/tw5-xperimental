@@ -1,0 +1,34 @@
+created: 20151212213724804
+description: {{$:/language/Exporters/StaticRiver}}
+extension: .html
+modified: 20151212214750853
+tags: $:/tags/Exporter
+title: $:/mcore/templates/exporters/StaticRiver
+type: text/vnd.tiddlywiki
+
+\define tv-wikilink-template() #$uri_encoded$
+\define tv-config-toolbar-icons() no
+\define tv-config-toolbar-text() no
+\define tv-config-toolbar-class() tc-btn-invisible
+\rules only filteredtranscludeinline transcludeinline
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="generator" content="TiddlyWiki" />
+<meta name="tiddlywiki-version" content="{{$:/core/templates/version}}" />
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<!--~~ Raw markup ~~-->
+{{{ [all[shadows+tiddlers]tag[$:/core/wiki/rawmarkup]]  ||$:/core/templates/plain-text-tiddler}}}
+<style type="text/css">
+{{$:/core/templates/exporters/StaticStyle/Content||$:/core/templates/html-tiddler}}
+</style>
+</head>
+<body class="tc-body">
+<section class="tc-story-river">
+{{$:/core/templates/exporters/StaticRiver/Content||$:/core/templates/html-tiddler}}
+</section> 
+
+</body>
+</html>

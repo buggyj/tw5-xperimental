@@ -1,0 +1,43 @@
+created: 20151118213658452
+modified: 20151120091156679
+tags: Ractive
+title: codedynamic
+type: application/javascript
+
+var Widget1 = Ractive.extend({
+    template : '#dynamic-template'
+});
+
+var Widget2 = Ractive.extend({
+    template: function( data ) {
+        return data.template||this.get( 'template')
+    },
+    init : function() {
+        this.observe( 'widgetParams.val', function (newVal, oldVal) {
+            if (newVal === oldVal ) { return; }
+            var newData = {
+                template : 'Reset: {{val}} and {{widgetParams.val}}',
+                val : newVal + ' data',
+            };
+            this.reset(newData);
+        }.bind(this), {init: false} );
+    },
+    data : {
+        template : 'A: {{val}}',
+        val : 'INIT',
+    }
+});
+
+var ractive = new Ractive({
+    el : 'foo',
+    template : '#template',
+    components : {
+        widget1 : Widget1,
+        widget2 : Widget2
+    },
+    data : {
+        widgetParams : {
+            val : '12345678',
+        },
+    },
+});

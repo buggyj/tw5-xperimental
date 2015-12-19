@@ -1,0 +1,18 @@
+title: $:/ractivejs/templates/root
+tags: $:/tags/Macro 
+
+\define make_ractive(proj)
+<$set name="exportFiltercss" value="[tag[$proj$]type[text/css]]">
+<$set name="exportFilterjs" value="[tag[$proj$]type[application/javascript]]">
+<$set name="exportFiltertmpt" value="[tag[$proj$]type[text/ractive]]">
+<$set name="exportFilterhtml" value="[tag[$proj$]type[text/html]]">
+<$set name="exportFilterhead" value="[tag[$proj$]tag[$:/bj/iframe/raw]]">
+{{$:/ractivejs/templates/exporters/StaticRiver}}
+</$set> 
+</$set> 
+</$set> 
+</$set> 
+</$set> 
+\end
+
+

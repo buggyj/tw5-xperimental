@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/bj/ractivejs",
+	"description": "support files to build ractivejs apps",
+	"author": "JeffreyWilkinson",
+	"version": "0.0.1",
+	"list": "license",
+	"core-version": ">=5.1.9",
+	"source": "https://github.com/buggyj/TW5-xperimental",
+	"plugin-type": "plugin"
+}

@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"bj/ractivejs"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+		"doNotSave": [
+	],
+	"includeWikis": [
+	]
+}

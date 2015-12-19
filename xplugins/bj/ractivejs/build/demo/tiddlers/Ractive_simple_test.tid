@@ -1,0 +1,13 @@
+created: 20151116195019445
+modified: 20151120074004973
+tags: Ractive
+title: Ractive simple test
+type: text/vnd.tiddlywiki
+
+  <h1>Ractive simple test</h1>
+  <div id="container"></div>
+<$script id='simple template' type='text/ractive' source="simpleTemplate"/>
+<$script type="text/javascript" source="simpleCode">
+
+
+
