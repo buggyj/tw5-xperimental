@@ -1,0 +1,12 @@
+created: 20140624143451501
+modified: 20150403073038241
+tags: ClipListConfig
+title: LogDet
+type: application/json1
+
+[
+{"#part0":"\n"},
+{"#false":"false"},
+{"#part1":"!!((*@dateComma*))\n"},
+{"#newdata": "((*!$mydate==@dateComma*??*#part0*))((*@newtiddler*??*#part1*))((*!$mydate==@dateComma*??*#part1*))\n\n((*@userstring*))\n\n------"}
+]

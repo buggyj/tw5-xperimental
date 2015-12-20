@@ -1,0 +1,10 @@
+created: 20151219195619408
+modified: 20151219195619408
+tags: ClipLists clips
+title: RacTive/Clips
+type: text/vnd.tiddlywiki
+
+<$refresh msg="refresh">
+<ul><$taglist class='btn btn-primary'>
+<li>{{!!title||captionlisttemplate}}</li></$taglist></ul>
+</$refresh>

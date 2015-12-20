@@ -1,10 +1,10 @@
-created: 20151213173509185
-modified: 20151220185854980
-tags: widgettest
+created: 20151219190511647
+modified: 20151219190541465
+tags: picker
 template: activetmpt
-title: project widgettest
+title: project picker
 type: text/html;flexibility=tw5flexbox
 
 <$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
-<<make_ractive widgettest>>
+<<make_ractive picker>>
 </$importvariables>

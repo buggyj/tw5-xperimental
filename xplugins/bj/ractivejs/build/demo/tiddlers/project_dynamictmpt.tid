@@ -1,10 +1,10 @@
-created: 20151213173509185
-modified: 20151220185854980
-tags: widgettest
+created: 20151219211655670
+modified: 20151219213214876
+tags: dynamictmpt
 template: activetmpt
-title: project widgettest
+title: project dynamictmpt
 type: text/html;flexibility=tw5flexbox
 
 <$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
-<<make_ractive widgettest>>
+<<make_ractive dynamictmpt>>
 </$importvariables>

@@ -1,0 +1,7 @@
+created: 20151220074805064
+modified: 20151220075156403
+tags: dynamictmpt
+title: dynamictmpt notes
+type: text/vnd.tiddlywiki
+
+It appears that there is a problem with using mustache twice, the first substitution makes a template that contains double braces in side attribute params (I don't know if this is why it fails) 

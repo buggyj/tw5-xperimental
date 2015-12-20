@@ -1,0 +1,51 @@
+created: 20151219194551758
+modified: 20151219194813321
+tags: Ractive picker
+title: picker code
+type: application/javascript
+
+var options = {
+  format: 'DD-MM-YYYY HH:mm',
+  showTime: true,
+  use24hour: true
+};
+
+var pikadayDecorator = function (node, keypath) {
+  var ractive = this, setting = false;
+  
+  // Date picker start
+  var picker = new Pikaday($.extend({
+    field: node,
+    onSelect: function (date) {
+      setting = true; // to prevent infinite loop
+      ractive.set(keypath, date);
+      setting = false;
+    }
+  }, options));
+  
+  this.observe(keypath, function (date) {
+    if (setting) return;
+    
+    console.log('setting date', date);
+    picker.setDate(date);
+  });
+
+  return {
+    teardown: function () {
+      // Teardown goes here
+      picker.destroy();
+    }
+  };
+};
+
+var ractive = new Ractive({
+  el: document.getElementById('my-form'),
+  template: '#form-template',
+  append: true,
+  decorators: {
+    pikaday: pikadayDecorator
+  }
+});
+
+ractive.set('startdate', new Date());
+ractive.set('enddate', new Date('2015-01-01'));

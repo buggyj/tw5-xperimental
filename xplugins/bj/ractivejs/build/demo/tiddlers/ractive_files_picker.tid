@@ -1,0 +1,13 @@
+created: 20151219194203492
+modified: 20151219194330901
+tags: $:/bj/iframe/raw picker
+title: ractive files picker
+type: text/plain
+
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <link href="http://getbootstrap.com/dist/css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="http://dbushell.github.io/Pikaday/css/pikaday.css">
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <script src="http://dbushell.github.io/Pikaday/pikaday.js"></script>
+  <script src='http://cdn.ractivejs.org/latest/ractive.js'></script>

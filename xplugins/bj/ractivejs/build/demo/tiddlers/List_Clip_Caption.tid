@@ -1,0 +1,11 @@
+created: 20140224184546030
+modified: 20150214035000143
+tags: TiddlyClipRule ClipListConfig
+title: List_Clip_Caption
+type: application/json
+
+[
+  {
+    "#newdata": "<$refresh msg=\"refresh\">\n<ul><$taglist class='btn btn-primary'>\n<li>{{!!title||captionlisttemplate}}</li></$taglist></ul>\n</$refresh>"
+  }
+]

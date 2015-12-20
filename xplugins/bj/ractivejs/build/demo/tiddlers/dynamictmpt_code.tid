@@ -1,0 +1,64 @@
+created: 20151219211732472
+modified: 20151219225258522
+tags: Ractive dynamictmpt
+title: dynamictmpt code
+type: application/javascript
+
+var DynamicTemplateComponent = Ractive.extend({
+
+    template: '{{> dynamiccell}}',
+
+    setTemplate: function(options) {
+
+     options.partials.dynamiccell = options.data.template;
+
+    },
+
+    beforeInit: function(options) {
+
+        this.setTemplate(options);
+
+    }
+
+});
+
+
+var data = {
+
+ items: [{
+
+      template: '<h1>{{value}}</h1>', 
+
+      value: 'This is a title'
+
+}, {
+
+      template: '<input type="text" value="{{value}}" style="display:block; clear: both;" />',
+
+      value: 'Input Value'
+
+}, {
+
+    template: '<textarea value="{{value}}"></textarea>',
+
+    value: 'Textarea Value'
+
+ }]
+
+}
+
+
+var ractive = new Ractive({
+
+ el: document.getElementById('dom_dynamictmpt'),
+
+ template: '#dynamictmpt-template',
+
+ components: {
+
+  formElement: DynamicTemplateComponent
+
+ },
+
+ data: data
+ })

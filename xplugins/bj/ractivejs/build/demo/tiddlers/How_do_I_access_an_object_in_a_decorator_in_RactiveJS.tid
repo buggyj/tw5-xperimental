@@ -1,0 +1,65 @@
+caption: How do I access an object in a decorator in RactiveJS
+created: 20151219195619395
+location: http://quabr.com/23265269/how-do-i-access-an-object-in-a-decorator-in-ractivejs
+modified: 20151219195704656
+tags: RacTive/Clips clips picker
+title: How do I access an object in a decorator in RactiveJS
+type: text/vnd.twbase<htmlbasic
+when: 2015/12/19 19:56:19
+
+<div><div class="metadata"><span class="datetime">2014-04-24 09:41</span>
+                    <a href="http://stackoverflow.com/users/811799/andrew-smith" target="_blank" class="author">Andrew Smith</a>
+                    <small>imported from <a rel="nofollow" target="_blank" href="http://stackoverflow.com/questions/23265269/how-do-i-access-an-object-in-a-decorator-in-ractivejs">Stackoverflow</a></small>
+                </div>
+                <div class="taglist text-right">
+                    <ul class="list-inline">
+						                            <li><a href="http://quabr.com/23265269/tag/javascript" class="label label-default">javascript</a></li>                            <li><a href="http://quabr.com/23265269/tag/ractivejs" class="label label-default">ractivejs</a></li>                    </ul>
+                </div>
+            </div>
+
+            <div class="question-body"><p>I am using Pikaday date picker as a decorator in RactiveJS and want to access the api of the datepicker outside of the decorator, but adding it to the return object doesn't seem to work. Can someone point me in the right direction please.</p>
+
+<p><a rel="nofollow" href="http://jsbin.com/lefiyume/1/edit?html,js">http://jsbin.com/lefiyume/1/edit?html,js</a></p>
+</div>
+		
+        <div id="gtm-mark-5"><ins data-ad-client="ca-pub-4813478943543875" data-ad-slot="1385154004" class="adsbygoogle" data-ad-format="auto"></ins></div>
+
+		            <div class="answers ">
+                <h2>2 answers</h2>
+
+                <ul class="list-unstyled">
+					                        <li>
+                            <span class="caption ">
+                                <span class="datetime">answered 2014-04-24 14:26</span>
+								<a href="http://stackoverflow.com/users/304894/codler" target="_blank" class="author">Codler</a></span>
+
+                            <p></p><p>You need to call <code>setDate</code> inside the saleEndDecorator function.</p>
+
+<p><a rel="nofollow" href="http://jsbin.com/lefiyume/7/edit">http://jsbin.com/lefiyume/7/edit</a></p>
+<p></p>
+                        </li>
+					                        <li>
+                            <span class="caption accepted">
+                                <span class="datetime">answered 2014-04-24 14:39</span>
+								<a href="http://stackoverflow.com/users/2742396/rich-harris" target="_blank" class="author">Rich Harris</a></span>
+
+                            <p></p><p>Decorators are designed to be reusable bridges between Ractive and external libraries - so rather than having a <code>startdate</code> decorator and an <code>enddate</code> decorator, it's better to have a single <code>pikaday</code> decorator.</p>
+
+<p>The decorator function is then responsible for managing its own state and interacting with the Ractive instance. If you find yourself trying to get a reference to objects created by the decorator (i.e. the Pikaday instance) it's generally a red flag.</p>
+
+<p>Here's one way you could do it: <a rel="nofollow" href="http://jsbin.com/susev/5/edit?html,js,output">http://jsbin.com/susev/5/edit?html,js,output</a></p>
+
+<p>In this example, we're passing a keypath to both instances of the decorator. When the <code>pikadayDecorator</code> function is called with each <code>&lt;input&gt;</code> node, it gets called with two arguments - the node, and the keypath. (You can have additional arguments - just comma-separate them.)</p>
+
+<p>The decorator can then set up two-way binding - it <em>observes</em> the given keypath (e.g. <code>startdate</code> or <code>enddate</code>) and calls the Pikaday instance's <code>setDate()</code> method when it changes. We also use the <code>onSelect()</code> method to update Ractive's model when the selected date changes - this means that we can use the date elsewhere in our template, or even outside the Ractive instance:</p>
+
+<pre><code>ractive.observe('startdate', function (newDate) {
+  // This may have been as a result of a `ractive.set()`, or
+  // because the user interacted with the datepicker
+  console.log('startdate changed to', newDate);
+});
+</code></pre>
+
+<p>(Note that Pikaday will automatically convert strings like '2015-01-01' to date objects.)</p>
+
+<p>There's <a rel="nofollow" href="http://docs.ractivejs.org/latest/writing-decorator-plugins">more information on creating decorators on the docs</a>.</p></li></ul></div>

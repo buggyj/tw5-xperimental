@@ -1,0 +1,8 @@
+created: 20151219211602047
+modified: 20151220191357144
+tags: [[not working]] tinker
+title: dynamictmpt tinker
+type: text/vnd.tiddlywiki
+
+<<jstinkle dynamictmpt_json dynamictmpt>>
+

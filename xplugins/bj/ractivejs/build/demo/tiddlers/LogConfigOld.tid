@@ -1,0 +1,12 @@
+changecount: 1
+created: 20150403072621461
+creator: Your Name
+modified: 20150403072631683
+modifier: Your Name
+tags: TiddlyClipConfig ClipListConfig
+title: LogConfigOld
+type: null
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|((*@category1stWord*))/((*@yearMonth*))|[[LogDet]]||{"$mydate":"((*@dateComma*))"},{"#1":"1"},{"$new":"((*$new+#1*))"}|{"$mydate":"((*@dateComma*))"}, {"$new":"0"}|append add|
+|((*@category1stWord*))|[[LogDetYM]]||{"$mydate":"((*@yearMonth*))"}|{"$mydate":"((@dateComma*))"}|append add|

@@ -1,0 +1,8 @@
+created: 20151213184024630
+modified: 20151219213555100
+tags: dynamictmpt
+title: dynamictmpt html
+type: text/html
+
+<h2>dynamic templates</h2>
+<div id="dom_dynamictmpt"></div>
