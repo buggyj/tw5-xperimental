@@ -1,4 +1,6 @@
-title: $:/bj/mosaic/simpletmpt
+created: 20151220194634398
+modified: 20151220194636010
+title: simpletmpt
 type: text/vnd.tiddlywiki
 
 <$link><$view field=title/></$link>

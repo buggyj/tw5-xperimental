@@ -1,0 +1,11 @@
+title: $:/plugins/bj/mosaic/mosaic-css
+type: plain/css
+tags: $:/tags/Stylesheet
+
+.mosaic {
+    width: 100%;
+}
+
+.mosaic tr { 
+	vertical-align: top;
+}
