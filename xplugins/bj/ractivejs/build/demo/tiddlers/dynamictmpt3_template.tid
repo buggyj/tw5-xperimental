@@ -1,0 +1,11 @@
+created: 20151224003427878
+id: dynamictmpt3
+modified: 20151224122623539
+tags: dynamictmpt3
+title: dynamictmpt3 template
+type: text/ractive
+
+ a template <input value='{{tm}}'/><br/>
+ with a parameter   <input value='{{foo}}'><br/>
+    <transclute y="{{tm}}" food='{{foo}}'/>
+       

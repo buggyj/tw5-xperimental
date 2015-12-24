@@ -1,0 +1,10 @@
+created: 20151118214051745
+id: dynamictmpt
+modified: 20151221170856306
+tags: Ractive Dynamic
+title: template2 dynamic
+type: text/ractive
+
+    <widget1></widget1>
+ggsasd
+    <widget2></widget2>

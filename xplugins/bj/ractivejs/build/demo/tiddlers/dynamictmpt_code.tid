@@ -1,5 +1,5 @@
 created: 20151219211732472
-modified: 20151219225258522
+modified: 20151224075909484
 tags: Ractive dynamictmpt
 title: dynamictmpt code
 type: application/javascript
@@ -33,7 +33,7 @@ var data = {
 
 }, {
 
-      template: '<input type="text" value="{{value}}" style="display:block; clear: both;" />',
+      template: "<input type='text' value='{{value}}' style='display:block; clear: both;' />",
 
       value: 'Input Value'
 

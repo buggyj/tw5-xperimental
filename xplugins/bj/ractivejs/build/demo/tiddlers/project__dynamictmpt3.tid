@@ -1,0 +1,10 @@
+created: 20151218194922669
+modified: 20151224071644283
+tags: todo dynamictmpt3
+template: activetmpt
+title: project  dynamictmpt3
+type: text/html;flexibility=tw5flexbox
+
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<<make_ractive  dynamictmpt3>>
+</$importvariables>

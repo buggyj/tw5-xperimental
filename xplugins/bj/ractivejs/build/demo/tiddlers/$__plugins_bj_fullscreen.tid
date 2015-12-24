@@ -1,0 +1,26 @@
+author: JeffreyWilkinson aka bj
+core-version: >=5.1.9
+created: 20151222220809317
+dependents: 
+description: fullscreen plugin
+list: readme
+plugin-type: plugin
+source: https://github.com/buggyj/TW5-plugins
+title: $:/plugins/bj/fullscreen
+type: application/json
+version: 0.0.0
+
+{
+    "tiddlers": {
+        "$:/bj/modules/widgets/action-bibtex.js": {
+            "text": "/*\\\ntitle: $:/bj/modules/widgets/action-bibtex.js\ntype: application/javascript\nmodule-type: widget\n\n\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\"use strict\";\n\nvar Widget = require(\"$:/core/modules/widgets/widget.js\").widget;\n\nvar FullScreenWidget = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nFullScreenWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nFullScreenWidget.prototype.render = function(parent,nextSibling) {\n\tthis.computeAttributes();\n\tthis.execute();\n\tthis.fullscreen = $tw.utils.getFullScreenApis();\n\tthis.dom = parent;\n\tfor (var i = 0;i<this.go_up;i++) {\n\t\tthis.dom = this.dom.parentNode;\n\t}\n};\n\n/*\nCompute the internal state of the widget\n*/\nFullScreenWidget.prototype.execute = function() {\n\tthis.go_up = this.getAttribute(\"go_up\");\n};\n\n/*\nRefresh the widget by ensuring our attributes are up to date\n*/\nFullScreenWidget.prototype.refresh = function(changedTiddlers) {\n\tvar changedAttributes = this.computeAttributes();\n\tif(changedAttributes[\"go_up\"]) {\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t}\n\treturn this.refreshChildren(changedTiddlers);\n};\n\n/*\nInvoke the action associated with this widget\n*/\nFullScreenWidget.prototype.invokeAction = function(triggeringWidget,event) {\n\t\n\tif(this.fullscreen) {\n\t\t\tif(this.dom[this.fullscreen._fullscreenElement]) {\n\t\t\t\tthis.dom[this.fullscreen._exitFullscreen]();\n\t\t\t} else {\n\t\t\t\tthis.dom[this.fullscreen._requestFullscreen](Element.ALLOW_KEYBOARD_INPUT);\n\t\t\t}\n\t}\n\n\treturn true; // Action was invoked\n};\n\nexports[\"action-fullscreen\"] = FullScreenWidget;\n\n\n\n})();\n",
+            "title": "$:/bj/modules/widgets/action-bibtex.js",
+            "type": "application/javascript",
+            "module-type": "widget"
+        },
+        "$:/plugins/bj/fullsreen/readme": {
+            "title": "$:/plugins/bj/fullsreen/readme",
+            "text": "\n\n"
+        }
+    }
+}

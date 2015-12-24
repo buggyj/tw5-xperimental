@@ -1,0 +1,10 @@
+created: 20151221165524784
+modified: 20151221174104021
+tags: Dynamic
+template: activetmpt
+title: project dynamic-template
+type: text/html;flexibility=tw5flexbox
+
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<<make_ractive Dynamic>>
+</$importvariables>

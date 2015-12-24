@@ -1,8 +1,9 @@
 created: 20151118214002714
-modified: 20151120091342896
-tags: Ractive
+id: dynamic-template
+modified: 20151221165948674
+tags: Ractive Dynamic
 title: DynamicTemplate
-type: text/plain
+type: text/ractive
 
    [ <button on-click='set("widgetParams.val","12345")'>set val to 12345</button> ]
   [  <button on-click='set("widgetParams.val","54321")'>set val to 54321</button>]

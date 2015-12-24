@@ -1,0 +1,13 @@
+created: 20151224092246459
+modified: 20151224092747101
+tags: dynamictmpt3
+title: Notes
+type: text/vnd.tiddlywiki
+
+I need to be able to choose the bito by a name or index
+so 
+<transclute y="BITOL1]" food='{{foo}}'/>
+where BITOL1 is store in data as a table?
+maybe a function is required to call into the table?
+
+data:{datatable:{BITOL1:"A TEMPLATE {{foo}}"}}

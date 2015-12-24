@@ -1,6 +1,6 @@
 created: 20151118213658452
-modified: 20151120091156679
-tags: Ractive
+modified: 20151221170910889
+tags: Ractive Dynamic
 title: codedynamic
 type: application/javascript
 
@@ -30,7 +30,7 @@ var Widget2 = Ractive.extend({
 
 var ractive = new Ractive({
     el : 'foo',
-    template : '#template',
+    template : '#dynamictmpt',
     components : {
         widget1 : Widget1,
         widget2 : Widget2

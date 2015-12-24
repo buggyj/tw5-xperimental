@@ -1,0 +1,16 @@
+created: 20151221094456004
+id: v1todo-template
+modified: 20151221131154817
+tags: dynamictmpt v1todo
+title: v1todo template
+type: text/ractive
+
+<h2>To-do list</h2>
+
+<input on-change='newTodo' on-enter='blur' placeholder='What needs to be done?'>
+
+<ul class='todos'>
+  {{#each items:i}}
+    {{>item}}
+  {{/each}}
+</ul>

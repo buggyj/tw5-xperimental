@@ -1,0 +1,8 @@
+created: 20151221140859969
+modified: 20151221141041001
+tags: v1todo
+title: v1todo notes
+type: text/vnd.tiddlywiki
+
+code copied from http://learn.ractivejs.org/partials/1/
+The on.tap event does not give an index attr,  replaced with an click event and now works

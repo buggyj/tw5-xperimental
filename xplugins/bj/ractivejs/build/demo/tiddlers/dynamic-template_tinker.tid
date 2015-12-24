@@ -1,0 +1,7 @@
+created: 20151221165413553
+modified: 20151221165456112
+tags: tinker
+title: dynamic-template tinker
+type: text/vnd.tiddlywiki
+
+<<jstinkle dynamicjson Dynamic>>

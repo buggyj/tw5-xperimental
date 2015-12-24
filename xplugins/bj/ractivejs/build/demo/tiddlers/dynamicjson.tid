@@ -1,0 +1,19 @@
+created: 20151221165616247
+modified: 20151221171050591
+title: dynamicjson
+type: application/json
+
+{
+  "1": [
+    [
+      "project dynamic-template",
+      "DynamicTemplate",
+      "template2 dynamic"
+    ]
+  ],
+  "2": [
+    [
+      "codedynamic"
+    ]
+  ]
+}

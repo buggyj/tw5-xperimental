@@ -1,0 +1,11 @@
+created: 20151224075202079
+id: dynamictmpt-template
+modified: 20151224075208958
+title: dynamictmpt template 1
+type: text/ractive
+
+{{#items}}
+
+   <formElement value="{{value}}" template={{template}}. />
+
+{{/items}}
