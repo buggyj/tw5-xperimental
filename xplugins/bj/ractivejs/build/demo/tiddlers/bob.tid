@@ -1,0 +1,8 @@
+created: 20151224231022394
+modified: 20151224235210640
+tags: dynamictmpt3 bitol
+title: bob
+type: text/plain
+
+bob calling joe with parm == hi    <transclute title='joe' parm="hi"/>?<br/>
+bob calling joe with parm == low <transclute title='joe' parm="low"/>?

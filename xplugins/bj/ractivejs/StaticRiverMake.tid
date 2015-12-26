@@ -7,12 +7,14 @@ tags: $:/tags/Macro
 <$set name="exportFiltertmpt" value="[tag[$proj$]type[text/ractive]]">
 <$set name="exportFilterhtml" value="[tag[$proj$]type[text/html]]">
 <$set name="exportFilterhead" value="[tag[$proj$]tag[$:/bj/iframe/raw]]">
+<$set name="exportBitolsFilter" value="[tag[$proj$]tag[bitol]]">
 {{$:/ractivejs/templates/exporters/StaticRiver}}
 </$set> 
 </$set> 
 </$set> 
 </$set> 
-</$set> 
+</$set>
+</$set>  
 \end
 
 

@@ -9,8 +9,6 @@ extension: .html
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="generator" content="TiddlyWiki" />
-<meta name="tiddlywiki-version" content="{{$:/core/templates/version}}" />
 <meta name="format-detection" content="telephone=no">
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
 <!--~~ Raw markup ~~-->
@@ -21,12 +19,15 @@ extension: .html
 <style >
 {{$:/ractivejs/templates/exporters/StaticRiver/Content/css}}
 </style>
+<script>
+var bitols = {{$:/ractivejs/templates/exporters/StaticRiver/Content/bitols}}
+</script>
 
-<section class="tc-story-river">
+
 {{$:/ractivejs/templates/exporters/StaticRiver/Content/html}}
 {{$:/ractivejs/templates/exporters/StaticRiver/Content/tmpt||$:/core/templates/html-tiddler}}
 {{$:/ractivejs/templates/exporters/StaticRiver/Content/js||$:/core/templates/html-tiddler}}
-</section> 
+
 
 </body>
 </html>

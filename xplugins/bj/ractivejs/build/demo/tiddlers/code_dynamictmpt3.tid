@@ -1,25 +1,25 @@
 created: 20151224003259471
-modified: 20151224124110723
+modified: 20151224232810874
 tags: Ractive dynamictmpt3
 title: code dynamictmpt3
 type: application/javascript
 
-
 var DynamicTemplateComponent = Ractive.extend({
- template:" a template {{> paging(y) }}",
+ template:"{{> trans(title,field) }}",
     data:function () {
     return {
-tmps:{"jeff":"jeff testing with input <transclute y='foo' food='{{food}}'/>?","foo":"foo testing with input {{food}}"},
+tmps:bitols,
 
-        paging: function(x){
-            var template = this.get("tmps."+x );
-            if (!this.partials.paging) {
-                this.partials.paging = template;
+        trans: function(x,v){
+var field = v||"text";
+            var template = this.get("tmps."+x+".fields."+field);{//alert(x)
+            if (!this.partials.trans && template) {
+                this.partials.trans = template;
             }
-            else {
-                this.resetPartial('paging', template);
+            else 
+                if (template)this.resetPartial('trans', template);
             }
-            return 'paging';
+            return 'trans';
         }
     }},
 
@@ -32,6 +32,7 @@ tmps:{"jeff":"jeff testing with input <transclute y='foo' food='{{food}}'/>?","f
         alert('clicked!')
     }
 });
+
 var r = new Ractive({
     el: "dy3",
     template: '#dynamictmpt3',
