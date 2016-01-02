@@ -1,0 +1,17 @@
+created: 20151227221707354
+id: dropdown
+modified: 20151230131347266
+tags: dynamictmpt3 bitol
+title: dropdowntmp
+type: text/plain
+
+ <!-- dropdown menu -->
+    <select value='{{selectedIndex}}'>
+      {{#each tmps:title}}
+     <option value='{{title}}'>{{title}}</option>
+      {{/each}}
+    </select>
+
+
+
+

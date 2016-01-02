@@ -1,0 +1,12 @@
+created: 20151224231203798
+modified: 20151230194936078
+tags: dynamictmpt3 bitol
+title: dropdown
+type: text/plain
+
+<vars   index1="foo">
+dropdown<menu list="dropdowntmp" selectedIndex="{{index1}}"/>
+<transclut title="{{index1}}" />[[dynamictmpt3 template]]
+dropdown<menu list="dropdowntmp" selectedIndex="{{index}}"/>
+<transclut title="{{index}}" />
+</vars>

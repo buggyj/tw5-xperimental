@@ -1,12 +1,13 @@
 created: 20151224193215690
-modified: 20151225225248029
+modified: 20151230203836738
 tags: dynamictmpt3 bitol
 title: start
 type: text/plain
 
 <h1>My Ractive Bitols Project</h1>
-<div style="display:table"><div style="display:table-cell"> <input value='{{tm}}'/></div>
- <div style="display:table-cell">with a parameter   <input value='{{foo}}'></div></div>
+<div style="display:table"><div style="display:table-cell"> tmpt1<input value='{{title1}}'/></div>
+ <div style="display:table-cell">tmpt2<menu list="dropdowntmp" selectedIndex="{{title2}}"></div></div>
 <hr/>
-    <transclute title="{{tm}}" food="{{foo}}"/>
+    <transclut title="{{title1}}"  field="" acss ="h3 {    color: blue;}" /><hr><hr>
+    <transclut title="{{title2}}" />
        

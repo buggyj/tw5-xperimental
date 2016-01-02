@@ -1,48 +1,75 @@
 created: 20151224003259471
-modified: 20151224232810874
+modified: 20151230232438403
 tags: Ractive dynamictmpt3
 title: code dynamictmpt3
 type: application/javascript
 
-var DynamicTemplateComponent = Ractive.extend({
- template:"{{> trans(title,field) }}",
+//--------------------dropdown widget------------------------
+var Dropdown= Ractive.extend({
+ template:"{{> trans(list,field) }}",
     data:function () {
     return {
-tmps:bitols,
-
         trans: function(x,v){
-var field = v||"text";
+			var field = v||"text";
+   			var x=x||"dynamictmpt3 template dropdown";
+			var template = this.get("tmps."+x+".fields."+field);
+
+			if (!this.partials.trans && template) {
+				this.partials.trans = template;
+			}
+			else {
+				if (template)this.resetPartial('trans', template);
+			}
+			return 'trans';
+		}
+}}
+});	
+//-----------------vars widget------------------------
+  var Vars= Ractive.extend({
+ template:"{{>content}}"
+});
+//------------------transclut widget----------------
+var transclude = Ractive.extend({
+ template:"{{> trans(title,field,acss) }}",
+    onconfig: function () {var todo = true;var count = 0
+this.set( 'onlyparent', this.get("onlyparent")+count );count ++;
+
+    },  
+   css :"h3 {    color: brown;}",
+    data:function () {
+    return {
+	tmps:bitols,
+        trans: function(x,v,c){
+		var field = v||"text";
+          this.css = c;
             var template = this.get("tmps."+x+".fields."+field);{//alert(x)
+
             if (!this.partials.trans && template) {
                 this.partials.trans = template;
+
+ //this.set( 'onlyparent',  this.get("parent"));
+ this.set( 'parent', this.get("onlyparent")+x);
             }
-            else 
+            else {
                 if (template)this.resetPartial('trans', template);
+ this.set( 'parent', this.get("onlyparent")+x);}
             }
             return 'trans';
         }
-    }},
-
- components: {
-
-  transclute2: DynamicTemplateComponent
-
- },
-    clicked: function(){
-        alert('clicked!')
-    }
+    }}
 });
 
+//-------------------base environment----------
 var r = new Ractive({
     el: "dy3",
     template: '#dynamictmpt3',
-
  components: {
-
-  transclute: DynamicTemplateComponent
-
+  transclut: transclude,
+menu:Dropdown,
+   css :"h1 {    color: brown;}",
+vars:Vars
  },
  data: {
-        foo: 'foo',d1 :"assd \{{food}} xzx",aa:"what",tm:"jeff"
+        foo: 'callingfoo',title1:"callingfoo",title2:"foo",index:"callingfoo",onlyparent:"p",test:"some test data"
 }
 });

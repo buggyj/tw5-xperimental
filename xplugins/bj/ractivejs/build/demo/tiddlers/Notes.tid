@@ -1,13 +1,23 @@
 created: 20151224092246459
-modified: 20151224092747101
+modified: 20151231103128304
 tags: dynamictmpt3
 title: Notes
-type: text/vnd.tiddlywiki
+type: text/x-htmlp
 
-I need to be able to choose the bito by a name or index
-so 
-<transclute y="BITOL1]" food='{{foo}}'/>
-where BITOL1 is store in data as a table?
-maybe a function is required to call into the table?
-
-data:{datatable:{BITOL1:"A TEMPLATE {{foo}}"}}
+<p>The basic of scope of template variable is not explained - it seems that the two way template must be grounded to an item somewhere in a data section of a component. so linking two widgets via there params with {{name1}} needs a parent widget (or top context?) to define the variable 'name1' and give it an initial value. - I have <strong>defined a 'vars' widget </strong>for this. If state is need to persist then it could be defined in the top context - this does not work if you have modular design - each widget needs a name for it vars</p>
+<p>The basic style of widgets is the same as tiddlywiki, but not the templates or the macros. Probably the concept of macro is not necessary as widgets are more general?</p>
+<p>There needs to be a way to interact with data - json bitols could be used for this. Also we could have a way to&nbsp; use &lt;vars&gt; to link variable to a json tiddler. Such a tiddler could have field 'persistent' and if set would store its value - this could be in the browsers local store, or cookies, or send it via ajax.</p>
+<p>I plan to mirror the widgets I am defining in ractive in tiddlywiki by using macros. The transcult macro could be used to load a json bitols, or the vars widget could be used. Probably I will call this tiddler (really its contents when loaded) the base -</p>
+<pre><span style="font-size:14px">&lt;vars base="bitolname1 'bitol name two'"/&gt;</span></pre>
+<p>I would like to drag bitol names around for drag and drop, the type of the bitol could define what image is used for the drag.</p>
+<p>One weakness I see if that with transclusion of templates I cannot set (reset) the css. The alternative is to use components, and create a dummy piece of template in the transclut widget. This also means changing the data, so will be slow.</p>
+<p>&nbsp;</p>
+<h3>Dev tools</h3>
+<p>As part of the transclut widget we can watch our bitols (our project) and selectively update if a bitol changes? I do not know how to make ractive watch data but I think the external tiddlywiki would need to call set on the component? maybe we need to observe the template.</p>
+<p>&nbsp;</p>
+<h3>Building on the server</h3>
+<p>It is possible to use the bitol builder to build on node.js, and can be done via sending commands from the tiddlywiks nodejs version, or using the build tool.</p>
+<h3>&nbsp;</h3>
+<h3>Config bitol</h3>
+<p>this could be used when the project is packaged as a bitolist, enabling an unpacker to set the app up as a dev or not. Script elements to load needed libs etc.</p>
+<p>The bitolistic app can contain bitolists</p>

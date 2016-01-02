@@ -1,0 +1,11 @@
+created: 20151227214526428
+modified: 20151230195205393
+tags: dynamictmpt3 bitol
+title: list
+type: text/html1
+
+<ul>
+<li>item0
+<ul>[[dynamictmpt3 template]]
+<li>here0.1 {{test}}</li></ul></li>
+<li>and1</li></ul>

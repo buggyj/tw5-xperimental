@@ -1,7 +1,7 @@
-created: 20151224192012406
-modified: 20151224192020374
+created: 20151228190236265
+modified: 20151230203302870
 tags: dynamictmpt3 bitol
 title: foo
 type: text/plain
 
-foo testing with input {{food}}
+<h3>foo</h3> onlyparent= --{{onlyparent}}-- parent=--{{parent}}--

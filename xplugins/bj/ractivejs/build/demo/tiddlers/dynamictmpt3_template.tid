@@ -1,8 +1,8 @@
 created: 20151224003427878
 id: dynamictmpt3
-modified: 20151224221039625
+modified: 20151230202603182
 tags: dynamictmpt3
 title: dynamictmpt3 template
 type: text/ractive
 
-<transclute title="start" field="text" >
+<transclut title="start" field="text"  css ="h3 {    color: brown;}">

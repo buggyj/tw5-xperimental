@@ -1,0 +1,7 @@
+created: 20151224191511904
+modified: 20151230202645112
+tags: dynamictmpt3 bitol
+title: callingfoo
+type: text/plain
+
+<h3>callingfoo</h3> testing onlyparent= --{{onlyparent}}-- parent=--{{parent}}--with input <transclut title='foo' />?
