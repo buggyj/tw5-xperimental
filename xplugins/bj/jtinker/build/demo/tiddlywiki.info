@@ -1,6 +1,6 @@
 {
 	"plugins": [
-		"bj/jstinkle"
+		"bj/jtinker"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

@@ -2,7 +2,7 @@
 	"plugins": [
 		"tiddlywiki/tiddlyweb",
 		"tiddlywiki/filesystem",
-		"bj/jstinkle"
+		"bj/jtinker"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",
