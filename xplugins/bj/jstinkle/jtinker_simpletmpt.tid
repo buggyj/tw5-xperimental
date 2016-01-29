@@ -1,4 +1,4 @@
-title: $:/plugins/bj/jstinkler/simpletmpt
+title: $:/plugins/bj/jtinker/simpletmpt
 type: text/vnd.tiddlywiki
 
 <$link><$view field=title/></$link>
