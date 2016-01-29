@@ -1,0 +1,8 @@
+created: 20151210121537353
+modified: 20151210210735635
+tags: 
+title: test
+type: text/vnd.tiddlywiki
+
+<div id="examplea"></div>
+<$react  domid="example" source="react hello world"/>

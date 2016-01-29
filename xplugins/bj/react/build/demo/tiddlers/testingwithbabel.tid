@@ -1,0 +1,8 @@
+created: 20151210141317502
+modified: 20151210143419901
+tags: 
+title: testingwithbabel
+type: text/vnd.tiddlywiki
+
+<div id="example"></div>
+<$react source="react hello world"></$react>

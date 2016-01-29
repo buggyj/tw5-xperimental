@@ -1,0 +1,8 @@
+created: 20151210131635115
+modified: 20151210211544873
+tags: 
+title: test random message
+type: text/vnd.tiddlywiki
+
+<div id="greeting-divw"></div>
+<$react  domid="greeting-div1" source="random message 1"/>

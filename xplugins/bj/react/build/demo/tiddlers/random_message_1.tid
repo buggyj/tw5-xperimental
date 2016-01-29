@@ -1,0 +1,25 @@
+caption: Getting Started with React and JSX
+created: 20151210141659281
+location: http://www.sitepoint.com/getting-started-react-jsx/
+modified: 20151210220717306
+tags: 
+title: random message 1
+type: text/plain
+when: 2015/12/10 13:14:10
+
+  var Greeting = React.createClass({
+    render: function() {
+      return (
+        <p>{this.props.message}</p>
+      )
+    }
+  });
+  
+    var messages = ['Hello, World', 'Hello, Planet', 'Hello, Universe']
+    var randomMessage = messages[Math.floor((Math.random() * 3))] 
+
+    React.render(
+      <Greeting message={randomMessage}/>,
+      document.getElementById('greeting-div1')
+    )
+  
