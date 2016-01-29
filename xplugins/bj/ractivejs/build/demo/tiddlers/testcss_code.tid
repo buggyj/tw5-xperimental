@@ -1,0 +1,20 @@
+created: 20160104231650683
+modified: 20160105074918613
+tags: Ractive testcss
+title: testcss code
+type: application/javascript
+
+
+var r = new Ractive({
+el:"dom",
+     css :" .x  { color: brown;}",
+    template: '<h1 class="x">xxx</h1>{{>y}}',
+    });
+var t =  Ractive.extend({
+     css :" .x  { color: brown;}"
+    });
+var u = new t({
+el:"dom2",
+  css :" .x  { color: blue;}",
+    template: '<h1 class="x">xxx</h1>{{>y}}',
+    });

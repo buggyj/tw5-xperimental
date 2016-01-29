@@ -1,0 +1,8 @@
+created: 20160112191035473
+modified: 20160112201635025
+tags: 
+title: New Tiddler 8
+type: text/vnd.tiddlywiki
+
+<<script "testcss css" "true">>
+<$macrocall $name="script" source="testcss css" esc="true"/><<transclusion>>

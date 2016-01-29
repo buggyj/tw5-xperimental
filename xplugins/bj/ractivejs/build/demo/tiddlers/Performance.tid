@@ -1,0 +1,6 @@
+created: 20160108083100516
+modified: 20160108091234701
+title: Performance
+type: text/x-htmlp
+
+<p>With a transclusion using partials, is the dom torn down? It is possible to have a 'tabs' type widget that that takes a list of bitols and produces a switchable list of views. Basically there would be a slider type widget hiding a transclusion widget. There would need to be a list of bitols supplied as a list to the tabs widget.</p>

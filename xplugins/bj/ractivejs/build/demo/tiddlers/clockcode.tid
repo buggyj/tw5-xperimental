@@ -1,11 +1,17 @@
 created: 20151118081010283
-modified: 20151218132131339
+modified: 20160105104045661
 tags: Ractive clock
 title: clockcode
 type: application/javascript
 
-var ractive = new Ractive({
+var clock =  Ractive.extend({
+  css:document.getElementById("csstemplate").innerHTML
+});
+
+
+var ractive = new clock({
 	el: "clockcontainer",
+  css:document.getElementById("csstemplate"),
 	template: "#clocktemplate",
 	data: {
 		date: new Date(),

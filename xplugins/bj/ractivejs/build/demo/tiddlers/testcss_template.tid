@@ -1,0 +1,8 @@
+created: 20160104232225704
+id: y
+modified: 20160104232615077
+tags: testcss
+title: testcss template
+type: text/ractive
+
+<h1 class="y">yyy</h1>

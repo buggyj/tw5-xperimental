@@ -1,0 +1,84 @@
+created: 20160112103955475
+modified: 20160112184404179
+mydate: 12:January:2016
+new: 12
+tags: log
+title: LogBook/201601
+type: text/vnd.tiddlywiki
+
+!!12:January:2016
+
+
+I have upgraded to 5.1.10 and things are not working, I had a number of changes to 5.1.9 that need to be carried over.
+
+
+
+------
+
+
+
+------
+
+I am looking at 'project testcss' - changing to type from html to text - results in no apparaent change. - flexitype needs upgrading.
+
+------
+
+I now see from the output prodected from the texted type, that the contents of the script tags is being html escaped.
+
+------
+
+removing the type show the same html escaping.
+
+------
+
+I put <$script source="testcss code"/> into a tiddler - the output script has embedded html that is not escaped as viewed by the  firefox'inspect' tool.
+
+------
+
+put this in a tiddler
+`
+<$set name="exportFiltertmpt" value="[tag[testcss]type[text/ractive]]">
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/tmpt||$:/core/templates/html-tiddler}}
+`
+
+the contains of script tags are html escaped
+
+where is the rendering taking place - in the dom or the fake dom?
+
+
+------
+
+as I changed the script tag rendering (locally in my tree) in the 5.1.9 version, that the rendering is done in the fake dom.
+
+------
+
+
+
+------
+
+in the $:/core/templates/html-tiddler we have
+
+`<$view field="text" format="htmlwikified" />`
+
+which call rendertext() which uses the shadow dom. -  so there is an error in the shadow dom - innerHTML and maybe the rendering of the script tag.,
+
+------
+
+adding
+
+`					if (self.tag === "script") {
+						b.push(node.textContent);
+					} else {
+						b.push($tw.utils.htmlEncode(node.textContent));
+					}
+`
+fixes the problem.
+
+------
+
+If I use a macro instead of a widget for the script insertion, I do not need to use the view widget.
+
+That would mean that I am not depend on the fix for the script tags.
+
+
+------

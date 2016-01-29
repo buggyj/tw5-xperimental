@@ -1,0 +1,14 @@
+created: 20160105090408205
+modified: 20160106221827314
+title: Bitolapplets
+type: text/x-htmlp
+
+<p>A Bitolapplet widget can be used within a tiddlywiki. It would take either a tag (which gives membership of tiddlers to the bitolapplet) or a bitolapp tiddler. The tag could be used for development, and the bitolapplet widget would create a bitolapp tiddler.</p>
+<p>Options include embedding in an iframe (dependent on the flexitype plugin?).</p>
+<h3>Bitolapplet Widget</h3>
+<p>within the widget a collection of bitols is passed to the bitol runtime as a store, which uses its own lib of functions to access bitols.</p>
+<h3>Bitolapplets</h3>
+<p>There could be a number of bitolapplets - so the ractive runtime should be in a separate plugin and put in the head section of the tw (non iframe option).</p>
+<p>The support lib for bitolapplets needs its own store. When in dev mode this will be provided by constructing a page with the bitols build into a store. There will be an optional second store that is used as parameterized source data for the applet. Data tiddlers could be used for the data.</p>
+<p>As Ractive is a global structure, a prototype applet could be created (globally by a startup module), and then instantiated by the bitolapplet widget as various locations within the tiddlywidget tree. <strong>If the containing tiddler is then rendered as a stand alone, will it be possible to include the bitolapplet? </strong>I think that the data passed to the bitolapplet by the widget would need to be set into the dom within a script tag, along with code that would launch the bitolapplet, this could be difficult(?) with a prototype bitolapp - maybe a tag or field in the tiddler would tell tiddlywiki to include libs to its head, and have the prototype applet placed in the head, or in a script at the beginning or end of the body.</p>
+<p>&nbsp;</p>

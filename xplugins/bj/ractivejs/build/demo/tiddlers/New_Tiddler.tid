@@ -1,0 +1,8 @@
+created: 20160104235056177
+modified: 20160104235834158
+tags: 
+title: New Tiddler
+type: text/plain
+
+ <script src='https://raw.githubusercontent.com/ractivejs/ractive-transitions-slide/master/dist/ractive-transitions-slide.js'></script>
+ <script src='https://raw.githubusercontent.com/ractivejs/ractive-events-tap/master/dist/ractive-events-tap.umd.js'></script>

@@ -1,0 +1,8 @@
+created: 20160104231754802
+id: clockcss
+modified: 20160104233014219
+tags: testcss
+title: testcss css
+type: text/css
+
+.y  { color: red;}

@@ -1,11 +1,19 @@
 created: 20151118073022342
 id: clocktemplate
-modified: 20151218130144552
+modified: 20160105130228616
 tags: Ractive clock
 title: clocktemplate
 type: text/ractive
 
-<div class='clock'>
+<p>This is an imported 'foo' component: <foo/></p>
+
+<!-- optionally, include a style block (this will be encapsulated,
+     so it doesn't leak into the page) -->
+<style>
+  p { color: red; }
+</style>
+
+<div class='clock'><div class="title">Clock demo</div>
 	<div class='square'> <!-- so the SVG keeps its aspect ratio -->
 		<svg viewBox='0 0 100 100'>
 

@@ -1,5 +1,5 @@
 created: 20151224003259471
-modified: 20151230232438403
+modified: 20160104223013524
 tags: Ractive dynamictmpt3
 title: code dynamictmpt3
 type: application/javascript
@@ -41,7 +41,7 @@ this.set( 'onlyparent', this.get("onlyparent")+count );count ++;
 	tmps:bitols,
         trans: function(x,v,c){
 		var field = v||"text";
-          this.css = c;
+         
             var template = this.get("tmps."+x+".fields."+field);{//alert(x)
 
             if (!this.partials.trans && template) {
@@ -61,12 +61,13 @@ this.set( 'onlyparent', this.get("onlyparent")+count );count ++;
 
 //-------------------base environment----------
 var r = new Ractive({
+     css :"h1 {    color: brown;}",
     el: "dy3",
     template: '#dynamictmpt3',
  components: {
   transclut: transclude,
 menu:Dropdown,
-   css :"h1 {    color: brown;}",
+
 vars:Vars
  },
  data: {

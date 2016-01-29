@@ -1,0 +1,31 @@
+created: 20160111222616712
+modified: 20160111222812485
+tags: 
+title: New Tiddler 2
+type: application/javascript
+
+
+(function(module,exports,console,setInterval,clearInterval,setTimeout,clearTimeout,Buffer,$tw,require) {(function(){
+/*\
+title: $:/core/modules/parsers/wikiparser/abstractwikiparser.js
+type: application/javascript
+module-type: global
+
+base class- individual wikiparser inherit from this class
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+var AbstrWikiParser = function(specifier) {
+	
+exports["AbstrWikiParser"] = AbstrWikiParser;
+
+})();
+
+;})();
+return exports;
+})

@@ -1,0 +1,71 @@
+caption: ractivejs - Force rerendering a component - Stack Overflow
+created: 20160102134136021
+location: http://stackoverflow.com/questions/26109425/force-rerendering-a-component
+modified: 20160102134136050
+tags: RacTive/Clips clips
+title: ractivejs - Force rerendering a component - Stack Overflow
+type: text/vnd.twbase<htmlbasic
+when: 2016/1/2 13:41:36
+
+<div class="vote"><a title="This answer is useful" class="vote-up-off"></a>
+        <span class="vote-count-post " itemprop="upvoteCount">3</span>
+        <a title="This answer is not useful" class="vote-down-off">down vote</a>
+
+
+
+        <span title="loading when this answer was accepted..." class="vote-accepted-on load-accepted-answer-date">accepted</span>
+
+</div>
+
+            
+            
+
+
+
+    <div itemprop="text" class="post-text">
+<p>One way to do this would be to use the <code>reset()</code> method of the component to change the data, and include a dynamic template function to choose the appropriate template. One of the advantages is that it will not need to re-render the template unless <code>data.type</code> changes. (btw - the design behind the default for components to not re-render is that if the data is updating is more efficient to update the DOM values than to re-render everything. The falsey-block trick works to force a refresh - but that may not always be needed).</p>
+
+<p>There are a lot of details that are specific to your implementation, but <a rel="nofollow" href="http://jsfiddle.net/weophnnu/">this example</a> will give you some ideas:</p>
+
+<pre><code>var Page = Ractive.extend({
+    template: function(data, t){
+        return data.type ? t.fromId(data.type) : 'loading...'
+    }
+})
+
+var r = new Ractive({
+    el: '#container',
+    template: '#template',
+    data: { model: datas.person1 },
+    components: {
+        page: Page
+    },
+    oninit: function(){
+        var page = this.findComponent('page')
+        this.observe('model', function(n){
+            page.reset(n)
+        })
+    },
+    load: function(load){
+        this.set('model', datas[load])
+    }
+})
+</code></pre>
+
+<p>This works if there is shared-logic, or no logic, in the component that is rendering the various models. </p>
+
+<p>Often though, you want to use a different component for each model type because there are observers and event handlers specific to that view for that particular model. In that case, <a rel="nofollow" href="http://jsfiddle.net/r9tvfgse/">this example</a> up-levels the dynamism to the parent and uses an option function for the component:</p>
+
+<pre><code>var r = new Ractive({
+    el: '#container',
+    template: '#template',
+    data: datas.person1,
+    components: {
+        page: function(data){
+            return components[data.type]
+        }
+    },
+    load: function(load){
+        this.reset( datas[load] )
+    }
+})</code></pre></div>

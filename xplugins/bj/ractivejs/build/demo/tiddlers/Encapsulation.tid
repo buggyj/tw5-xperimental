@@ -1,0 +1,20 @@
+created: 20160102150814528
+modified: 20160104091208021
+tags: dynamictmpt3
+title: Encapsulation
+type: text/x-htmlp
+
+<p>within a tiddlywiki we need to interface to the bitolist. We could have a loader that interfaced or unpacked the app? There would need to be two loaders or one that was configurable, taking a dev flag.</p>
+<h3>Basic Support</h3>
+<p><strong>Bitols of type 'application/ractivejson'</strong> would be stateful and left as a javascript object when the application is running. These are located within the (maybe a separate dynamic) store.</p>
+<p><strong>Bitols of type 'application/ractive'</strong> are templates and would be in the store, these are not directly stateful - but could define some default values.</p>
+<p><span style="background-color:Yellow"><strong>Bitols of type 'application/javascript'</strong> present a problem</span> - do I have some sort of require sytem?&nbsp;Alternatively I could combine them together and put them in a script element (using separate element could give rise to more temporal initialization problems as they would be compiled separately).&nbsp;</p>
+<p><strong>Configuration</strong>: - the store of templates need to be loaded into the transclut widget-base (global read only access); other widgets will need the application/ractivejson, there needs&nbsp; to be context (vars) widgets that tie up the data in the templates; one root&nbsp;widget (maybe this could just be a context widget) which would have a root template and connect to the dom. The root widget could be an extension of the vars widget.</p>
+<p><strong>Initialization/Persistance:</strong> The json data could be exported to some adapter? or the local storage&nbsp; of the browser or cookies could be used</p>
+<p><strong>Inter-bitolist communication</strong>: this could be 'sending' on a persistent channel. Within a tiddlywiki this could be a private tiddler and using a js table linking the ends. Outside a tiddlywiki the bitolist would need to discover each other. - <span style="background-color:Yellow">how is the&nbsp; ractive-ractive adapter done?</span></p>
+<p>&nbsp;</p>
+<h3>Dev Options</h3>
+<p>For dev we need that the bitols can be modified, saved and released. For packaging we can just leave them in the bitolist, and allow creation of new items on the list.</p>
+<p>I would prefer to have an in-place editor for bitols in a bitolist.</p>
+<p>Releasing would be a matter of exporting the bitolist as an javascript object, along with a loader?</p>
+<p>&nbsp;</p>

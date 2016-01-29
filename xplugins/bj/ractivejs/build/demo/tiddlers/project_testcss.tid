@@ -1,12 +1,10 @@
-created: 20151221095705153
-draft.of: project v1todo
-draft.title: project v1todo
-modified: 20151224172907957
-tags: v1todo
+created: 20160104231423572
+modified: 20160112184527308
+tags: testcss
 template: activetmpt
-title: Draft of 'project v1todo'
+title: project testcss
 type: text/html;flexibility=tw5flexbox
 
 <$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
-<<make_ractive v1todo>>
+<<make_ractive testcss>>
 </$importvariables>

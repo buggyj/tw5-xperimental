@@ -1,0 +1,10 @@
+created: 20151213170416397
+draft.of: clockhtml
+draft.title: clockhtml
+modified: 20160111233757859
+tags: clock
+title: Draft of 'clockhtml'
+type: text/html
+
+<h2>Clock Project</h2>
+<div id ="clockcontainer"></div>

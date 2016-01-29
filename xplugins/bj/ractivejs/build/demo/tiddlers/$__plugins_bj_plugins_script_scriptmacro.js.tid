@@ -1,0 +1,49 @@
+created: 20160112190932946
+modified: 20160112200017262
+module-type: macro
+tags: 
+title: $:/plugins/bj/plugins/script/scriptmacro.js
+type: application/javascript
+
+/*\
+title: $:/plugins/bj/plugins/script/scriptmacro.js
+type: application/javascript
+module-type: macro
+*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+/*
+Information about this macro
+*/
+
+exports.name = "script";
+
+exports.params = [
+	{name: "source"},{name: "esc"}
+];
+
+/*
+Run the macro
+*/
+exports.run = function(source,esc) {
+	var text,id,transcludeMode,type,returns="<script ";
+	var tiddler = $tw.wiki.getTiddler(source);
+	if(tiddler) {	
+		text = tiddler.fields.text;
+		id = tiddler.fields.id;
+		type = tiddler.fields.type;
+	}
+	returns += id ? 'id="'+id+'" ':'';
+	returns += type ? 'type="'+type+'" ' : "";
+	returns += '>';
+	returns += text ? text : "";
+	returns += '</script>';
+    if (esc) returns = "`"+returns+"`";
+	return returns;
+};
+
+})();

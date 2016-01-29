@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/bj/plugins/assorted/script.js
+title: $:/plugins/bj/plugins/script/script.js
 type: application/javascript
 module-type: widget
 

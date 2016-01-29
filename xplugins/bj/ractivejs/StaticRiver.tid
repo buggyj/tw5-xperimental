@@ -25,8 +25,8 @@ var bitols = {{$:/ractivejs/templates/exporters/StaticRiver/Content/bitols}}
 
 
 {{$:/ractivejs/templates/exporters/StaticRiver/Content/html}}
-{{$:/ractivejs/templates/exporters/StaticRiver/Content/tmpt||$:/core/templates/html-tiddler}}
-{{$:/ractivejs/templates/exporters/StaticRiver/Content/js||$:/core/templates/html-tiddler}}
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/tmpt}}
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/js}}
 
 
 </body>
