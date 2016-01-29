@@ -1,0 +1,15 @@
+created: 20151226165213352
+draft.of: New Tiddler 2
+draft.title: New Tiddler 2
+modified: 20151226175849240
+tags: 
+title: Draft of 'New Tiddler 2'
+type: text/vnd.tiddlywiki
+
+<$list filter = "[plugin[$:/core]tag[$:/themes/tiddlywiki/vanilla/base]]"></$list>
+
+Getting Started
+<br>
+<$list filter = "[all[]tag[$:/themes/tiddlywiki/vanilla/base]]"></$list>
+
+[all[shadows]tag[$:/tags/Stylesheet]]

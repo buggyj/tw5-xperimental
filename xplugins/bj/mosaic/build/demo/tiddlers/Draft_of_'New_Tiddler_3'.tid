@@ -1,0 +1,33 @@
+created: 20151226182314784
+draft.of: New Tiddler 3
+draft.title: New Tiddler 3
+modified: 20151226210730181
+tags: 
+title: Draft of 'New Tiddler 3'
+type: text/vnd.tiddlywiki
+
+$:/plugins/bj/visualeditor" 
+subtiddler
+
+
+<$list filter = "[plugin[$:/plugins/bj/mosaic]tag[$:/tags/Stylesheet]]-[[$:/plugins/bj/mosaic/mosaic-css]]">
+
+</$list>
+
+<$list filter = "[all[shadows]tag[$:/tags/Stylesheet]]"></$list>
+<hr>
+<$list filter = "[plugin[$:/plugins/bj/mosaic]tag[$:/tags/Stylesheet]]-[[]]">
+<$transclude tiddler="$:/plugins/bj/mosaic" subtiddler=<<currentTiddler>>/>a
+</$list>
+<hr>
+{{{[[$:/plugins/bj/mosaic]tag[$:/tags/Stylesheet]plugintiddlers[]]}}}<br><br>
+
+
+<$list filter = "[plugin[$:/plugins/bj/visualeditor]tag[$:/core/wiki/rawmarkup]]">
+<$view tiddler="$:/plugins/bj/visualeditor" subtiddler=<<currentTiddler>>/>
+</$list>
+<view tiddler="" subtiddler="">
+<hr>
+<$list filter = "[plugin[$:/plugins/bj/visualeditor]tag[$:/core/wiki/rawmarkup]]-[[$:/plugin/bj/visualeditor/includelib1]]">
+<$view tiddler="$:/plugins/bj/visualeditor" subtiddler=<<currentTiddler>> field="text"/>
+</$list>
