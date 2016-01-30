@@ -1,8 +1,8 @@
 created: 20151219190408963
-modified: 20151220191338734
+modified: 20160129151549014
 tags: decorator stackoverflow tinker
 title: picker tinker
 type: text/vnd.tiddlywiki
 
-<<jstinkle pickerjson picker>>
+<<jtinker pickerjson picker>>
 

@@ -1,7 +1,7 @@
 created: 20151221165413553
-modified: 20151221165456112
+modified: 20160129151514599
 tags: tinker
 title: dynamic-template tinker
 type: text/vnd.tiddlywiki
 
-<<jstinkle dynamicjson Dynamic>>
+<<jtinker dynamicjson Dynamic>>

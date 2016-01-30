@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"bj/WidgetTreeViewer"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+	"doNotSave": [
+	],
+	"includeWikis": [
+	]
+}

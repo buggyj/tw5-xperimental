@@ -2,7 +2,7 @@ tags: $:/tags/Macro
 title: $:/plugins/bj/jtinker/jtinker
 type: text/vnd.tiddlywiki
 
-\define jtinke(json project)
+\define jtinker(json project)
 <table>
 <$taglist targeTtag=$project$ htmltag=td>
 <$link><<currentTiddler>></$link>

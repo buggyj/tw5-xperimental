@@ -1,8 +1,8 @@
 created: 20151221093522595
-modified: 20151221094039509
+modified: 20160129151617053
 tags: tinker
 title: v1todo tinker
 type: text/vnd.tiddlywiki
 
-<<jstinkle v1todojson v1todo>>
+<<jtinker v1todojson v1todo>>
 

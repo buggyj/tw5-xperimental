@@ -1,8 +1,8 @@
 created: 20160104231341477
-modified: 20160105001526035
+modified: 20160129151558915
 tags: tinker
 title: testcss tinker
 type: text/vnd.tiddlywiki
 
-<<jstinkle testcssson testcss>>
+<<jtinker testcssson testcss>>
 

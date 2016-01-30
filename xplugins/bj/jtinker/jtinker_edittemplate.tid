@@ -17,5 +17,5 @@ type: text/vnd.tiddlywiki
 border: none;
 }
 </style>
-<$edit-text class=edtithistemplate tiddler=<<currentTiddler>>/>
+<$edit-codemirror class=edtithistemplate tiddler=<<currentTiddler>>/>
 </div>

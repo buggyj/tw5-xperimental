@@ -1,8 +1,8 @@
 created: 20151218001756264
-modified: 20151220191319031
+modified: 20160129151504964
 tags: tinker
 title: clock tinker
 type: text/vnd.tiddlywiki
 
-<<jstinkle clockjson clock>>
+<<jtinker clockjson clock>>
 
