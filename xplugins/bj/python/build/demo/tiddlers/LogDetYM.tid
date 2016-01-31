@@ -1,0 +1,12 @@
+created: 20130913210000000
+creator: Yours truly
+modified: 20160107121830814
+modifier: Yours truly
+tags: LogConfigOld
+title: LogDetYM
+type: text/vnd.tiddlywiki
+
+[
+{"#detail":"[[((*@category1stWord*))/((*@yearMonth*))]]\n\n"},
+{"#newdata": "((*!$mydate==@yearMonth*??*#detail*))"}
+]

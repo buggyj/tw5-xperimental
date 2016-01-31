@@ -1,0 +1,3 @@
+title: $:/ractivejs/templates/scriptwidget
+
+<$macrocall $name="script" source=<<currentTiddler>> esc="true"/>

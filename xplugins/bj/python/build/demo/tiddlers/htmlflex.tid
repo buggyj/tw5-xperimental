@@ -1,0 +1,13 @@
+created: 20151116131453396
+modified: 20151116132807353
+tags: 
+title: htmlflex
+type: application/json
+
+{
+  "parserrules": {
+    "sandbox": "allow-same-origin allow-scripts allow-popups allow-forms"
+  },
+  "baserules": "",
+  "preparser": ""
+}

@@ -1,0 +1,29 @@
+title: $:/python/templates/exporters/StaticRiver
+tags: $:/tags/Exporter
+description: {{$:/language/Exporters/StaticRiver}}
+extension: .html
+
+
+\rules only filteredtranscludeinline transcludeinline
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<!--~~ Raw markup ~~-->
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/head}}
+
+</head>
+<body class="tc-body">
+<style >
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/css}}
+</style>
+
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/html}}
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/tmpt}}
+{{$:/ractivejs/templates/exporters/StaticRiver/Content/js}}
+
+
+</body>
+</html>

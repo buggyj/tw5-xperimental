@@ -1,0 +1,9 @@
+created: 20160129211103575
+modified: 20160130083520732
+tags: 
+title: debugout
+type: text/vnd.tiddlywiki
+
+<$set name="test" value="[tag[test]]">
+{{trytempt}}
+</$set>

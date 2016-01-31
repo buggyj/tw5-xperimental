@@ -1,0 +1,7 @@
+created: 20160130202731165
+modified: 20160131074444121
+tags: 
+title: treeview
+type: text/vnd.tiddlywiki
+
+<$widget-tree-viewer items='["parseTreeNode","children","variables" ]' />

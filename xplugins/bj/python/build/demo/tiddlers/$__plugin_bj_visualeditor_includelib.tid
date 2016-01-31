@@ -1,0 +1,8 @@
+created: 20160105190217494
+description: load the external lib
+modified: 20160107115603634
+tags: $:/core/wiki/rawmarkup
+title: $:/plugin/bj/visualeditor/includelib
+type: text/vnd.tiddlywiki
+
+<script src="http://127.0.0.1/libs/ckeditor/ckeditor.js"></script>

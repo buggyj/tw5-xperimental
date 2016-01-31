@@ -1,0 +1,14 @@
+created: 20151120120145178
+modified: 20160129203457483
+tags: pythontest
+title: pythonruntime
+type: application/javascript
+
+function outf(text) { 
+    var mypre = document.getElementById("output"); 
+    mypre.innerHTML = mypre.innerHTML + text; 
+} 
+
+var code = document.getElementById("pythoncode").textContent;
+Sk.configure({output:outf}); 
+Sk.importMainWithBody("<stdin>",false,code); 

@@ -1,0 +1,12 @@
+created: 20141105192404406
+modified: 20141105192847664
+tags: TiddlyClipRule ClipListConfig
+title: WebSnapRule
+type: text/vnd.tiddlywiki
+
+\rules only table wikilink prettylink
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|((*@pageTitle*))/image|((*@exists(@snap)*??*@snap*))|ClippedImage||{"$type":"image/png"},{"$when":"((*@dateTimeShort*))"},{"$location":"((*@pageRef*))"}|[[SnapRuleMode]]|
+|((*@pageTitle*))|((*@pageRef*))\n\n{{((*@pageTitle*))/image}}\n\n((*@text*))\n\n|((*@category1stWord*))/Clips|{"$location":"((*@pageRef*))"},{"$caption":"((*@pageTitle*))"},{"$when":"((*@dateTimeShort*))"},{"$type":"text/vnd.twbase<htmlbasic"}||inc|
+|((*@category1stWord*))/Clips|[[List_Clip_Caption]]|ClipLists|||once|

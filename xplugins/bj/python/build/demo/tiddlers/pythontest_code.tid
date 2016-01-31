@@ -1,0 +1,9 @@
+created: 20151120115901622
+id: pythoncode
+modified: 20160131083114139
+tags: pythontest
+title: pythontest code
+type: text/python
+
+for i in range(2):
+    print "number", i

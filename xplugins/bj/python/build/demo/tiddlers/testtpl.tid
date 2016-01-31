@@ -1,0 +1,7 @@
+created: 20160129211303437
+modified: 20160129212107085
+tags: 
+title: testtpl
+type: text/vnd.tiddlywiki
+
+<$view field ="text">

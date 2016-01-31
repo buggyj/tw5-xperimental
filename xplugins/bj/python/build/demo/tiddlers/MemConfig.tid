@@ -1,0 +1,13 @@
+changecount: 1
+created: 20160108150003225
+creator: Your Name
+modified: 20160108150523043
+modifier: Your Name
+tags: LogConfigOld
+title: MemConfig
+type: null
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|notused|((*@web*))|((*@category1stWord*))/Clips|{"$location":"((*@pageRef*))"},{"$caption":"((*@pageTitle*))"},{"$when":"((*@dateTimeShort*))"},{"$type":"text/vnd.twbase<htmlbasic"}||inc|
+|((*@category1stWord*))/((*@yearMonth*))|<<listbytime limit:30 tag:"test" format:"DD/MM/YYYY">>||{"$mydate":"((*@dateComma*))"},{"#1":"1"},{"$new":"((*$new+#1*))"}|{"$mydate":"((*@dateComma*))"}, {"$new":"0"}|once|
+|((*@category1stWord*))|[[LogDetYM]]||{"$mydate":"((*@yearMonth*))"}|{"$mydate":"((@dateComma*))"}|append add|

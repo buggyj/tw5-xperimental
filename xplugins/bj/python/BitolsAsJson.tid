@@ -1,0 +1,41 @@
+title: $:/ractivejs/macros/biltolastiddlers.js
+type: application/javascript
+module-type: macro
+
+//Macro to output tiddlers matching a filter to JSON
+
+
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+"use strict";
+
+/*
+Information about this macro
+*/
+
+exports.name = "bitolsasjsons";
+
+exports.params = [
+	{name: "filter"}
+];
+
+/*
+Run the macro
+*/
+exports.run = function(filter) {
+	var tiddlers = this.wiki.filterTiddlers(filter),
+		data = {};
+	for(var t=0;t<tiddlers.length; t++) {
+		var tiddler = this.wiki.getTiddler(tiddlers[t]);
+		if(tiddler) {
+			data[tiddler.fields.title] = tiddler;
+		}
+	}
+	return JSON.stringify(data,null,$tw.config.preferences.jsonSpaces);
+};
+
+})();
+
+

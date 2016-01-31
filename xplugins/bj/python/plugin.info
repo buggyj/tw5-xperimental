@@ -1,0 +1,10 @@
+{
+	"title": "$:/plugins/bj/python",
+	"description": "support files to build python in browser apps",
+	"author": "JeffreyWilkinson",
+	"version": "0.0.0",
+	"list": "license",
+	"core-version": ">=5.1.10",
+	"source": "https://github.com/buggyj/TW5-xperimental",
+	"plugin-type": "plugin"
+}

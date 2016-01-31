@@ -1,0 +1,22 @@
+author: JeffreyWilkinson
+core-version: >=5.1.9
+created: 20151213080808937
+dependents: 
+description: script widget
+list: readme license
+plugin-type: plugin
+source: https://github.com/buggyj/TW5-stuff
+title: $:/plugins/bj/script
+type: application/json
+version: 0.0.1
+
+{
+    "tiddlers": {
+        "$:/plugins/bj/plugins/assorted/script.js": {
+            "text": "/*\\\ntitle: $:/plugins/bj/plugins/assorted/script.js\ntype: application/javascript\nmodule-type: widget\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\"use strict\";\n\nvar Widget = require(\"$:/core/modules/widgets/widget.js\").widget;\n\nvar ScriptWidget = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nScriptWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nScriptWidget.prototype.render = function(parent,nextSibling) {\n\tthis.parentDomNode = parent;\n\tthis.computeAttributes();\n\tthis.execute();\n\t\t// Create our element\n\tvar domNode = this.document.createElement(\"script\");\n\tif (this.id) domNode.setAttribute(\"id\",this.id);\n\tif (this.type) domNode.setAttribute(\"type\",this.type);\n\tvar textNode = this.document.createTextNode(this.text);\n\tdomNode.insertBefore(textNode,nextSibling);\n\tthis.domNodes.push(textNode);\n\tparent.insertBefore(domNode,null);\n\tthis.domNodes.push(domNode);\n};\n\n/*\nCompute the internal state of the widget\n*/\nScriptWidget.prototype.execute = function() {\n\t// Get our parameters\n\tvar self = this;\n\tthis.source = this.getAttribute(\"source\");\n\tvar tiddler = $tw.wiki.getTiddler(this.source);\n\tif(tiddler) {\t\n\t\tthis.text = tiddler.fields.text;\n\t\tthis.id = tiddler.fields.id;\n\t\tthis.transcludeMode = tiddler.fields.transcludeMode;\n\t\tthis.type = tiddler.fields.type;\n\t}\n\tthis.id = this.getAttribute(\"id\")||this.id ;\n\tthis.transcludeMode = this.getAttribute(\"mode\")||this.transcludeMode;\n\tthis.type = this.getAttribute(\"type\")||this.type;\n};\n\n/*\nSelectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering\n*/\nScriptWidget.prototype.refresh = function(changedTiddlers) {\n\tvar changedAttributes = this.computeAttributes();\n\tif((Object.keys(changedAttributes).length) || changedTiddlers[this.source]) {\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t} else {\n\t\treturn false;\t\t\n\t}\n};\n\nexports.script = ScriptWidget;\n\n})();\n",
+            "title": "$:/plugins/bj/plugins/assorted/script.js",
+            "type": "application/javascript",
+            "module-type": "widget"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+created: 20160129151847844
+modified: 20160129151851627
+title: $:/plugins/bj/jtinker/edittemplate
+type: text/vnd.tiddlywiki
+
+<div style="float:top;vertical-align: top;">
+<$link><$view field=title/></$link>
+<hr>
+<style>
+.edtithistemplate{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float:top;
+	width: 100%;
+	max-height:300px;
+	resize: vertical;
+	vertical-align: top;
+border: none;
+}
+</style>
+<$edit-codemirror class=edtithistemplate tiddler=<<currentTiddler>>/>
+</div>

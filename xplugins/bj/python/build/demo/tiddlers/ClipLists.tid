@@ -1,0 +1,27 @@
+created: 20140905095924740
+list: T5W $:/plugins/bj/taglist [[2014/9/5 08:31:30]]
+modified: 20150207224240394
+tags: ClipListConfig
+title: ClipLists
+type: text/vnd.tiddlywiki
+
+\define controltcc(var1)
+<div style ="float:left;">
+<$linkcatcher  set=tcc1 setTo={{!!title}} >
+<$link dragoverclic="yes"><span class="tc-taglist"><$view field="title"/></span></$link></$linkcatcher></div>
+\end
+\define links(x)
+List<$link title= $x$> $x$ </$link> content:
+\end
+
+!!Lists
+<$taglist class="btn btn-primary"  targeTtag="ClipLists" nodrop="true" ><<controltcc null>></$taglist>
+
+<br>
+<hr>
+
+!! List of<$link to={{tcc1}}> {{tcc1||plain}}</$link>
+
+<$refresh msg="refresh">
+<$taglist class="btn btn-primary" targeTtag={{tcc1}} template=listtemplate ></$taglist>
+</$refresh>
