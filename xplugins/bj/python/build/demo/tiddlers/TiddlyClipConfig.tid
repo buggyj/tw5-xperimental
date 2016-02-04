@@ -1,5 +1,5 @@
 created: 20141105001056774
-modified: 20151202111651601
+modified: 20160131130954563
 title: TiddlyClipConfig
 type: text/vnd.tiddlywiki
 
@@ -17,7 +17,7 @@ type: text/vnd.tiddlywiki
 !ClipLists
 |!Category|!Tip|!Tags|!Rule Tid|!Modes|
 |highlight||||highlight|
-|RacTive||clips|WebLstRule||
+|CheatSheet||clips|WebLstRule||
 |TW5-Equivalents||clips|WebLstRule||
 |SuperChargeYourSelf||clips|WebLstRule||
 |MarkDown||clips|WebLstRule||

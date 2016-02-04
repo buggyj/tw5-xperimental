@@ -1,11 +1,11 @@
 created: 20150821143935581
 list: [[CSS Macros P.O.C and Limitations]] [[animation by areas]] [[Classed Tiddlers]] [[css widgets]] DataTableTiddler [[folding display mode (zooming)]] [[Hotkey Class Switching]] [[Level of tiddlytec Applications]] Lisence [[Multiddlers and Sections]] OffTheWall [[Page Multitiddlers]] [[Playwidget using Messages.]] Quasi-Modo [[Quasi-static Sites]] [[Quasi-static Sites 2]] [[SideBar Inside Story]] Tiddlets [[TiddlyWiki5 with Additional SubModules]] TiddlyWikiCommunityWiki TopLevelSite
-modified: 20151220191827150
+modified: 20160131112006874
 tags: Lists
 title: tinker
 type: text/vnd.tiddlywiki
 
-<h2>Ractive.js Playground Projects</h2>
+<h2>python.js Playground Projects</h2>
 <$refresh msg="refresh">
 <ul><$taglist class='btn btn-primary'>
 <li>{{!!title||listtemplate}}</li></$taglist></ul>

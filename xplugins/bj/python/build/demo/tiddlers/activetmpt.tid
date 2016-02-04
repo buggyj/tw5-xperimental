@@ -1,5 +1,5 @@
 created: 20151217165732761
-modified: 20160130203353163
+modified: 20160131125730133
 tags: 
 title: activetmpt
 type: text/vnd.tiddlywiki
@@ -25,20 +25,14 @@ type: text/vnd.tiddlywiki
 </style>
 <$link><$view field=title/></$link>
 
-<$reveal type="match" state="$:/state/SampleReveal1" text="show">
-<$button set="$:/state/SampleReveal1" setTo="hide">Reset</$button><$button>
+
+<$button><$action-setfield reset="reset"/>Reset</$button>
+<$button>
 <$action-fullscreen go_up="8"/>
-Click me!
+Maximise!
 </$button>
-<hr><$set name="treedebug" value="treedebug">
-<div class="iframeframe">{{}}</div></$set>
-</$reveal>
-<$reveal type="nomatch" state="$:/state/SampleReveal1" text="show">
-<$button set="$:/state/SampleReveal1" setTo="show">Reset</$button><$button>
-<$action-fullscreen go_up="8"/>
-Click me!
-</$button>
+
+
+
 <hr>
-<div class="iframeframe">{{}}</div>
-</$reveal>
-<hr>
+{{}}

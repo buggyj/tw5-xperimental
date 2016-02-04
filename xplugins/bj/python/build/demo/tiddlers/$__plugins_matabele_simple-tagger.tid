@@ -1,0 +1,57 @@
+author: Matabele
+core-version: >=5.1.10
+created: 20160123060240162
+creator: Matabele
+description: Utility for editing tags
+modified: 20160131115751339
+modifier: Matabele
+plugin-type: plugin
+tags: 
+title: $:/plugins/matabele/simple-tagger
+type: application/json
+version: 0.0.18
+
+{
+    "tiddlers": {
+        "$:/plugins/matabele/tagger-panel": {
+            "text": "\\define table()\n<table class=\"tagmanager\">\n<$list filter=\"[all[current]tags[]!is[system]sort[title]]\">\n<tr>\n<td><$edit-text field=\"color\" tag=\"input\" type=\"text\" class=\"settings-narrow\"/><span title=\"colour picker\"><$edit-text field=\"color\" tag=\"input\" type=\"color\" class=\"color-picker\"/></span></td><td><span title=\"select emoji\"><$transclude tiddler=\"$:/plugins/matabele/tagger-pill\"/></span><span title=\"delete icon\" class=\"delete-icon\"><$button class=\"tc-btn-invisible\"><$action-setfield icon=\"\"/>{{$:/core/images/close-button}}</$button></span><span title=\"select system icon\" class=\"sys-icon\"><$transclude tiddler=\"$:/plugins/matabele/tagger-sysbtn\"/></span></td>\n</tr>\n</$list>\n</table>\n\\end\n\\define iconEditor(title)\n<$linkcatcher to=\"$title$!!icon\">\n<$list filter=\"[tag[$:/tags/Emoji]sort[title]]\"><div class=\"other-icons\"><$link to={{!!title}}><$transclude/></$link></div></$list>\n</$linkcatcher>\n\\end\n\\define sysiconEditor(title)\n<$linkcatcher to=\"$title$!!icon\">\n<$list filter=\"[all[shadows+tiddlers]tag[$:/tags/Image]sort[title]]\"><div class=\"system-icons\"><$link to={{!!title}}><$transclude/></$link></div></$list>\n</$linkcatcher>\n\\end\n\\define qualifyTitle(title)\n$title$$(currentTiddler)$\n\\end\n\\define newInfo() <<tagger>> $(oldInfo)$\n\\define tagger()\n<table class=\"hovertable\">\n<tr><td><$button class=\"tc-btn-invisible\" tooltip=\"add tags\"><$action-listops $tags=\"+[append{$:/state/TagsTemp!!list}]\"/>{{$:/core/images/new-button}}</$button>\n<$button class=\"tc-btn-invisible\" tooltip=\"remove tags\"><$action-listops $tags=\"+[remove{$:/state/TagsTemp!!list}]\"/>{{$:/core/images/close-button}}</$button></td>\n<td><$edit-text tiddler=\"$:/state/TagsTemp\" field=\"list\" size=\"70\" class=\"settings\">Enter Tags</$edit-text></td></tr>\n<tr><td><$button class=\"tc-btn-invisible\" tooltip=\"get tags\"><$action-listops $tiddler=\"$:/state/TagsTemp\" $field=\"list\" $filter=\"[all[current]tags[]]\" />{{$:/core/images/unfold-button}}</$button>\n<$button class=\"tc-btn-invisible\" tooltip=\"delete all\"><$action-listops $tags=\"+[[]]\" />{{$:/core/images/close-all-button}}</$button></td>\n<td><$list filter=\"[is[current]tags[]]\" variable=\"thistag\">\n<$button class=\"tc-btn-invisible\" tooltip=\"delete tag\" class=\"tag-pills\">\n<$action-listops $tags=\"-[<thistag>]\"/>\n<$text text=<<thistag>>/></$button>\n</$list></td></tr></table>\n\\end\n<<tagger>>\n\n<<table>>\n\n<$reveal type=\"nomatch\" state=\"$:/state/TagsTemp!!temp\" text=\"reset\">\n<$button set=\"$:/state/TagsTemp!!temp\" setTo=\"reset\" class='tc-btn-invisible' tooltip=\"settings\">\n{{$:/core/images/options-button}}</$button></$reveal>\n<$reveal type=\"match\" state=\"$:/state/TagsTemp!!temp\" text=\"reset\">\n<table class=\"hovertable\">\n<tr><td><$button set=\"$:/state/TagsTemp!!temp\" setTo=\"\" class='tc-btn-invisible' tooltip=\"hide\">{{$:/core/images/close-button}}</$button></td>\n<td>Width: <$edit-text tiddler=\"$:/plugins/matabele/tagger-stylesheet\" field=\"settings-width\" class=\"settings-narrow\"/></td><td>Colour: <$edit-text tiddler=\"$:/plugins/matabele/tagger-stylesheet\" field=\"colour\" class=\"settings-narrow\"/></td>\n\n<td><$reveal type=\"nomatch\" state=\"$:/state/TagsTemp!!button1\" text=\"reset\">\n<$set name=\"oldInfo\" value={{$:/core/ui/TiddlerInfo!!text}}>\n<$button set=\"$:/state/TagsTemp!!button1\" setTo=\"reset\" class='tc-btn-invisible'>\n<$action-setfield $tiddler=\"$:/core/ui/TiddlerInfo\" $field=\"text\" $value=<<newInfo>>/>\nInstall Above</$button></$set></$reveal>\n<$reveal type=\"match\" state=\"$:/state/TagsTemp!!button1\" text=\"reset\">\n<$button set=\"$:/state/TagsTemp!!button1\" setTo=\"\" class='tc-btn-invisible'>\n<$action-deletetiddler $tiddler=\"$:/core/ui/TiddlerInfo\"/>\nUninstall Above</$button></$reveal></td>\n\n<td><$reveal type=\"nomatch\" state=\"$:/state/TagsTemp!!button2\" text=\"reset\">\n<$button set=\"$:/state/TagsTemp!!button2\" setTo=\"reset\" class='tc-btn-invisible'>\n<$action-setfield $tiddler=\"$:/config/TiddlerInfo/Default\" $field=\"text\" $value=\"$:/plugins/matabele/tagger-panel\"/>\nSet Default Tab->Tagger</$button></$reveal>\n<$reveal type=\"match\" state=\"$:/state/TagsTemp!!button2\" text=\"reset\">\n<$button set=\"$:/state/TagsTemp!!button2\" setTo=\"\" class='tc-btn-invisible'>\n<$action-setfield $tiddler=\"$:/config/TiddlerInfo/Default\" $field=\"text\" $value=\"$:/core/ui/TiddlerInfo/Fields\"/>\nSet Default Tab->Fields</$button></$reveal></td>\n</tr></table>\n</$reveal>",
+            "title": "$:/plugins/matabele/tagger-panel",
+            "tags": "$:/tags/TiddlerInfo $:/tags/Macro",
+            "modifier": "Matabele",
+            "modified": "20160129162925489",
+            "creator": "Matabele",
+            "created": "20160119153820855",
+            "caption": "Tagger"
+        },
+        "$:/plugins/matabele/tagger-stylesheet": {
+            "created": "20160126093059903",
+            "creator": "Matabele",
+            "text": "\\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline\n\n/*TABLES*/\ntable.hovertable, table.tagmanager {\n\tfont-family: verdana,arial,sans-serif;\n\tfont-size:12px;\n        color:#333333;\n\tborder-width: 1px;\n        border-style: solid;\n        padding: 2px;\n\tborder-color: #999999;\n        border-collapse: collapse;    \n}\ntable.hovertable{\n       width: calc(100% - 5px);\n}\ntable.hovertable tr, table.tagmanager tr {\n\tbackground-color:{{!!colour}};\n        padding: 2px;\n}\ntable.hovertable tr:hover, table.tagmanager tr:hover {\n          border: 1px solid #387A79;\n}\ntable.hovertable td, table.tagmanager td {\n\tborder-color: #a9c6c9;\n        border-style: solid;\n        border-width: 1px;\n        padding: 2px;\n}\ntable.hovertable th, table.tagmanager th {\n\tborder-color: #a9c6c9;\n        border-style: solid;\n        border-width: 1px;\n        padding: 2px;\n}\n\n/*TEXTBOX*/\n.tag-pills {\n        height: 19px;\n\tborder-radius: 5px;\n\tborder: 1px solid #ccc;\n\tpadding: 2px;\n\tfont-weight: 200;\n\tfont-size: 12px;\n        background-color: #ffffff;\n\tfont-family: Verdana;\n\tbox-shadow: 1px 1px 3px #ccc;\n}\n:hover.tag-pills {\n        border: 1px solid #aaa;\n\tbox-shadow: 2px 3px 5px #ccc;\n}\ninput[type='text'].settings, input[type='text'].settings-narrow {\n\theight: 23px;\n\tborder-radius: 3px;\n\tborder: 1px solid #CCC;\n\tpadding: 5px;\n\tfont-weight: 200;\n\tfont-size: 14px;\n\tfont-family: Verdana;\n\tbox-shadow: 1px 1px 3px #ccc;\n}\ninput[type='text'].settings{\n       width: {{!!settings-width}};\n}\ninput[type='text'].settings-narrow {\n       width: 100px;\n}\ninput[type='text']:hover.settings, input[type='text']:hover.settings-narrow {\n\tborder: 1px solid #aaa;\n\tbox-shadow: 2px 3px 5px #ccc;\n}\n\n/*COLOR PICKER*/\n.color-picker {\n        opacity: 30%;\n        display: block;\n        width: 10px;\n        height: 22px;\n        border: none;\n        float: right;\n}\n\n/*DROPDOWN*/\n.dropdown-icons {\n       font-size: 0.5em;\n       line-height: 2; \n       margin: 1px; \n       border: 1px solid #bbb;\n       background: #bbb;\n       color: #ffffff;\n       border-radius: 2em; \n       width: 40px;\n}\n.other-icons:hover {\n       border: 1px solid #fff;\n       -moz-box-shadow:    inset 0 0 5px #fff;\n       -webkit-box-shadow: inset 0 0 5px #fff;\n       box-shadow:         inset 0 0 5px #fff;\n}\n.other-icons {\n       font-size: 3em;\n       padding: 0em 0em 0em 0.5em;\n}\n.system-icons {font-size: 3em;\n       padding: 0em 0em 0em 0.3em;\n       fill: #fff;\n}\n.system-icons:hover { fill: #000; }\n.delete-icon {float: right;}\n.sys-icon {float: right;}",
+            "type": "text/vnd.tiddlywiki",
+            "title": "$:/plugins/matabele/tagger-stylesheet",
+            "tags": "$:/tags/Stylesheet one two three",
+            "settings-width": "555px",
+            "revision": "0",
+            "modifier": "Matabele",
+            "modified": "20160127164313965",
+            "colour": "<<colour tab-background>>",
+            "bag": "default"
+        },
+        "$:/plugins/matabele/tagger-pill": {
+            "text": "\\define tag-styles()\nbackground-color:$(backgroundColor)$;\nfill:$(foregroundColor)$;\ncolor:$(foregroundColor)$;\n\\end\n\\define tag-body-inner(colour,fallbackTarget,colourA,colourB)\n<$vars foregroundColor=<<contrastcolour target:\"\"\"$colour$\"\"\" fallbackTarget:\"\"\"$fallbackTarget$\"\"\" colourA:\"\"\"$colourA$\"\"\" colourB:\"\"\"$colourB$\"\"\">>\nbackgroundColor=\"\"\"$colour$\"\"\">\n<$button popup=<<qualify \"$:/state/popup/tag\">> class=\"tc-btn-invisible tc-tag-label\" style=<<tag-styles>>>\n<$transclude tiddler={{!!icon}}/> <$view field=\"title\" format=\"text\" />\n</$button>\n<$reveal state=<<qualify \"$:/state/popup/tag\">> type=\"popup\" position=\"below\" animate=\"yes\">\n<div class=\"dropdown-icons\">\n<$macrocall $name=\"iconEditor\" title={{!!title}}/>\n</div>\n</$reveal>\n</$vars>\n\\end\n\\define tag-body(colour,palette)\n<span class=\"tc-tag-list-item\">\n<$macrocall $name=\"tag-body-inner\" colour=\"\"\"$colour$\"\"\" fallbackTarget={{$palette$##tag-background}} colourA={{$palette$##foreground}} colourB={{$palette$##background}}/>\n</span>\n\\end\n\n<$macrocall $name=\"tag-body\" colour={{!!color}} palette={{$:/palette}}/>",
+            "title": "$:/plugins/matabele/tagger-pill",
+            "tags": "",
+            "modified": "20160127161331920",
+            "created": "20160126133911271"
+        },
+        "$:/plugins/matabele/tagger-sysbtn": {
+            "created": "20160127044705179",
+            "creator": "Matabele",
+            "text": "<span class=\"tc-tag-list-item\">\n<$button popup=<<qualify \"$:/state/popup/tag\">> class=\"tc-btn-invisible\">\n{{$:/core/images/chevron-down}}\n</$button>\n<$reveal state=<<qualify \"$:/state/popup/tag\">> type=\"popup\" position=\"below\" animate=\"yes\">\n<div class=\"dropdown-icons\">\n<$macrocall $name=\"sysiconEditor\" title={{!!title}}/>\n</div>\n</$reveal>\n</span>",
+            "title": "$:/plugins/matabele/tagger-sysbtn",
+            "tags": "",
+            "modified": "20160127164635849",
+            "modifier": "Matabele"
+        }
+    }
+}

@@ -2,7 +2,7 @@
 title: $:/plugins/bj/plugins/script/scriptmacro.js
 type: application/javascript
 module-type: macro
-*/
+\*/
 (function(){
 
 /*jslint node: true, browser: true */
