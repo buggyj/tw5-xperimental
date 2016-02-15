@@ -2,8 +2,8 @@
 	"title": "$:/plugins/bj/widgettreeviewer",
 	"description": "",
 	"author": "Jeffrey Wilkinson (BJ)",
-	"version": "0.0.1",
-	"core-version": ">=5.0.13",
-	"source": "https://github.com/buggyj/TW5-jsoneditor/tree/widget-tree-viewer",
+	"version": "0.0.2",
+	"core-version": ">=5.1.11",
+	"source": "https://github.com/buggyj/TW5-xperimental",
 	"plugin-type": "plugin"
 }
