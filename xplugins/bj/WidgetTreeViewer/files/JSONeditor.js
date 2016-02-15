@@ -141,7 +141,7 @@ JSONeditor.treeBuilder=function(treeDivName,f,json,imagepath,format,items){
 			this.baseDiv=divName
 		} //if (z==2) return;
 		var t=(x && this.isArray(x))?"array":typeof x
-		y=y===undefined?"json":y
+		y=y===undefined?"start":y
 		z=z||0
 		this.partMem[z]='["'+y+'"]'
 		if(typeof y!="number" && y.replace(/\w/g,'')===""){this.partMem[z]="."+y}
@@ -153,7 +153,7 @@ JSONeditor.treeBuilder=function(treeDivName,f,json,imagepath,format,items){
 		if(t=="object"){
 			if (!!x["parseTreeNode"]) {
 				if (typeof x["parseTreeNode"]!=="object");
-				else this.JSONbuild(false,"x","name="+x.parseTreeNode.type,z+1);
+				else this.JSONbuild(false,"x","widget="+x.parseTreeNode.type,z+1);
 				//x["name_xtransclude"]="x";
 			}		
 			for(var i in x){
