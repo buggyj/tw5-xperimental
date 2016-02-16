@@ -1,5 +1,5 @@
 created: 20140723223900482
-modified: 20160215183146503
+modified: 20160216114830638
 title: WidgetTreeViewer
 type: text/vnd.tiddlywiki
 
@@ -27,21 +27,62 @@ The view is created upon rendering and is static and there will be a delay while
 |items  |Json list containing the names of widget fields to be displayed.  |
 |name |String specifying the variable name and content surrounding the wikitext to be viewed|
 
-! Example
+! Example - code
 ```
 <$set name="notify" value="notify">
 <h3>widgets of testcontent</h3>
 
-<$button message="tm-notify" param="SampleNotification">Display sample notification</$button>
+<$button set="$:/state/SampleReveal2" setTo="show">Show me</$button>
+<$button set="$:/state/SampleReveal2" setTo="hide">Hide me</$button>
+
+<$reveal type="match" state="$:/state/SampleReveal2" text="show">
+
+! This is the revealed content
+And this is some text
+
+</$reveal>
 </$set>
 
-Here we view the rendered widget tree using:-
 
-<$widget-tree-viewer items='["parseTreeNode","children","variables" ]' name="notify" />
-```
-<$set name="notify" value="notify">
-<h3>widgets of testcontent</h3>
+----
 
-<$button message="tm-notify" param="SampleNotification">Display sample notification</$button>
-</$set>
+<$button set="$:/state/SampleReveal1" setTo="show">push to see tree</$button>
+
+
+<$reveal type="match" state="$:/state/SampleReveal1" text="show">
+<$button set="$:/state/SampleReveal1" setTo="hide">close</$button>
 <$widget-tree-viewer items='["parseTreeNode","children","variables" ]'  name="notify" />
+
+</$reveal>
+
+
+```
+
+! Example - rendered
+----
+<$set name="notify" value="notify">
+<h3>widgets of testcontent</h3>
+
+<$button set="$:/state/SampleReveal2" setTo="show">Show me</$button>
+<$button set="$:/state/SampleReveal2" setTo="hide">Hide me</$button>
+
+<$reveal type="match" state="$:/state/SampleReveal2" text="show">
+
+! This is the revealed content
+And this is some text
+
+</$reveal>
+</$set>
+
+----
+
+<$button set="$:/state/SampleReveal1" setTo="show">push to see widget tree</$button>
+
+
+<$reveal type="match" state="$:/state/SampleReveal1" text="show">
+<$button set="$:/state/SampleReveal1" setTo="hide">close</$button>
+<$widget-tree-viewer items='["parseTreeNode","children","variables" ]'  name="notify" />
+
+</$reveal>
+
+
