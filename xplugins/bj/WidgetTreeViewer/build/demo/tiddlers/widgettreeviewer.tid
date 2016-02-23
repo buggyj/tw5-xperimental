@@ -1,5 +1,5 @@
 created: 20140723223900482
-modified: 20160216114830638
+modified: 20160217202908179
 title: WidgetTreeViewer
 type: text/vnd.tiddlywiki
 
@@ -25,11 +25,13 @@ The view is created upon rendering and is static and there will be a delay while
 
 |!Attribute |!Description |
 |items  |Json list containing the names of widget fields to be displayed.  |
-|name |String specifying the variable name and content surrounding the wikitext to be viewed|
+|name |String specifying the variable name 'set'  around the wikitext to be viewed (note that the variables content must be the same as the name, like x='x')|
 
 ! Example - code
 ```
 <$set name="notify" value="notify">
+
+<!--------- this is content to view as a tree--------->
 <h3>widgets of testcontent</h3>
 
 <$button set="$:/state/SampleReveal2" setTo="show">Show me</$button>
@@ -41,6 +43,8 @@ The view is created upon rendering and is static and there will be a delay while
 And this is some text
 
 </$reveal>
+<!------------------------------------------------------>
+
 </$set>
 
 
@@ -61,6 +65,8 @@ And this is some text
 ! Example - rendered
 ----
 <$set name="notify" value="notify">
+
+<!--------- this is content to view as a tree--------->
 <h3>widgets of testcontent</h3>
 
 <$button set="$:/state/SampleReveal2" setTo="show">Show me</$button>
@@ -72,6 +78,8 @@ And this is some text
 And this is some text
 
 </$reveal>
+<!------------------------------------------------------>
+
 </$set>
 
 ----
