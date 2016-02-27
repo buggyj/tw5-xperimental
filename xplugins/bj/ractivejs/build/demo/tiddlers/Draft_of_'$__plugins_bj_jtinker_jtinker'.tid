@@ -1,0 +1,22 @@
+created: 20160129152012056
+draft.of: $:/plugins/bj/jtinker/jtinker
+draft.title: $:/plugins/bj/jtinker/jtinker
+modified: 20160129152018194
+tags: $:/tags/Macro
+title: Draft of '$:/plugins/bj/jtinker/jtinker'
+type: text/vnd.tiddlywiki
+
+\define jtinke(json project)
+<table>
+<$taglist targeTtag=$project$ htmltag=td>
+<$link><<currentTiddler>></$link>
+</$taglist>
+</table>
+<div style="float:left;width:50%;vertical-align: top;"><$mosaic prefix=$json$ wfixed=true index=1 rows=3 cols=1 >{{||$:/plugins/bj/jtinker/edittemplate}}</$mosaic></div><div style="float:left;width:50%;vertical-align: top;"><$mosaic prefix=$json$ index=2 rows=3 cols=1 >{{||$:/plugins/bj/jtinker/edittemplate}}</$mosaic></div>
+
+<$mosaic prefix=$json$ wfixed=true index=0 rows=1 cols=9 >
+<$link>
+<<currentTiddler>>
+</$link>
+</$mosaic>
+\end
