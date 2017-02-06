@@ -1,6 +1,7 @@
-created: 20140723223900482
-modified: 20161026190641225
-title: WidgetTreeViewer
+created: 20161026183011554
+modified: 20161028084535740
+tags: test
+title: TiddlerWidgetTree
 type: text/vnd.tiddlywiki
 
 \define tabsheader(tabsList,default,state:"$:/state/tab",class)
@@ -76,7 +77,7 @@ And this is some text
 
 ! This is the revealed content
 And this is some text
-
+{{tr1}}
 </$reveal>
 <!------------------------------------------------------>
 
@@ -89,8 +90,62 @@ And this is some text
 
 <$reveal type="match" state="$:/state/SampleReveal1" text="show">
 <$button set="$:/state/SampleReveal1" setTo="hide">close</$button>
-<$widget-tree-viewer items='["parseTreeNode","children","variables" ]'  name="notify" />
+<$tiddler-tree-viewer items ='["parseTreeNode","children","variables" ]'  name="notify" >
 
+<pre>
+
+!!A
+
+<$text text=<<thetree>>/>
+
+dd
+</pre>
+
+</$tiddler-tree-viewer>
+</$reveal>
+
+
+
+
+! Example - rendered
+----
+<$set name="notify" value="notify">
+
+<!--------- this is content to view as a tree--------->
+<h3>widgets of testcontent</h3>
+
+<$button set="$:/state/SampleReveal2" setTo="show">Show me</$button>
+<$button set="$:/state/SampleReveal2" setTo="hide">Hide me</$button>
+
+<$reveal type="match" state="$:/state/SampleReveal2" text="show">
+
+! This is the revealed content
+And this is some text
+{{tr1}}
+</$reveal>
+<!------------------------------------------------------>
+
+</$set>
+
+----
+
+<$button set="$:/state/SampleReveal1" setTo="show">push to see widget tree</$button>
+
+
+<$reveal type="match" state="$:/state/SampleReveal1" text="show">
+<$button set="$:/state/SampleReveal1" setTo="hide">close</$button>
+<$tiddler-tree-viewer items ='["parseTreeNode","children","variables" ]' >
+
+<pre>
+
+!!A
+
+<$text text=<<thetree>>/>
+
+dd
+</pre>
+
+</$tiddler-tree-viewer>
 </$reveal>
 
 

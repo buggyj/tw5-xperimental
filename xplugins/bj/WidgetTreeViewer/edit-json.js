@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/bj/WidgetTreeViewer/edit-json.js
+title: $:/plugins/bj/WidgetTreeViewer/tree-view.js
 type: application/javascript
 module-type: widget
 

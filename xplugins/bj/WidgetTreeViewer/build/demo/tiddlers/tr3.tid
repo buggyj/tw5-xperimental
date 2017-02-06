@@ -1,0 +1,8 @@
+created: 20161026192940124
+modified: 20161028073718786
+tags: 
+title: tr3
+type: text/vnd.tiddlywiki
+
+axx
+<$transclude tiddler={{ind1}}/>

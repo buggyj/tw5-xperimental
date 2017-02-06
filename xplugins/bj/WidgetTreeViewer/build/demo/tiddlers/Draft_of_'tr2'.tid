@@ -1,0 +1,13 @@
+created: 20161026191404568
+draft.of: tr2
+draft.title: tr2
+modified: 20161028073513754
+tags: 
+title: Draft of 'tr2'
+type: text/vnd.tiddlywiki
+
+<$vars sub=tr3>
+
+<$transclude tiddler=<<sub>>/>
+</$vars>
+tr21

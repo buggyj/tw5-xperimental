@@ -1,0 +1,13 @@
+created: 20161027063341680
+modified: 20161027063346229
+tags: 
+title: tr1 1
+type: text/vnd.tiddlywiki
+
+//asdfsadfasd
+{{tr2}}
+asfda//
+
+!!! {{tr3}}
+
+<<tabs "tr3  tr2" tr2>>
