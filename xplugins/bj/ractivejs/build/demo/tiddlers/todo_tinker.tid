@@ -1,8 +1,8 @@
 created: 20151218195941839
-modified: 20160129151608167
+modified: 20170206201658222
 tags: tinker
 title: todo tinker
 type: text/vnd.tiddlywiki
 
-<<jtinker todojson todo>>
+<<jstinker todojson todo>>
 

@@ -1,12 +1,10 @@
 created: 20160129152012056
-draft.of: $:/plugins/bj/jtinker/jtinker
-draft.title: $:/plugins/bj/jtinker/jtinker
-modified: 20160129152018194
+modified: 20170206201815340
 tags: $:/tags/Macro
-title: Draft of '$:/plugins/bj/jtinker/jtinker'
+title: $:/plugins/bj/jtinker/jtinker
 type: text/vnd.tiddlywiki
 
-\define jtinke(json project)
+\define jtinker(json project)
 <table>
 <$taglist targeTtag=$project$ htmltag=td>
 <$link><<currentTiddler>></$link>
