@@ -2,7 +2,7 @@
 title: $:/plugins/bj/plugins/script/scriptmacro.js
 type: application/javascript
 module-type: macro
-\*/
+*/
 (function(){
 
 /*jslint node: true, browser: true */
@@ -16,13 +16,13 @@ Information about this macro
 exports.name = "script";
 
 exports.params = [
-	{name: "source"}
+	{name: "source"},{name: "esc"}
 ];
 
 /*
 Run the macro
 */
-exports.run = function(filter) {
+exports.run = function(source,esc) {
 	var text,id,transcludeMode,type,returns="<script ";
 	var tiddler = $tw.wiki.getTiddler(source);
 	if(tiddler) {	
@@ -35,8 +35,8 @@ exports.run = function(filter) {
 	returns += '>';
 	returns += text ? text : "";
 	returns += '</script>';
+    if (esc) returns = "`"+returns+"`";
 	return returns;
 };
 
 })();
-
