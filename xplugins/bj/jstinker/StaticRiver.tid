@@ -1,0 +1,31 @@
+title: $:/js/templates/exporters/StaticRiver
+tags: $:/tags/Exporter
+description: {{$:/language/Exporters/StaticRiver}}
+extension: .html
+
+
+\rules only filteredtranscludeinline transcludeinline
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="format-detection" content="telephone=no">
+<link id="faviconLink" rel="shortcut icon" href="favicon.ico">
+<!--~~ Raw markup ~~-->
+{{$:/js/templates/exporters/StaticRiver/Content/head}}
+
+</head>
+<body class="tc-body">
+<style >
+{{$:/js/templates/exporters/StaticRiver/Content/css}}
+</style>
+<script>
+var bitols = {{$:/js/templates/exporters/StaticRiver/Content/bitols}}
+</script>
+
+{{{[all[shadows+tiddlers]tag[$:/tag/jstinker/body]]||transclude}}}
+{{$:/js/templates/exporters/StaticRiver/Content/html}}
+
+
+</body>
+</html>

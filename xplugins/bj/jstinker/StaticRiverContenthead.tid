@@ -1,0 +1,8 @@
+title: $:/js/templates/exporters/StaticRiver/Content/head
+
+\define renderContent()
+{{{$(exportFilterhead)$||$:/core/templates/plain-text-tiddler}}}
+\end
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<<renderContent>>
+</$importvariables>

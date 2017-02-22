@@ -1,0 +1,18 @@
+title: $:/bj/jstinker/EditTemplate
+type: text/vnd.tiddlywiki
+cols: 1 2
+rows: 1 2 3
+
+cols:
+<$select field="cols" default="2">
+	<$list filter=<<getfield tiddler:"$" field:"cols">>	>
+		<option value=<<currentTiddler>>><<currentTiddler>></option>
+	</$list>
+</$select>
+
+rows:
+<$select field="rows" default="2">
+	<$list filter=<<getfield tiddler:"$" field:"rows">>	>
+		<option value=<<currentTiddler>>><<currentTiddler>></option>
+	</$list>
+</$select>

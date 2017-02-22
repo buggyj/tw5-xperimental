@@ -1,0 +1,9 @@
+created: 20170221184544264
+modified: 20170222190648993
+tags: $:/tags/jstinker
+title: ExportFilterJs
+type: text/vnd.tiddlywiki
+
+\define exportFilterjs() 
+[tag[$(project)$]type[application/javascript]]
+\end

@@ -1,0 +1,11 @@
+created: 20170209080958460
+modified: 20170220185845378
+tags: testtinker1
+title: log
+type: application/javascript
+
+function btlog(param){
+    setTimeout(function(){
+        throw new Error("Debug: "+param)
+    },0)
+}

@@ -1,0 +1,13 @@
+created: 20170219195633553
+modified: 20170220180858356
+tags: tclocal patch
+title: CreateJsTinkersRule
+type: text/vnd.tiddlywiki
+
+\rules only table wikilink prettylink 
+
+|!Title|!Body|!Tags|!Fields modifiers|!field initials|!Modes|
+|null|{\"1\":[[\"project\",\"\"]],\"2\":[[]]}|JsTinkers|{"%title":"((*@newtickettitle(@title)*))"},{"$type":"application/json"},{"$title":"((*%title*))"},{"$applicationtype":"jstinker"}||add inc open|
+|log|||{"$tags":"((*@exists(@tags)*??*@tags*)) ((*%title*))"}||append add|
+|null|||{"$title":"((*%title*))-html"},{"$tags":"((*%title*))"},{"$type":"text/html"}||append add|
+|null|||{"$title":"((*%title*))-js"},{"$tags":"((*%title*))"},{"$type":"application/javascript"}||append add|

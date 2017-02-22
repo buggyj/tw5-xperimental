@@ -1,0 +1,17 @@
+created: 20170207174320393
+modified: 20170220194517758
+template: activetmpt
+title: project
+touch: touch
+type: text/vnd.tiddlywiki
+
+\define x()
+$$$text/html;flexibility=tw5flexbox
+<$vars project=$(projecthead)$>
+<$importvariables filter="[[$:/core/ui/PageMacros]] [all[shadows+tiddlers]tag[$:/tags/jstinker]!has[draft.of]] [all[shadows+tiddlers]tag[$:/tags/Macro]!has[draft.of]]">
+<$macrocall $name="page_imports" proj=<<project>>/>
+</$importvariables>
+</$vars>
+$$$
+\end
+<<x>>

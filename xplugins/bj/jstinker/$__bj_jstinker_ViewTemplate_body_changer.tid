@@ -1,0 +1,19 @@
+created: 20170219203102710
+modified: 20170220081746290
+tags: patch
+title: $:/bj/jstinker/ViewTemplate/body/changer
+type: text/vnd.tiddlywiki
+
+\define frame-classes()
+tc-tiddler-frame tc-tiddler-view-frame $(missingTiddlerClass)$ $(shadowTiddlerClass)$ $(systemTiddlerClass)$ $(tiddlerTagClasses)$
+\end
+\define folded-state()
+$:/state/folded/$(currentTiddler)$
+\end
+\define viewbody(htemplate,vtemplate)
+<$set name="storyTiddler" value=<<currentTiddler>>><$set name="tiddlerInfoState" value=<<qualify "$:/state/popup/tiddler-info">>><$tiddler tiddler=<<currentTiddler>>><div class=<<frame-classes>>><$list filter="[title[$htemplate$]][title[$vtemplate$]][all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!has[draft.of]!title[$:/core/ui/ViewTemplate/body]!title[$:/core/ui/ViewTemplate/title]] " variable="listItem"><$transclude tiddler=<<listItem>>/></$list>
+</div>
+</$tiddler></$set></$set>
+\end
+
+<<viewbody "$:/core/ui/ViewTemplate/title" "$:/bj/jstinker/ViewTemplate">>

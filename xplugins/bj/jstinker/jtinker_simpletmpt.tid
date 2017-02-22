@@ -1,0 +1,6 @@
+title: $:/plugins/bj/jtinker/simpletmpt
+type: text/vnd.tiddlywiki
+
+<$link><$view field=title/></$link>
+<hr>
+<$transclude tiddler=<<currentTiddler>>/>

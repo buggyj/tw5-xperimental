@@ -1,0 +1,11 @@
+title: $:/js/macro/makereact
+tags: $:/tags/Macro
+
+\define page_imports(proj)
+<$vars exportFiltercss="[tag[$proj$]type[text/css]]"
+exportFilterhtml="[tag[$proj$]type[text/html]]"
+exportFilterjsx="[tag[$proj$]type[text/babel]]"
+exportFilterhead="[tag[$proj$]tag[$:/bj/iframe/raw]]">
+{{$:/js/templates/exporters/StaticRiver}}
+</$vars>
+\end

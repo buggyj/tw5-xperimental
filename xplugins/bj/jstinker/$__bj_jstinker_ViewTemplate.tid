@@ -1,0 +1,11 @@
+created: 20170219203309395
+modified: 20170219204355317
+tags:
+title: $:/bj/jstinker/ViewTemplate
+type: text/vnd.tiddlywiki
+
+\define make(a b cols:1 rows:2) <$macrocall $name='jtinker$cols$' rows=$rows$ json='$a$$b$' project='$a$'>
+
+<$vars projecthead=<<currentTiddler>>>
+<$macrocall $name='make' a=<<currentTiddler>> b='' cols={{!!cols}} rows={{!!rows}}/>
+</$vars>

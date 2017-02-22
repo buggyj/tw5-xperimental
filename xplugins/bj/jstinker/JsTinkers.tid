@@ -1,0 +1,15 @@
+caption: Tickets
+created: 20170219074133784
+modified: 20170220173809876
+tags: ToC
+title: JsTinkers
+type: text/vnd.tiddlywiki
+
+<$createclip>
+<$button>
+create new ~JsTinker
+<$action-tiddlydo  $tabletid="New JsTinker" $catname="JsTinkers" title="testtinker"}/>
+</$button>
+</$createclip>
+<ul><$list filter="[tag<currentTiddler>]" class='btn btn-primary'>
+<li>{{!!title||listtickettemplate}}</li></$list></ul>

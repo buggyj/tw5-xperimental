@@ -1,0 +1,3 @@
+title: $:/js/templates/scriptwidget
+
+<$macrocall $name="script" source=<<currentTiddler>> esc="true"/>

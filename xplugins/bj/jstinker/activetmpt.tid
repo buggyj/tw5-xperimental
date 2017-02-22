@@ -1,0 +1,38 @@
+created: 20170208112140593
+modified: 20170220191834590
+tags: 
+title: activetmpt
+type: text/vnd.tiddlywiki
+
+<style>
+.iframeframe {
+    border: 2px solid;
+
+    width: 100%;
+	resize: vertical;
+    overflow: auto;
+
+}
+.iframeframe iframe{
+    margin:0;
+    border:0;
+    padding:0;
+
+
+    width: 100%;
+    height: 100%;
+}
+</style>
+<$link><$view field=title/></$link>
+
+<$reveal type="match" state="$:/state/SampleReveal1" text="show">
+<$button set="$:/state/SampleReveal1" setTo="hide"><$action-setfield touch="touch"/>Reset</$button>
+<hr>
+<div class="iframeframe"><$transclude mode="block"/></div>
+</$reveal>
+<$reveal type="nomatch" state="$:/state/SampleReveal1" text="show">
+<$button set="$:/state/SampleReveal1" setTo="show"><$action-setfield touch="touch"/>Reset</$button>
+<hr>
+<div class="iframeframe"><$transclude mode="block"/></div>
+</$reveal>
+<hr>

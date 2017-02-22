@@ -1,0 +1,21 @@
+tags: $:/tags/Macro
+title: $:/plugins/bj/jtinker/jtinker2
+type: text/vnd.tiddlywiki
+
+\define jtinker2(rows:2 json project)
+<table>
+<$taglist targeTtag=$project$ htmltag=td>
+<$link><<currentTiddler>></$link>
+</$taglist>
+</table>
+<div style="float:left;width:50%;vertical-align: top;">
+<$mosaic prefix=$json$ wfixed=true index=1 rows=$rows$ cols=1 >
+{{||$:/plugins/bj/jtinker/edittemplate}}</$mosaic>
+</div>
+<div style="float:left;width:50%;vertical-align: top;">
+<$mosaic prefix=$json$ index=2 rows=$rows$ cols=1 >
+{{||$:/plugins/bj/jtinker/edittemplate}}</$mosaic>
+</div>
+<div style="clear:both;"></div>
+
+\end
