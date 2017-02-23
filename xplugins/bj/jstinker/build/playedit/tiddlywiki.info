@@ -1,0 +1,14 @@
+{
+	"plugins": [
+		"tiddlywiki/tiddlyweb",
+		"tiddlywiki/filesystem"
+	],
+	"themes": [
+	],
+	"includeWikis": [
+		"../playground"
+	],
+	"config": {
+		"default-tiddler-location": "../demo/tiddlers"
+	}
+}

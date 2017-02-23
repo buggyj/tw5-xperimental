@@ -3,7 +3,7 @@
 	"description": "support files play with js in tw",
 	"author": "JeffreyWilkinson",
 	"version": "0.0.1",
-	"list": "license readme",
+	"list": "readme",
 	"core-version": ">=5.1.13",
 	"source": "https://github.com/buggyj/TW5-xperimental",
 	"plugin-type": "plugin"
