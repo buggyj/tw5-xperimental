@@ -1,0 +1,19 @@
+created: 20170224163530947
+modified: 20170224165451996
+tags: 
+title: test macro
+touch: touch
+type: text/vnd.tiddlywiki
+
+Use : `<<lm "source tid" "macro name">>` 
+
+note that the source tid ''should NOT'' have the `module-type` field until after it has been developed with this tool. 
+
+example use: `<<lm "wow.js" "wow">>`
+
+OUTPUT IS:
+
+<pre><<lm "wow.js" "wow">></pre>
+
+Try modifying wow.js - eg remove the 'xxxxx' then press reset.
+

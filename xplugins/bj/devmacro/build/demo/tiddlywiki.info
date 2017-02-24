@@ -1,0 +1,13 @@
+{
+	"plugins": [
+		"bj/devmacro"
+	],
+	"themes": [
+		"tiddlywiki/vanilla",
+		"tiddlywiki/snowwhite"
+	],
+		"doNotSave": [
+	],
+	"includeWikis": [
+	]
+}
