@@ -17,6 +17,10 @@ var Widget = require("$:/core/modules/widgets/widget.js").widget;
 var MPlayListWidget = function(parseTreeNode,options) {
 	this.initialise(parseTreeNode,options);
 		this.addEventListeners([
+	{type: "tm-mply-restart", handler: "handleReStart"},
+	{type: "tm-mply-stick", handler: "handleStick"},
+	{type: "tm-mply-unstick", handler: "handleUnStick"},
+	{type: "tm-mply-forcenext", handler: "handleForceNext"},
 	{type: "tm-mply-next", handler: "handleNextEvent"},
 	{type: "tm-mply-move", handler: "handleMoveEvent"},
 	{type: "tm-mply-caught", handler: "handleCaughtEvent"},
@@ -44,6 +48,7 @@ Compute the internal state of the widget
 MPlayListWidget.prototype.execute = function() {
 	// Compose the list elements
 	this.list = this.getTiddlerList();
+	this.sticky = false;
 	this.n =-1;
 	this.autoStart = this.getAttribute("autoStart")
 	this.onEnd = this.getAttribute("onEnd");
@@ -147,6 +152,7 @@ MPlayListWidget.prototype.doStart = function() {
 		this.n = (i == this.list.length ? this.list.length - 1 : i);
 	}
 }
+
 MPlayListWidget.prototype.doNext = function() {
 	if (this.mode == "dynamic") this.updatelist();
 	if(this.list.length === 0) {
@@ -215,14 +221,64 @@ MPlayListWidget.prototype.doPrev = function() {
 		this.n = (i == -1? 0 : i);
 	}
 }
+
+MPlayListWidget.prototype.doAgain = function() {
+	if (this.mode == "dynamic") this.updatelist();
+	if(this.list.length === 0) {
+		//do nothing
+	} else {
+		var tid,i;
+		
+		for (i = this.n; i >=0; i--) {
+			if ((tid = this.wiki.getTiddler(this.list[i]))) {
+				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
+				this.caught = null;
+				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
+				if (this.caught) {
+					this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
+					
+					if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
+						this.dispatchEvent({
+							type: "tm-bj-playerRfresh",
+							paramObject : {title: this.syntid}
+						});
+					}
+					break;
+				}
+			}
+		}
+		this.n = (i == -1? 0 : i);
+	}
+}
 MPlayListWidget.prototype.handleCaughtEvent = function(event) {
 		// Check for an empty list
 	this.caught = true;
 	return false; // dont propegate
 }
+MPlayListWidget.prototype.handleReStart = function(event) {
+		// Check for an empty list
+	this.doStart();
+	return false; // dont propegate
+}
 MPlayListWidget.prototype.handleNextEvent = function(event) {
 		// Check for an empty list
+	if (this.sticky) this.doAgain();
+	else this.doNext();
+	return false; // dont propegate
+}
+MPlayListWidget.prototype.handleForceNext = function(event) {
+		// Check for an empty list
 	this.doNext();
+	return false; // dont propegate
+}
+MPlayListWidget.prototype.handleStick = function(event) {
+		// Check for an empty list
+	this.sticky=true;
+	return false; // dont propegate
+}
+MPlayListWidget.prototype.handleUnStick = function(event) {
+		// Check for an empty list
+	this.sticky=false;
 	return false; // dont propegate
 }
 MPlayListWidget.prototype.handleMoveEvent = function(event) {

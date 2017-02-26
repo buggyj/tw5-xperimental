@@ -1,6 +1,6 @@
 {
 	"plugins": [
-		"bj/plugins/mplayers"
+		"bj/mplayers"
 	],
 	"themes": [
 		"tiddlywiki/vanilla",

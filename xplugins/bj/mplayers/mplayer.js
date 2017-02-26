@@ -49,6 +49,7 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 			});	
 		}		
 	});
+	
 	this.pNode.appendChild(this.audiodomNode);	
 	this.cNode = this.document.createElement("div");
 	this.pNode.appendChild(this.cNode);
@@ -93,6 +94,7 @@ MPlayerWidget.prototype.execute = function() {
 	this.onEnd = this.getAttribute("onEnd");
     this.deltas =this.getAttribute("deltas",10);
     this.startTime =this.getAttribute("startTime",0.0);
+    this.durationTime = this.getAttribute("durationTime");
     // Construct the child widgets
 	this.makeChildWidgets();
 };
@@ -120,12 +122,14 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 			if (tid.hasField("_canonical_uri")) {
 				track = tid.fields._canonical_uri;
 				self.equalize = tid.fields.equalize || 1.0;
-				self.startTime = tid.fields.starttime || self.startTime;//notce case of letters
+				self.startTime = parseFloat(tid.fields.starttime || self.startTime);//notce case of letters
+				self.durationTime = parseFloat(tid.fields.durationtime || self.durationTime);//notce case of letters
 			}
 			else {
 				track = "data:" + tid.fields.type + ";base64," + tid.fields.text;
 				self.equalize = tid.fields.equalize || 1.0;
-				self.startTime = tid.fields.starttime || self.startTime;//notce case of letters
+				self.startTime = parseFloat(tid.fields.starttime || self.startTime);//notce case of letters
+				self.durationTime = parseFloat(tid.fields.durationtime || self.durationTime);//notce case of letters
 			}
 		}
 
@@ -135,19 +139,34 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 	player.controls ="controls";
 	
 	player.load();
-	player.play();
 	if (this.onStart){
 		this.dispatchEvent({
 		type: this.onStart
 		});	
 	}
 	if (true) {
-		player.addEventListener("canplay",(function() { 
-			player.currentTime =  parseFloat(self.startTime);
+		player.addEventListener("canplay",(function()  { 
+			player.currentTime =  self.startTime;
 			player.removeEventListener('canplay', arguments.callee);
 			player.volume =  self.volume * self.equalize;
+			
+			self.audiodomNode.addEventListener('timeupdate', function updater(event) {
+		 console.log (self.audiodomNode.currentTime)
+			   if(self.audiodomNode.currentTime > self.startTime + self.durationTime){
+				    console.log (self.audiodomNode.currentTime+"c-s"+(self.startTime + self.durationTime))
+				   self.audiodomNode.removeEventListener('timeupdate',updater);
+				   self.handleStopEvent(event);
+			 
+					if (self.onEnd){
+						self.dispatchEvent({
+						type: self.onEnd
+						});	
+					}
+				}		
+			});
 		}));
 	}
+	player.play();
 	} catch(e) {};
 	
 
