@@ -1,5 +1,5 @@
 /*\
-title: $:/bj/modules/widgets/mplayer.js
+title: $:/bj/modules/widgets/vplayer.js
 type: application/javascript
 module-type: widget
 
@@ -22,9 +22,9 @@ var MPlayerWidget = function(parseTreeNode,options) {
 	{type: "tm-mstop", handler: "handleStopEvent"},
 	{type: "tm-mpause", handler: "handlePauseEvent"},
 	{type: "tm-mvup", handler: "handleVolUpEvent"},
+	{type: "tm-mvdwn", handler: "handleVolDwnEvent"},
 	{type: "tm-msdwn", handler: "handleSdwnEvent"},
 	{type: "tm-msup", handler: "handleSupEvent"},
-	{type: "tm-mvdwn", handler: "handleVolDwnEvent"},
 	{type: "tm-mply", handler: "handlePlayEvent"}]);
 };
 
@@ -43,7 +43,7 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 	this.computeAttributes();
 	this.execute();
 	this.pNode = this.document.createElement("div");
-	this.audiodomNode = this.document.createElement("audio");
+	this.audiodomNode = this.document.createElement("video");
 	this.audiodomNode.addEventListener("ended",function (event) {
 		if (self.onEnd){
 			self.dispatchEvent({
@@ -65,7 +65,7 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 MPlayerWidget.prototype.ourmedia = function(event) {
 		var tid;
 		if ((tid = this.wiki.getTiddler(event.tiddler)) 
-			&& (tid.fields.type === "audio/mp3")) {
+			&& (tid.fields.type === "video/mp4")) {
 			return true;
 		}
 		return false;
@@ -92,7 +92,7 @@ Compute the internal state of the widget
 MPlayerWidget.prototype.execute = function() {
 	// Get our parameters
 	this.playbackRate = this.getAttribute("pback",1.0);
-	this.volume = 1.0
+	this.volume = 1.0;
 	this.onStart = this.getAttribute("onStart");
 	this.onEnd = this.getAttribute("onEnd");
     this.deltas =this.getAttribute("deltas",10);
@@ -260,6 +260,6 @@ MPlayerWidget.prototype.handleSdwnEvent = function(event) {
 	} catch(e) {};
 	return false;//always consume event
 };
-exports.mplayer = MPlayerWidget;
+exports.vplayer = MPlayerWidget;
 
 })();
