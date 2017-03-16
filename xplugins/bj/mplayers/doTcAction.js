@@ -1,5 +1,5 @@
 /*\
-title: $:/bj/modules/widgets/dotc.js
+title: $:/bj/modules/widgets/dotask.js
 type: application/javascript
 module-type: widget
 
@@ -14,22 +14,22 @@ module-type: widget
 
 var Widget = require("$:/core/modules/widgets/widget.js").widget;
 
-var SPlayerWidget = function(parseTreeNode,options) {
+var DoTask = function(parseTreeNode,options) {
 	this.initialise(parseTreeNode,options);
 	this.addEventListeners([
-	{type: "tm-mstop", handler: "handleStopEvent"},
+	{type: "tm-dotaskstop", handler: "handleDoStopEvent"},
 	{type: "tm-mply", handler: "handlePlayEvent"}]);
 };
 
 /*
 Inherit from the base widget class
 */
-SPlayerWidget.prototype = new Widget();
+DoTask.prototype = new Widget();
 
 /*
 Render this widget into the DOM
 */
-SPlayerWidget.prototype.render = function(parent,nextSibling) {
+DoTask.prototype.render = function(parent,nextSibling) {
 	var self = this;
 	this.currentplayer = false;
 	this.parentDomNode = parent;
@@ -43,10 +43,10 @@ SPlayerWidget.prototype.render = function(parent,nextSibling) {
 	parent.insertBefore(this.pNode,nextSibling);
 		this.renderChildren(this.cNode,null);
 	this.domNodes.push(this.pNode);
-	this.pNode.setAttribute("hidden","true");
+
 };
 
-SPlayerWidget.prototype.ourmedia = function(event) {
+DoTask.prototype.ourmedia = function(event) {
 		var tid;
 		if ((tid = this.wiki.getTiddler(event.tiddler)) 
 			&& (tid.fields.type === "text/vnd.tiddlywiki")) {
@@ -54,11 +54,11 @@ SPlayerWidget.prototype.ourmedia = function(event) {
 		}
 		return false;
 }
-SPlayerWidget.prototype.invokeAction = function(triggeringWidget,event) {
+DoTask.prototype.invokeAction = function(triggeringWidget,event) {
 	if (event.type == "preStart" && this.currentplayer && !this.ourmedia(event)) { 
 		this.domNodes[0].setAttribute("hidden","true");
 		this.currentplayer = false;
-		this.handleStopEvent();
+		
 	}
 	if (event.type == "start" && this.ourmedia(event)) {
 		if (!this.currentplayer) {
@@ -73,7 +73,7 @@ SPlayerWidget.prototype.invokeAction = function(triggeringWidget,event) {
 /*
 Compute the internal state of the widget
 */
-SPlayerWidget.prototype.execute = function() {
+DoTask.prototype.execute = function() {
 	// Get our parameters
 	this.tabletid = this.getAttribute("$tabletid");
 	this.catname = this.getAttribute("$catname");
@@ -86,7 +86,7 @@ SPlayerWidget.prototype.execute = function() {
 /*
 Selectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering
 */
-SPlayerWidget.prototype.refresh = function(changedTiddlers) {
+DoTask.prototype.refresh = function(changedTiddlers) {
 	var changedAttributes = this.computeAttributes();
 	if(changedAttributes["timeOut"] ) {
 		this.refreshSelf();
@@ -96,9 +96,10 @@ SPlayerWidget.prototype.refresh = function(changedTiddlers) {
 		return this.refreshChildren(changedTiddlers);
 	}
 };
-SPlayerWidget.prototype.handleStartEvent = function(event) {
+DoTask.prototype.handleStartEvent = function(event) {
 	var self = this,
 		options = {};
+		 this.nodoend=false;
 	var pagedata = {data:{}};
 		pagedata.data.title=event.tiddler;//allow to be overriden  by following code
 	$tw.utils.each(this.attributes,function(attribute,name) {
@@ -107,37 +108,37 @@ SPlayerWidget.prototype.handleStartEvent = function(event) {
 		}
 	});
 	pagedata.data.category=this.catname;
-
-	//self.dispatchEvent({type: "tiddlyclip-create", category:this.catname, pagedata: pagedata, currentsection:null, localsection:this.tabletid});
+		if (this.onStart){
+			this.dispatchEvent({
+			type: this.onStart
+		});	
+	}		
+	self.dispatchEvent({type: "tiddlyclip-create", category:this.catname, pagedata: pagedata, currentsection:null, localsection:this.tabletid});
 try {
 		if(this.timerId) {
 			clearTimeout(this.timerId);
 		}
 		this.timerId = setTimeout(	function (){	// Check for an empty list
 			self.timerId = null;
-				self.dispatchEvent({type: "tiddlyclip-create", category:self.catname, pagedata: pagedata, currentsection:null, localsection:self.tabletid});
-					if (self.onEnd){
+				//self.dispatchEvent({type: "tiddlyclip-create", category:self.catname, pagedata: pagedata, currentsection:null, localsection:self.tabletid});
+					if (!self.nodoend &&self.onEnd){
 					self.dispatchEvent({
 					type: self.onEnd
 					});	
 				}
 			return false; // dont propegate
-		},20);
+		},0);
 		
-		if (this.onStart){
-			this.dispatchEvent({
-			type: this.onStart
-		});	
-	}
+
 	} catch(e) {};
 
 	return false; //always consume event
 };
 
-SPlayerWidget.prototype.handleStopEvent = function(event) {
-
+DoTask.prototype.handleDoStopEvent = function(event) {
+ this.nodoend=true;
 };
 
-exports.dotc = SPlayerWidget;
+exports.dotask = DoTask;
 
 })();
