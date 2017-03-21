@@ -150,15 +150,6 @@ MPlayListWidget.prototype.doStart = function() {
 			}
 		}
 		this.n = (i == this.list.length ? this.list.length - 1 : i);
-	}
-}
-
-MPlayListWidget.prototype.doNext = function() {
-	if (this.mode == "dynamic") this.updatelist();
-	if(this.list.length === 0) {
-		//do nothing
-	} else {
-		var tid,i;
 		if ((this.onEnd) && (this.n == this.list.length -1)){
 			if (this.onEndParam) {
 				this.dispatchEvent({
@@ -172,6 +163,16 @@ MPlayListWidget.prototype.doNext = function() {
 			}	
 			return;
 		}
+	}
+}
+
+MPlayListWidget.prototype.doNext = function() {
+	if (this.mode == "dynamic") this.updatelist();
+	if(this.list.length === 0) {
+		//do nothing
+	} else {
+		var tid,i;
+
 		for (i = this.n + 1; i < this.list.length; i++) {
 			if ((tid = this.wiki.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
@@ -190,7 +191,22 @@ MPlayListWidget.prototype.doNext = function() {
 				}
 			}
 		}
+		
 		this.n = (i == this.list.length ? this.list.length - 1 : i);
+				
+		if ((this.onEnd) && (this.n == this.list.length -1)){
+			if (this.onEndParam) {
+				this.dispatchEvent({
+				type: this.onEnd,
+				param: this.onEndParam
+				});
+			} else {
+				this.dispatchEvent({
+				type: this.onEnd
+				});
+			}	
+			return;
+		}
 	}
 }
 MPlayListWidget.prototype.doPrev = function() {

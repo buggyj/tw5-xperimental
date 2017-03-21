@@ -91,11 +91,11 @@ Compute the internal state of the widget
 */
 MPlayerWidget.prototype.execute = function() {
 	// Get our parameters
-	this.playbackRate = this.getAttribute("pback",1.0);
+	this.playbackRate = parseFloat(this.getAttribute("pback",1.0));
 	this.volume = 1.0;
 	this.onStart = this.getAttribute("onStart");
 	this.onEnd = this.getAttribute("onEnd");
-    this.deltas =this.getAttribute("deltas",10);
+    this.deltas =parseFloat(this.getAttribute("deltas",10.0));
     this.startTime =this.getAttribute("startTime",0.0);
     this.durationTime = this.getAttribute("durationTime");
     // Construct the child widgets
