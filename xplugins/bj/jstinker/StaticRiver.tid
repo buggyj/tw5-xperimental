@@ -19,13 +19,14 @@ extension: .html
 <style >
 {{$:/js/templates/exporters/StaticRiver/Content/css}}
 </style>
+{{{[all[shadows+tiddlers]tag[$:/tag/jstinker/bodyfirst]]||transclude}}}
 <script>
 var bitols = {{$:/js/templates/exporters/StaticRiver/Content/bitols}}
 </script>
 
-{{{[all[shadows+tiddlers]tag[$:/tag/jstinker/body]]||transclude}}}
+
 {{$:/js/templates/exporters/StaticRiver/Content/html}}
 
-
+{{{[all[shadows+tiddlers]tag[$:/tag/jstinker/body]]||transclude}}}
 </body>
 </html>
