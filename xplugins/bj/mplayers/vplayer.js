@@ -42,7 +42,7 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 	this.parentDomNode = parent;
 	this.computeAttributes();
 	this.execute();
-	this.pNode = this.document.createElement("div");
+	this.pNode = this.document.createElement(this.el);
 	this.audiodomNode = this.document.createElement("video");
 	this.audiodomNode.addEventListener("ended",function (event) {
 		if (self.onEnd){
@@ -53,13 +53,14 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 	});
 	
 	this.pNode.appendChild(this.audiodomNode);	
-	this.cNode = this.document.createElement("div");
+	this.cNode = this.document.createElement(this.el);
 	this.pNode.appendChild(this.cNode);
 	// Insert element
 	parent.insertBefore(this.pNode,nextSibling);
 		this.renderChildren(this.cNode,null);
 	this.domNodes.push(this.pNode);
-	this.pNode.setAttribute("hidden","true");
+	this.audiodomNode.setAttribute("hidden","true");
+	this.cNode.setAttribute("hidden","true");
 };
 
 MPlayerWidget.prototype.ourmedia = function(event) {
@@ -72,14 +73,19 @@ MPlayerWidget.prototype.ourmedia = function(event) {
 }
 MPlayerWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	if (event.type == "preStart" && this.currentplayer && !this.ourmedia(event)) { 
-		this.domNodes[0].setAttribute("hidden","true");
+		this.audiodomNode.setAttribute("hidden","true");
 		this.currentplayer = false;
 		this.handleStopEvent();
 	}
 	if (event.type == "start" && this.ourmedia(event)) {
 		if (!this.currentplayer) {
 			this.currentplayer = true;
-			this.domNodes[0].removeAttribute("hidden");
+			if (this.display =="yes") {
+				this.audiodomNode.removeAttribute("hidden");
+			}
+			if (this.display !=="hide") {
+				this.cNode.removeAttribute("hidden");
+			}
 		}
 		this.handleStartEvent(event);
 	}
@@ -98,6 +104,9 @@ MPlayerWidget.prototype.execute = function() {
     this.deltas =parseFloat(this.getAttribute("deltas",10.0));
     this.startTime =this.getAttribute("startTime",0.0);
     this.durationTime = this.getAttribute("durationTime");
+    this.important = this.getAttribute("important");
+    this.wait = this.getAttribute("wait");
+    this.el = this.getAttribute("el","div");
     // Construct the child widgets
 	this.makeChildWidgets();
 };
@@ -124,16 +133,14 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 		if ((tid = this.wiki.getTiddler(additionalFields.tiddler)) ) {
 			if (tid.hasField("_canonical_uri")) {
 				track = tid.fields._canonical_uri;
-				self.equalize = tid.fields.equalize || 1.0;
-				self.startTime = parseFloat(tid.fields.starttime || self.startTime);//notce case of letters
-				self.durationTime = parseFloat(tid.fields.durationtime || self.durationTime);//notce case of letters
 			}
 			else {
 				track = "data:" + tid.fields.type + ";base64," + tid.fields.text;
-				self.equalize = tid.fields.equalize || 1.0;
-				self.startTime = parseFloat(tid.fields.starttime || self.startTime);//notce case of letters
-				self.durationTime = parseFloat(tid.fields.durationtime || self.durationTime);//notce case of letters
+
 			}
+			self.equalize = tid.fields.equalize || 1.0;
+			self.startTime = self.important?parseFloat(self.startTime):parseFloat(tid.fields.starttime || self.startTime);//notce case of letters
+			self.durationTime = self.important?parseFloat(self.durationTime):parseFloat(tid.fields.durationtime || self.durationTime);//notce case of letters
 		}
 
 	}
@@ -169,7 +176,7 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 			});
 		}));
 	}
-	player.play();
+	if (!this.wait) player.play();
 	} catch(e) {};
 	
 

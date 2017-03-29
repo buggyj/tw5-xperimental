@@ -309,7 +309,7 @@ MPlayListWidget.prototype.handlePrevEvent = function(event) {
 	
 	
 }
-Widget.prototype.allowActionPropagation = function() {
+MPlayListWidget.prototype.allowActionPropagation = function() {
 	return false;
 };
 exports["msequence"] = MPlayListWidget;

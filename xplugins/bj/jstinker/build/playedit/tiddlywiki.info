@@ -9,6 +9,6 @@
 		"../playground"
 	],
 	"config": {
-		"default-tiddler-location": "../demo/tiddlers"
+		"default-tiddler-location": "../playground/tiddlers"
 	}
 }
