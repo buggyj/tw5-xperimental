@@ -55,9 +55,17 @@ MPlayListWidget.prototype.execute = function() {
 	this.onEndParam = this.getAttribute("onEndParam");
     this.syntid = this.getAttribute("syntid");
     this.mode = this.getAttribute("mode");
+    this.earlyset = this.getAttribute("earlyset");
+    this.permissive = this.getAttribute("permissive","false");
 		// Construct the child widgets
 	this.makeChildWidgets();
 };
+
+
+MPlayListWidget.prototype.getTiddler = function(param) {
+	if (this.permissive === "true") return true;
+	return this.wiki.getTiddler(param);
+}
 
 MPlayListWidget.prototype.getTiddlerList = function() {
 	var defaultFilter = "[tag["+this.getAttribute("targetTag")+"]]";
@@ -92,6 +100,17 @@ MPlayListWidget.prototype.updatelist = function() {
 	this.n = i;
 	this.list = list;
 }
+
+MPlayListWidget.prototype.settid = function(i){
+	this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
+					
+	if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
+		this.dispatchEvent({
+			type: "tm-bj-playerRfresh",
+			paramObject : {title: this.syntid}
+		});
+	}	
+}
 	
 MPlayListWidget.prototype.doMove = function(loc) {
 	if (this.mode == "dynamic") this.updatelist();
@@ -100,19 +119,15 @@ MPlayListWidget.prototype.doMove = function(loc) {
 	} else {
 		var tid,i;
 		for (i = 0; i < this.list.length; i++) {
-			if ((loc == this.list[i]) && (tid = this.wiki.getTiddler(this.list[i]))) {
+			if ((loc == this.list[i]) && (tid = this.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
+				if (this.earlyset === "true")  {
+					this.settid(i);
+				}
 				this.caught = null;
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
 				if (this.caught) {
-					this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
-					
-					if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
-						this.dispatchEvent({
-							type: "tm-bj-playerRfresh",
-							paramObject : {title: this.syntid}
-						});
-					}
+					this.settid(i);
 					break;
 				}
 			}
@@ -132,19 +147,15 @@ MPlayListWidget.prototype.doStart = function() {
 			return;
 		};
 		for (i = this.n + 1; i < this.list.length; i++) {
-			if ((tid = this.wiki.getTiddler(this.list[i]))) {
+			if ((tid = this.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
 				this.caught = null;
+				if (this.earlyset === "true")  {
+					this.settid(i);
+				}
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
 				if (this.caught) {
-					this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
-					
-					if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
-						this.dispatchEvent({
-							type: "tm-bj-playerRfresh",
-							paramObject : {title: this.syntid}
-						});
-					}
+					this.settid(i);
 					break;
 				}
 			}
@@ -174,19 +185,15 @@ MPlayListWidget.prototype.doNext = function() {
 		var tid,i;
 
 		for (i = this.n + 1; i < this.list.length; i++) {
-			if ((tid = this.wiki.getTiddler(this.list[i]))) {
+			if ((tid = this.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
+				if (this.earlyset === "true")  {
+					this.settid(i);
+				}
 				this.caught = null;
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
 				if (this.caught) {
-					this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
-					
-					if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
-						this.dispatchEvent({
-							type: "tm-bj-playerRfresh",
-							paramObject : {title: this.syntid}
-						});
-					}
+					this.settid(i);
 					break;
 				}
 			}
@@ -217,20 +224,15 @@ MPlayListWidget.prototype.doPrev = function() {
 		var tid,i;
 		
 		for (i = this.n - 1 ; i >=0; i--) {
-			if ((tid = this.wiki.getTiddler(this.list[i]))) {
+			if ((tid = this.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
+				if (this.earlyset === "true")  {
+					this.settid(i);
+				}
 				this.caught = null;
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
 				if (this.caught) {
-					this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
-					
-					if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
-						this.dispatchEvent({
-							type: "tm-bj-playerRfresh",
-							paramObject : {title: this.syntid}
-						});
-					}
-					break;
+					this.settid(i);
 				}
 			}
 		}
@@ -246,20 +248,15 @@ MPlayListWidget.prototype.doAgain = function() {
 		var tid,i;
 		
 		for (i = this.n; i >=0; i--) {
-			if ((tid = this.wiki.getTiddler(this.list[i]))) {
+			if ((tid = this.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
+                if (this.earlyset === "true")  {
+					this.settid(i);
+				}
 				this.caught = null;
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
 				if (this.caught) {
-					this.wiki.setTextReference(this.syntid,this.list[i],this.getVariable("currentTiddler"));
-					
-					if (this.syntid.substring(0,17) === "$:/temp/__priv__/") {
-						this.dispatchEvent({
-							type: "tm-bj-playerRfresh",
-							paramObject : {title: this.syntid}
-						});
-					}
-					break;
+					this.settid(i);
 				}
 			}
 		}

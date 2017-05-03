@@ -48,6 +48,7 @@ DoTask.prototype.render = function(parent,nextSibling) {
 
 DoTask.prototype.ourmedia = function(event) {
 		var tid;
+		if (this.permissive==="true") return true;
 		if ((tid = this.wiki.getTiddler(event.tiddler)) 
 			&& (tid.fields.type === "text/vnd.tiddlywiki")) {
 			return true;
@@ -67,7 +68,6 @@ DoTask.prototype.invokeAction = function(triggeringWidget,event) {
 		}
 		this.handleStartEvent(event);
 	}
-
 	return true; // Action was invoked
 };
 /*
@@ -79,6 +79,12 @@ DoTask.prototype.execute = function() {
 	this.catname = this.getAttribute("$catname");
    	this.onStart = this.getAttribute("$onStart");
 	this.onEnd = this.getAttribute("$onEnd");
+	this.actEarly = this.getAttribute("$actEarly");
+	this.permissive = this.getAttribute("$permissive");
+	this.extract = this.getAttribute("$extract");
+	this.actions = this.getAttribute("$actions");
+	this.id = this.getAttribute("id");
+	this.timeOut = parseInt(this.getAttribute("$timeOut","0"));
     // Construct the child widgets
 	this.makeChildWidgets();
 };
@@ -113,24 +119,43 @@ DoTask.prototype.handleStartEvent = function(event) {
 			type: this.onStart
 		});	
 	}		
-	self.dispatchEvent({type: "tiddlyclip-create", category:this.catname, pagedata: pagedata, currentsection:null, localsection:this.tabletid});
-try {
-		if(this.timerId) {
-			clearTimeout(this.timerId);
-		}
-		this.timerId = setTimeout(	function (){	// Check for an empty list
-			self.timerId = null;
-				//self.dispatchEvent({type: "tiddlyclip-create", category:self.catname, pagedata: pagedata, currentsection:null, localsection:self.tabletid});
-					if (!self.nodoend &&self.onEnd){
-					self.dispatchEvent({
-					type: self.onEnd
-					});	
-				}
-			return false; // dont propegate
-		},0);
-		
+	if (this.actions) this.invokeActions(this,event);//should i have start and restart actions?
 
-	} catch(e) {};
+	if(this.actEarly==="true") {
+		if (this.extract) {
+				pagedata.data.id = this.id
+				var outer;
+				outer=this.domNodes[0].querySelector("#"+this.id);		
+				if (!!outer) pagedata.data.text= outer.outerHTML; 
+		}
+		self.dispatchEvent({type: "tiddlyclip-create", category:this.catname, pagedata: pagedata, currentsection:null, localsection:this.tabletid});
+	}
+	try {
+			if(this.timerId) {
+				clearTimeout(this.timerId);
+			}
+			this.timerId = setTimeout(	function (){	// Check for an empty list
+				self.timerId = null;
+
+					if(self.actEarly!=="true") {
+							if (self.extract) {
+								pagedata.data.id = self.id
+								var outer=null;
+								outer=self.domNodes[0].querySelector("#"+self.id);		//change to getelebyid?
+								if (!!outer) pagedata.data.text= outer.outerHTML; 							
+							}
+							self.dispatchEvent({type: "tiddlyclip-create", category:self.catname, pagedata: pagedata, currentsection:null, localsection:self.tabletid});
+						}
+						if (!self.nodoend &&self.onEnd){
+						self.dispatchEvent({
+						type: self.onEnd
+						});	
+					}
+				return false; // dont propegate
+			},self.timeOut);
+			
+
+		} catch(e) {};
 
 	return false; //always consume event
 };
@@ -139,6 +164,9 @@ DoTask.prototype.handleDoStopEvent = function(event) {
  this.nodoend=true;
 };
 
+DoTask.prototype.allowActionPropagation = function() {
+	return false;
+};
 exports.dotask = DoTask;
 
 })();

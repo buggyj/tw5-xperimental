@@ -103,6 +103,7 @@ MPlayerWidget.prototype.execute = function() {
 	this.onEnd = this.getAttribute("onEnd");
     this.deltas =parseFloat(this.getAttribute("deltas",10.0));
     this.startTime =this.getAttribute("startTime",0.0);
+    this.display =this.getAttribute("display","yes");
     this.durationTime = this.getAttribute("durationTime");
     this.important = this.getAttribute("important");
     this.wait = this.getAttribute("wait");
