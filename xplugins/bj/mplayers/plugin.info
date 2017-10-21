@@ -2,9 +2,9 @@
 	"title": "$:/plugins/bj/mplayers",
 	"description": "media player",
 	"author": "JeffreyWilkinson",
-	"version": "1.13.7",
+	"version": "1.14.1",
 	"list": "license readme",
-	"core-version": ">=5.1.13",
+	"core-version": ">=5.1.14",
 	"source": "https://github.com/buggyj/tw5-xperimental",
 	"plugin-type": "plugin"
 }

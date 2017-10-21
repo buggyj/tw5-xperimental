@@ -11,6 +11,22 @@ module-type: widget
 /*jslint node: true, browser: true */
 /*global $tw: false */
 
+var tosec = function(time) {
+	var times;
+	if (typeof(time) != 'string') return isNaN(time)?0:time;
+	times = time.split(":");
+	if (times.length == 3) {
+		return parseFloat(times[0])*3600+parseFloat(times[1])*60+parseFloat(times[2])*1;
+	}
+	else if (times.length == 2) {
+		return parseFloat(times[0])*60+parseFloat(times[1])*1;
+	}
+	else {
+		var val = parseFloat(time);
+		return isNaN(val)?0:val;
+	}
+}
+
 
 var Widget = require("$:/core/modules/widgets/widget.js").widget;
 
@@ -33,6 +49,11 @@ Inherit from the base widget class
 */
 MPlayerWidget.prototype = new Widget();
 
+
+
+MPlayerWidget.prototype.tag = "audio";
+
+MPlayerWidget.prototype.media = "audio/mp3";
 /*
 Render this widget into the DOM
 */
@@ -43,7 +64,7 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 	this.computeAttributes();
 	this.execute();
 	this.pNode = this.document.createElement(this.el);
-	this.audiodomNode = this.document.createElement("audio");
+	this.audiodomNode = this.document.createElement(this.tag);
 	this.audiodomNode.addEventListener("ended",function (event) {
 		if (self.onEnd){
 			self.dispatchEvent({
@@ -66,7 +87,7 @@ MPlayerWidget.prototype.render = function(parent,nextSibling) {
 MPlayerWidget.prototype.ourmedia = function(event) {
 		var tid;
 		if ((tid = this.wiki.getTiddler(event.tiddler)) 
-			&& (tid.fields.type === "audio/mp3")) {
+			&& (tid.fields.type === this.media)) {
 			return true;
 		}
 		return false;
@@ -74,6 +95,7 @@ MPlayerWidget.prototype.ourmedia = function(event) {
 MPlayerWidget.prototype.invokeAction = function(triggeringWidget,event) {
 	if (event.type == "preStart" && this.currentplayer && !this.ourmedia(event)) { 
 		this.audiodomNode.setAttribute("hidden","true");
+		this.cNode.setAttribute("hidden","true");
 		this.currentplayer = false;
 		this.handleStopEvent();
 	}
@@ -97,17 +119,19 @@ Compute the internal state of the widget
 */
 MPlayerWidget.prototype.execute = function() {
 	// Get our parameters
-	this.playbackRate = this.getAttribute("pback",1.0);
+	this.playbackRate = parseFloat(this.getAttribute("pback",1.0));
 	this.volume = 1.0
 	this.onStart = this.getAttribute("onStart");
 	this.onEnd = this.getAttribute("onEnd");
-    this.deltas =this.getAttribute("deltas",10);
+    this.deltas =parseFloat(this.getAttribute("deltas",10.0));
     this.startTime =this.getAttribute("startTime",0.0);
+    this.endTime =this.getAttribute("endTime");    
     this.display =this.getAttribute("display","yes");
-    this.durationTime = this.getAttribute("durationTime");
+    this.durationTime = this.getAttribute("durationTime",10000);
     this.important = this.getAttribute("important");
     this.wait = this.getAttribute("wait");
     this.el = this.getAttribute("el","div");
+    
     // Construct the child widgets
 	this.makeChildWidgets();
 };
@@ -125,6 +149,9 @@ MPlayerWidget.prototype.refresh = function(changedTiddlers) {
 		return this.refreshChildren(changedTiddlers);
 	}
 };
+
+
+
 MPlayerWidget.prototype.handleStartEvent = function(event) {
 	var player = this.audiodomNode;
 	var self = this,additionalFields,track,tid;
@@ -139,8 +166,15 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 				track = "data:" + tid.fields.type + ";base64," + tid.fields.text;
 			}						
 			self.equalize = tid.fields.equalize || 1.0;
-			self.startTime = self.important?parseFloat(self.startTime):parseFloat(tid.fields.starttime || self.startTime);//notce case of letters
-			self.durationTime = self.important?parseFloat(self.durationTime):parseFloat(tid.fields.durationtime || self.durationTime);//notce case of letters
+			//important when values set in widget override those in tid
+			self.startTime = self.important?tosec(self.startTime):tosec(tid.fields.starttime || self.startTime);//note case of letters
+			self.endTime = self.important?tosec(self.endTime):tosec(tid.fields.endtime || self.endTime);
+			if (self.endTime !== 0) {
+				self.durationTime = self.endTime - self.startTime;
+			} else {
+				self.durationTime = self.important?tosec(self.durationTime):tosec(tid.fields.durationtime || self.durationTime);
+			}
+			
 		}
 
 	}
@@ -154,16 +188,17 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 		type: this.onStart
 		});	
 	}
-	if (true) {
-		player.addEventListener("canplay",(function()  { 
+	var canlisener = function()  { 
 			player.currentTime =  self.startTime;
 			player.removeEventListener('canplay', arguments.callee);
 			player.volume =  self.volume * self.equalize;
-			console.log ("start palyer");
+			console.log ("start player");
+			
 			self.audiodomNode.addEventListener('timeupdate', function updater(event) {
-		 console.log (self.audiodomNode.currentTime)
+			self.setVariable("playertime",self.audiodomNode.currentTime.toString());
+		    //console.log ("aud.cur"+self.audiodomNode.currentTime+"get"+ self.variables["playertime"].value);
 			   if(self.audiodomNode.currentTime > self.startTime + self.durationTime){
-				    console.log (self.audiodomNode.currentTime+"c-s"+(self.startTime + self.durationTime))
+				   //console.log (self.audiodomNode.currentTime+"c-s"+(self.startTime + self.durationTime))
 				   self.audiodomNode.removeEventListener('timeupdate',updater);
 				   self.handleStopEvent(event);
 			 
@@ -174,9 +209,22 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 					}
 				}		
 			});
-		}));
+		} 
+	if (true) {
+		player.addEventListener("canplay",canlisener);
+		player.addEventListener("error",function()  { 
+			player.currentTime =  self.startTime;
+			player.removeEventListener('canplay', canlisener);
+			player.removeEventListener('error', arguments.callee);
+			console.log ("error canplay player");
+			if (self.onEnd){
+							self.dispatchEvent({
+							type: self.onEnd
+							});	
+			}
+		})
 	}
-	if (!this.wait) player.play();
+	if (!self.wait) player.play();
 	} catch(e) {};
 	
 

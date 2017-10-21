@@ -233,6 +233,7 @@ MPlayListWidget.prototype.doPrev = function() {
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
 				if (this.caught) {
 					this.settid(i);
+					break;
 				}
 			}
 		}
