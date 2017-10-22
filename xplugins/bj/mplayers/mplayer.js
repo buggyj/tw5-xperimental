@@ -125,9 +125,9 @@ MPlayerWidget.prototype.execute = function() {
 	this.onEnd = this.getAttribute("onEnd");
     this.deltas =parseFloat(this.getAttribute("deltas",10.0));
     this.startTime =this.getAttribute("startTime",0.0);
-    this.endTime =this.getAttribute("endTime");    
+    this.endTime =this.getAttribute("endTime",-1);    
     this.display =this.getAttribute("display","yes");
-    this.durationTime = this.getAttribute("durationTime",10000);
+    this.durationTime = this.getAttribute("durationTime",100000);
     this.important = this.getAttribute("important");
     this.wait = this.getAttribute("wait");
     this.el = this.getAttribute("el","div");
@@ -167,19 +167,20 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 			}						
 			self.equalize = tid.fields.equalize || 1.0;
 			//important when values set in widget override those in tid
-			self.startTime = self.important?tosec(self.startTime):tosec(tid.fields.starttime || self.startTime);//note case of letters
-			self.endTime = self.important?tosec(self.endTime):tosec(tid.fields.endtime || self.endTime);
-			if (self.endTime !== 0) {
-				self.durationTime = self.endTime - self.startTime;
+			self.beginTime = self.important?tosec(self.startTime):tosec(tid.fields.starttime || self.startTime);//note case of letters
+			self.stopTime =   self.important?tosec(self.endTime)  :tosec(tid.fields.endtime   || self.endTime);
+			if (self.stopTime > 0) {
+				self.playTime = self.stopTime - self.beginTime;
 			} else {
-				self.durationTime = self.important?tosec(self.durationTime):tosec(tid.fields.durationtime || self.durationTime);
+				self.playTime = self.important?tosec(self.durationTime):tosec(tid.fields.durationtime || self.durationTime);
+				self.stopTime = self.beginTime + self.playTime;
 			}
 			
 		}
 
 	}
 	try {
-	player.src = track;
+	player.src = track+"#t"+self.beginTime+","+self.stopTime;
 	player.controls ="controls";
 	
 	player.load();
@@ -189,7 +190,7 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 		});	
 	}
 	var canlisener = function()  { 
-			player.currentTime =  self.startTime;
+			player.currentTime =  self.beginTime;
 			player.removeEventListener('canplay', arguments.callee);
 			player.volume =  self.volume * self.equalize;
 			console.log ("start player");
@@ -197,8 +198,8 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 			self.audiodomNode.addEventListener('timeupdate', function updater(event) {
 			self.setVariable("playertime",self.audiodomNode.currentTime.toString());
 		    //console.log ("aud.cur"+self.audiodomNode.currentTime+"get"+ self.variables["playertime"].value);
-			   if(self.audiodomNode.currentTime > self.startTime + self.durationTime){
-				   //console.log (self.audiodomNode.currentTime+"c-s"+(self.startTime + self.durationTime))
+			   if(self.audiodomNode.currentTime > self.beginTime + self.playTime){
+				   //console.log (self.audiodomNode.currentTime+"c-s"+(self.beginTime + self.playTime))
 				   self.audiodomNode.removeEventListener('timeupdate',updater);
 				   self.handleStopEvent(event);
 			 
@@ -213,7 +214,7 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 	if (true) {
 		player.addEventListener("canplay",canlisener);
 		player.addEventListener("error",function()  { 
-			player.currentTime =  self.startTime;
+			player.currentTime =  self.beginTime;
 			player.removeEventListener('canplay', canlisener);
 			player.removeEventListener('error', arguments.callee);
 			console.log ("error canplay player");
