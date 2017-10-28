@@ -113,6 +113,7 @@ MPlayListWidget.prototype.settid = function(i){
 }
 	
 MPlayListWidget.prototype.doMove = function(loc) {
+	console.log ("doMove "+this.n);
 	if (this.mode == "dynamic") this.updatelist();
 	if(this.list.length === 0) {
 		//do nothing
@@ -136,12 +137,26 @@ MPlayListWidget.prototype.doMove = function(loc) {
 	}
 }
 MPlayListWidget.prototype.doStart = function() {
+	console.log ("doStart "+this.n);
 	if (this.mode == "dynamic") this.updatelist();
 	this.n = -1;
 	if(this.list.length === 0) {
 		//do nothing
 	} else {
 		var tid,i;
+			if ((this.onEnd) && (this.n == this.list.length -1)){console.log("onend "+this.n);
+			if (this.onEndParam) {
+				this.dispatchEvent({
+				type: this.onEnd,
+				param: this.onEndParam
+				});
+			} else {
+				this.dispatchEvent({
+				type: this.onEnd
+				});
+			}	
+			return;
+		}
 		if (this.n == this.list.length -1) { alert (this.list.length);
 			//self.invokeActions(event);//BJ fix!
 			return;
@@ -154,13 +169,24 @@ MPlayListWidget.prototype.doStart = function() {
 					this.settid(i);
 				}
 				this.invokeActions(this,{type:"start",tiddler: this.list[i]});
-				if (this.caught) {
+				if (this.caught) { console.log("dostart caught "+i)
 					this.settid(i);
 					break;
 				}
 			}
 		}
 		this.n = (i == this.list.length ? this.list.length - 1 : i);
+
+	}
+}
+
+MPlayListWidget.prototype.doNext = function() {
+	console.log ("doNext "+this.n);
+	if (this.mode == "dynamic") this.updatelist();
+	if(this.list.length === 0) {
+		//do nothing
+	} else {
+		var tid,i;
 		if ((this.onEnd) && (this.n == this.list.length -1)){
 			if (this.onEndParam) {
 				this.dispatchEvent({
@@ -174,16 +200,6 @@ MPlayListWidget.prototype.doStart = function() {
 			}	
 			return;
 		}
-	}
-}
-
-MPlayListWidget.prototype.doNext = function() {
-	if (this.mode == "dynamic") this.updatelist();
-	if(this.list.length === 0) {
-		//do nothing
-	} else {
-		var tid,i;
-
 		for (i = this.n + 1; i < this.list.length; i++) {
 			if ((tid = this.getTiddler(this.list[i]))) {
 				this.invokeActions(this,{type:"preStart",tiddler: this.list[i]});
@@ -201,22 +217,11 @@ MPlayListWidget.prototype.doNext = function() {
 		
 		this.n = (i == this.list.length ? this.list.length - 1 : i);
 				
-		if ((this.onEnd) && (this.n == this.list.length -1)){
-			if (this.onEndParam) {
-				this.dispatchEvent({
-				type: this.onEnd,
-				param: this.onEndParam
-				});
-			} else {
-				this.dispatchEvent({
-				type: this.onEnd
-				});
-			}	
-			return;
-		}
+
 	}
 }
 MPlayListWidget.prototype.doPrev = function() {
+	console.log ("doPrev "+this.n);
 	if (this.mode == "dynamic") this.updatelist();
 	if(this.list.length === 0) {
 		//do nothing
@@ -242,6 +247,7 @@ MPlayListWidget.prototype.doPrev = function() {
 }
 
 MPlayListWidget.prototype.doAgain = function() {
+	console.log ("doAgain "+this.n);	
 	if (this.mode == "dynamic") this.updatelist();
 	if(this.list.length === 0) {
 		//do nothing
