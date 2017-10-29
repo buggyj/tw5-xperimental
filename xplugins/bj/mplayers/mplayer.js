@@ -180,7 +180,7 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 
 	}
 	try {
-	player.src = track+"#t"+self.beginTime+","+self.stopTime;
+	player.src = track+"#t"+self.beginTime+ (self.playTime>0?","+self.stopTime:"");//if playtime <= 0 play till end
 	player.controls ="controls";
 	
 	player.load();
@@ -198,7 +198,7 @@ MPlayerWidget.prototype.handleStartEvent = function(event) {
 			self.audiodomNode.addEventListener('timeupdate', function updater(event) {
 			self.setVariable("playertime",self.audiodomNode.currentTime.toString());
 		    //console.log ("aud.cur"+self.audiodomNode.currentTime+"get"+ self.variables["playertime"].value);
-			   if(self.audiodomNode.currentTime > self.beginTime + self.playTime){
+			   if(self.playTime > 0 && self.audiodomNode.currentTime > self.beginTime + self.playTime){//if playtime <= 0 play till end
 				   //console.log (self.audiodomNode.currentTime+"c-s"+(self.beginTime + self.playTime))
 				   self.audiodomNode.removeEventListener('timeupdate',updater);
 				   self.handleStopEvent(event);
